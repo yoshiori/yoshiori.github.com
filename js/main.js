@@ -62,6 +62,13 @@ function write_repos(data) {
         var meta = $('<dl />').addClass('dl-horizontal');
         meta.append('<dt>Language</dt>');
         meta.append($('<dd />').text(repo.language || 'any'));
+
+        meta.append('<dt>watchers</dt>');
+        meta.append($('<dd />').text(repo.watchers));
+
+        meta.append('<dt>forks</dt>');
+        meta.append($('<dd />').text(repo.forks));
+
         meta.append('<dt>Last Update</dt>');
         var date = new Date(Date.parse(repo.updated_at));
         meta.append($('<dd />').text(
@@ -90,19 +97,21 @@ function write_gists(data) {
             base_div = $('<div />').addClass('row');
             $('#gists').append(base_div);
         }
-        var repo = data[i];
+        var gist = data[i];
         var div = $('<div />').addClass('span4');
-        div.append($('<a />').text(repo.html_url).attr('href', repo.html_url));
-        div.append($('<p />').append($('<small />').text(repo.description)));
+        div.append($('<a />').text(gist.html_url).attr('href', gist.html_url));
+        div.append($('<p />').append($('<small />').text(gist.description)));
         var meta = $('<dl />').addClass('dl-horizontal');
         meta.append('<dt>Language</dt>');
         var languages = ""
-        for(var key in repo.files) {
-            languages += repo.files[key]['language']
+        for(var key in gist.files) {
+            languages += gist.files[key]['language']
         }
         meta.append($('<dd />').text(languages || 'any'));
+        meta.append('<dt>comments</dt>');
+        meta.append($('<dd />').text(gist.comments));
         meta.append('<dt>Last Update</dt>');
-        var date = new Date(Date.parse(repo.updated_at));
+        var date = new Date(Date.parse(gist.updated_at));
         meta.append($('<dd />').text(
             [
                 date.getFullYear(),
