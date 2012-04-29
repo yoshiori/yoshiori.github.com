@@ -31,14 +31,16 @@ $(document).ready(function(){
 });
 
 function write_prof(data) {
-    var user = data.data
+    var user = data.data;
     $('.name').text(user.name);
-    $('.avatar').attr('src',user.avatar_url)
-    $('.id').text(user.login.toUpperCase())
-    $('.git-url').attr('href',user.html_url)
-    $('#bio').text(user.bio)
+    $('.avatar').attr('src',user.avatar_url);
+    $('.id').text(user.login.toUpperCase());
+    $('.git-url').attr('href',user.html_url);
+    $('#public_repos').text(user.public_repos);
+    $('#public_gists').text(user.public_gists);
     $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy('refresh')
+        $(this).scrollspy('refresh');
+        $(this).scrollspy('process');
     });
 };
 
@@ -84,13 +86,15 @@ function write_repos(data) {
         base_div.append(div);
     }
     $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy('refresh')
+        $(this).scrollspy('refresh');
+        $(this).scrollspy('process');
     });
 };
 function write_gists(data) {
     data = data.data.sort(function(a, b) {
         return Date.parse(b.updated_at) - Date.parse(a.updated_at);
     });
+    $('#coderwall_badges').text(data.length);
     var base_div = $();
     for (var i=0,l=data.length; i<l; i++) {
         if( i % 3 == 0 ){
@@ -103,7 +107,7 @@ function write_gists(data) {
         div.append($('<p />').append($('<small />').text(gist.description)));
         var meta = $('<dl />').addClass('dl-horizontal');
         meta.append('<dt>Language</dt>');
-        var languages = ""
+        var languages = "";
         for(var key in gist.files) {
             languages += gist.files[key]['language']
         }
@@ -125,7 +129,8 @@ function write_gists(data) {
         base_div.append(div);
     }
     $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy('refresh')
+        $(this).scrollspy('refresh');
+        $(this).scrollspy('process');
     });
 };
 function write_coderwall(data) {
@@ -139,20 +144,12 @@ function write_coderwall(data) {
         var badge = data[i];
         var div = $('<div />').addClass('span3');
         div.append($('<h2 />').text(badge.name));
-        div.append($('<img />').attr('src',badge.badge).attr('alt',badge.name))
+        div.append($('<img />').attr('src',badge.badge).attr('alt',badge.name));
         div.append($('<p />').append($('<small />').text(badge.description)));
-        var date = new Date(Date.parse(badge.created));
-        div.append($('<p />').text('created:' + [
-                date.getFullYear(),
-                ('00' + (date.getMonth() + 1)).replace(/\d+(\d{2})$/, "$1"),
-                ('00' + date.getDate()).replace(/\d+(\d{2})$/, "$1")
-            ].join('/') + ' ' + [
-                ('00' + date.getHours()).replace(/\d+(\d{2})$/, "$1"),
-                ('00' + date.getMinutes()).replace(/\d+(\d{2})$/, "$1")
-            ].join(':')));
         base_div.append(div);            
     }
     $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this).scrollspy('refresh')
+        $(this).scrollspy('refresh');
+        $(this).scrollspy('process');
     });
 };
