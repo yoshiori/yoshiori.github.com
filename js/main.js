@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var user = 'yoshiori'
+    var user = get_user_id();
     $.ajax({
         type: 'GET',
         url: 'https://api.github.com/users/' + user,
@@ -29,6 +29,15 @@ $(document).ready(function(){
         success: write_coderwall
     });
 });
+
+function get_user_id() {
+    var url = location.href;
+    if(url.indexOf('http:') == 0) {
+        return url.substring(url.indexOf("://") + 3 ,url.indexOf("."));
+    } else {
+        return 'yoshiori';
+    }
+}
 
 function write_prof(data) {
     var user = data.data;
