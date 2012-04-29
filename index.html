@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title class="id">loading...</title>
+    <!-- ie8以下でdom認識しないhtml5 elementを認識するもの(表示はできません) -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+     <!-- Le styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- script src="http://code.jquery.com/jquery-1.5.2.min.js"></script -->
+
+
+  </head>
+  <body data-spy="scroll">
+    <div id="navbar" class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand id" href="#"></a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li><a href="#nav_top">Top</a></li>
+              <li><a href="#nav_repos">Repos</a></li>
+              <li><a href="#nav_gists">Gists</a></li>
+              <li><a href="#nav_coderwall">Coderwall</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div id="nav_top" class="hero-unit">
+        <h1 class="name">loading...</h1><img class="avatar" />
+        <p><span id="bio"></span>
+        </p>
+        <p><a class="btn btn-primary btn-large git-url">github &raquo;</a></p>
+      </div>
+
+      <div id="nav_repos">
+        <div class="page-header">
+          <h1>Repositories</h1>
+        </div>
+        <div id="repos" class="span12">
+        </div>
+      </div>
+
+      <div id="nav_gists">
+        <div class="page-header">
+          <h1>Gists</h1>
+        </div>
+        <div id="gists" class="span12">
+        </div>
+      </div>
+
+      <div id="nav_coderwall">
+        <div class="page-header">
+          <h1>Coderwall</h1>
+        </div>
+        <div id="coderwall" class="span12">
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2012</p>
+      </footer>
+
+    </div> <!-- /container -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
