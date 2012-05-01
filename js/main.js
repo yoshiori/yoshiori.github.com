@@ -47,6 +47,7 @@ function write_prof(data) {
     $('.git-url').attr('href',user.html_url);
     $('#public_repos').text(user.public_repos);
     $('#public_gists').text(user.public_gists);
+    $('#blog').attr('href',user.blog).text(user.blog);
     $('[data-spy="scroll"]').each(function () {
         $(this).scrollspy('refresh');
         $(this).scrollspy('process');
