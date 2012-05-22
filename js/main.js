@@ -104,7 +104,6 @@ function write_gists(data) {
     data = data.data.sort(function(a, b) {
         return Date.parse(b.updated_at) - Date.parse(a.updated_at);
     });
-    $('#coderwall_badges').text(data.length);
     var base_div = $();
     for (var i=0,l=data.length; i<l; i++) {
         if( i % 3 == 0 ){
@@ -146,6 +145,7 @@ function write_gists(data) {
 function write_coderwall(data) {
     data = data.data.badges
     var base_div = $();
+    $('#coderwall_badges').text(data.length);
     for (var i=0,l=data.length; i<l; i++) {
         if( i % 4 == 0 ){
             base_div = $('<div />').addClass('row');
