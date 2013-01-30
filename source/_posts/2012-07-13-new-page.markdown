@@ -1,0 +1,34 @@
+---
+layout: post
+title: "Octopress でブログページではなく新しいページを作る方法"
+date: 2012-07-13 14:27
+comments: true
+categories: octopress
+---
+
+どうやるのかなーと思って `Rakefile` 見てたら見つけた。
+
+     > rake new_page['test']
+
+で、`source/` の下に
+
+    source
+    └── test
+        └─index.markdown         
+って作成される。
+
+中見てみたら `new_post['title']` で作った奴と何も変わらなかったので好きにかけますね！！！
+
+一応テストで作ってみた → [■](/test/)
+
+出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
+そこに `****.markdown` ってファイルを作って、同じように
+    ---
+    layout: page
+    title: "hoge"
+    date: 2012-07-13 14:27
+    comments: true
+    categories: 
+    ---
+みたいな感じで書けば おｋ
+
