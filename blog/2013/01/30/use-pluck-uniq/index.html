@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress でブログページではなく新しいページを作る方法 - Yoshiori Blog</title>
+  <title>ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない - Yoshiori Blog</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="どうやるのかなーと思って Rakefile 見てたら見つけた。 &gt; rake new_page['test'] で、source/ の下に source
-└── test └─index.markdown って作成される。 中見てみたら new_post['title'] &hellip;">
+  <meta name="description" content="元々こんなコードがあった 1
+Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/blog/2012/07/13/new-page/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress でブログページではなく新しいページを作る方法</h1>
+      <h1 class="entry-title">ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</h1>
     
     
       <p class="meta">
@@ -84,44 +84,53 @@
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
+<div class="entry-content"><p>元々こんなコードがあった</p>
 
-<pre><code> &gt; rake new_page['test']
-</code></pre>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>で、<code>source/</code> の下に</p>
 
-<pre><code>source
-└── test
-    └─index.markdown         
-</code></pre>
+<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
 
-<p>って作成される。</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
 
-<p>一応テストで作ってみた → <a href="/test/">■</a></p>
+<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
 
-<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
-そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
+<blockquote><p>uniq を前に持って来い</p></blockquote>
 
-<pre><code>---
-layout: page
-title: "hoge"
-date: 2012-07-13 14:27
-comments: true
-categories: 
----
-</code></pre>
+<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
+ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
 
-<p>みたいな感じで書けば おｋ</p>
+<p>実際に実行してみると</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span><span class='line'>   <span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">015</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="no">DISTINCT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
+件数増えると結構差が出ると思う。</p>
 </div>
 
 
@@ -144,12 +153,12 @@ categories:
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>
+    <a class='category' href='/blog/categories/pr-review/'>pr-review</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -158,7 +167,7 @@ categories:
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2012/07/13/new-page/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2012/07/13/new-page/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -171,10 +180,8 @@ categories:
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/12/coderwall-badges/" title="Previous Post: Octopress のサイドバーに Coderwall Badges を表示">&laquo; Octopress のサイドバーに Coderwall Badges を表示</a>
+        <a class="basic-alignment left" href="/blog/2013/01/30/dot-emacs-renewal/" title="Previous Post: .emacs を一年に一回消してる">&laquo; .emacs を一年に一回消してる</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/13/octopress-index-dot-html/" title="Next Post: Octopress の トップページを markdown で書く">Octopress の トップページを markdown で書く &raquo;</a>
       
     </p>
   </footer>
@@ -310,8 +317,8 @@ categories:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.com/blog/2012/07/13/new-page/';
-        var disqus_url = 'http://yoshiori.github.com/blog/2012/07/13/new-page/';
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/';
         var disqus_script = 'embed.js';
       
     (function () {
