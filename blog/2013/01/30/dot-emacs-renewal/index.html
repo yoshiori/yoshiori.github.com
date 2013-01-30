@@ -1,0 +1,425 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>.emacs を一年に一回消してる - Yoshiori Blog</title>
+  <meta name="author" content="Yoshiori SHOJI">
+
+  
+  <meta name="description" content="ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。 なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
+やっぱり自分でもなんとかしたいなぁと思って思い切って rm -rm .emacs &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="Yoshiori Blog" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Yoshiori Blog</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yoshiori.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/resume/">Resume</a></li>
+  <li><a href="https://github.com/yoshiori">Github</a></li>
+  <li><a href="http://d.hatena.ne.jp/Yoshiori">Hatena blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">.emacs を一年に一回消してる</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T19:10:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
+
+<p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
+やっぱり自分でもなんとかしたいなぁと思って思い切って <code>rm -rm .emacs</code> してみたら結構良かったので一年に一回くらいの頻度で消すようにしてる。</p>
+
+<p>大掃除とかじゃなく一から作りなおさないとなんか秘伝のタレ的なの残っちゃうので結構おすすめ。</p>
+
+<p>今回は emacs24 に完全移行って事て anything → helm した。
+ あと、ここ数年は Mac しか使ってないので OS の判定とかもしなくした。</p>
+
+<h3>emacs24 の package-install 便利</h3>
+
+<p>なんかほぼ使いたいものはこれで入れられるし、入れると勝手に require してくれちゃうみたいで、
+メジャーモードとかはインストールしたらそのまま使えた。</p>
+
+<p>リポジトリだけ追加したので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">package-initialize</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>を追加した。</p>
+
+<h3>anythong(helm) 無いと生きていけない</h3>
+
+<p>脳みその容量が全然足りないので、便利そうな elisp 見つけてもショートカットとか覚えられない！！！
+って事ばかりなので anything(helm) が無いと生きていけない。</p>
+
+<p>こんな感じで 「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
+そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&width=832"></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm-config</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">helm-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-helm</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">helm</span> <span class="ss">:sources</span> <span class="o">&#39;</span><span class="p">(</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffers-list</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-recentf</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-files-in-current-dir</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-mac-spotlight</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffer-not-found</span><span class="p">)</span>
+</span><span class='line'>        <span class="ss">:buffer</span> <span class="s">&quot;*my helm*&quot;</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-x b&quot;</span><span class="p">)</span> <span class="ss">&#39;my-helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-x&quot;</span><span class="p">)</span> <span class="ss">&#39;helm-M-x</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-samewindow</span> <span class="no">nil</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;*helm-M-x*&quot;</span><span class="p">)</span> <span class="nv">popwin:special-display-config</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; emacsの終了時に、履歴を保存する</span>
+</span><span class='line'><span class="p">(</span><span class="nv">remove-hook</span> <span class="ss">&#39;kill-emacs-hook</span> <span class="ss">&#39;helm-c-adaptive-save-history</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; ディレイは0.2秒</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-input-idle-delay</span> <span class="mf">0.02</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; 候補のディレクトリが一つしかない場合に、自動的に展開しない</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-ff-auto-update-initial-value</span> <span class="no">nil</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>今のところこんな簡単な設定。</p>
+
+<p>まだどうも helm の find-file に慣れないのでどうにかしたいなぁ……</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T19:10:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/08/14/rails-start/" title="Previous Post: rails プロジェクトをはじめる手順">&laquo; rails プロジェクトをはじめる手順</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/01/30/dot-emacs-renewal/">.emacs を一年に一回消してる</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/08/14/rails-start/">rails プロジェクトをはじめる手順</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/octopress-index-dot-html/">Octopress の トップページを markdown で書く</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/13/new-page/">Octopress でブログページではなく新しいページを作る方法</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/yoshiori">@yoshiori</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'yoshiori',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="well">
+  <h1>Coderwall Badges</h1>
+  <div id="coderwall_badges"></div>
+  <a href="http://coderwall.com/yoshiori">@yoshiori</a> on coderwall
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.ajax({
+        url: "http://coderwall.com/yoshiori.json?callback=?"
+        , type: 'jsonp'
+        , success: function(data) {
+          for(var i = 0; i < data.data.badges.length ; i++){
+            var badge = data.data.badges[i];
+            var badge_tag = $("<img />");
+            badge_tag.attr("src",badge.badge);
+            badge_tag.css("width","33%");
+            $("#coderwall_badges").append(badge_tag);
+          }
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("yoshiori", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/yoshiori" class="twitter-follow-button" data-show-count="false">Follow @yoshiori</a>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Yoshiori SHOJI -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'yoshiorigithubblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
