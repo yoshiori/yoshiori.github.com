@@ -20,7 +20,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/coderwall.
 
 同じく `_config.yaml` の下の方にユーザー名を書いてあげる
 ``` yaml
-# Coderwall badges                                                                                                                           
+# Coderwall badges
 coderwall_user: yoshiori
 ```
 
