@@ -4,7 +4,7 @@
   <title><![CDATA[Yoshiori Blog]]></title>
   <link href="http://yoshiori.github.com/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-01-31T10:45:24+09:00</updated>
+  <updated>2013-01-31T16:24:16+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新]]></title>
+    <link href="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/"/>
+    <updated>2013-01-31T16:14:00+09:00</updated>
+    <id>http://yoshiori.github.com/blog/2013/01/31/file-update-emacs</id>
+    <content type="html"><![CDATA[<p>Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
+で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか……</p>
+
+<p>なんかそういう設定有るはずだよなぁとか思いながら見つけられてなかったんだけど、やっと見つけた。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; 変更のあったファイルの自動再読み込み</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで安心！！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>

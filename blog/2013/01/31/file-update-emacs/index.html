@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>test - Yoshiori Blog</title>
+  <title>Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新 - Yoshiori Blog</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Test Jul 13th, 2012 テストなんですけどね リンクも貼れるのよ Jul 13th, 2012 Tweet Comments Please enable JavaScript to view the comments powered by Disqus. Recent Posts &hellip;">
+  <meta name="description" content="Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
+で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか…… &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/test/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,34 +64,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Test</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-13T12:04:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time></p>
-  </header>
-  
-  <p>テストなんですけどね</p>
-
-<p><a href="test.html">リンクも貼れるのよ</a></p>
-
-  
-    <footer>
+    
+      <h1 class="entry-title">Git で Branch 切り替えた時とかに Emacs で開いてるファイルの Buffer を更新</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -102,14 +84,64 @@
   
 
 
-<time datetime="2012-07-13T12:04:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2013-01-31T16:14:00+09:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
+で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか……</p>
+
+<p>なんかそういう設定有るはずだよなぁとか思いながら見つけられてなかったんだけど、やっと見つけた。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; 変更のあったファイルの自動再読み込み</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで安心！！</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
-  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/test/index.html" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/test/index.html" data-via="yoshiori" data-counturl="http://yoshiori.github.com/test/index.html" >Tweet</a>
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-31T16:14:00+09:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/emacs/'>emacs</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -119,9 +151,14 @@
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2013/01/30/use-pluck-uniq/" title="Previous Post: ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない">&laquo; ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -254,8 +291,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.com/test/index.html';
-        var disqus_url = 'http://yoshiori.github.com/test/index.html';
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/';
         var disqus_script = 'embed.js';
       
     (function () {
