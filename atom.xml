@@ -4,7 +4,7 @@
   <title><![CDATA[Yoshiori Blog]]></title>
   <link href="http://yoshiori.github.com/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-02-03T22:25:53+09:00</updated>
+  <updated>2013-02-04T00:21:56+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
+    <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
     <link href="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/"/>
     <updated>2013-02-03T22:09:00+09:00</updated>
     <id>http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation</id>
@@ -102,6 +102,48 @@
 
 <p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
 教えてエロイ人！！！！</p>
+
+<p>追記</p>
+
+<blockquote><p>@yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298061407499468801'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<div><script src='https://gist.github.com/4701800.js'></script>
+<noscript><pre><code>FactoryGirl.define do
+  factory :user do
+    after(:create) do |user|
+      FactoryGirl.create_list(:task, 10, user_id: user.id)
+    end
+  end
+  
+  factory :task do
+    trait :with_user do
+      user
+    end
+  end
+end</code></pre></noscript></div>
+
+
+<p>と教えてもらいました</p>
+
+<blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298062728004788224'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>とのことでしたが僕の手元では <code>trait</code> 使わなくても行けました！！！
+ありがとうございます！！！</p>
+
+<p>他にも</p>
+
+<blockquote><p>@yoshiori こうでどうだろうか http://t.co/Sf1oc9OV</p><footer><strong>@rosylilly</strong> <cite><a href='https://twitter.com/rosylilly/status/298062237988442114'>twitter.com/rosylilly/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー</p><footer><strong>@tomoya55</strong> <cite><a href='https://twitter.com/tomoya55/status/298064513360605184'>twitter.com/tomoya55/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>といろいろな方が教えてくれました！！！
+ありがとうございます！！！</p>
 ]]></content>
   </entry>
   
