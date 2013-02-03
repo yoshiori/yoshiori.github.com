@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "FactoryGirl の relation の定義の仕方がよくわからない＞＜"
+title: "【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜"
 date: 2013-02-03 22:09
 comments: true
 categories: ruby factorygirl
@@ -59,3 +59,33 @@ FactoryGirl.create(:user).tasks
 
 絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
 教えてエロイ人！！！！
+
+
+追記
+
+{% blockquote @naoty_k https://twitter.com/naoty_k/status/298061407499468801 %}
+@yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK
+{% endblockquote %}
+{% gist 4701800 %}
+
+と教えてもらいました
+
+{% blockquote @naoty_k https://twitter.com/naoty_k/status/298062728004788224 %}
+@yoshiori すいません、さっきのは循環しそうなので、修正しました。 https://t.co/ScRDRvLK
+{% endblockquote %}
+
+とのことでしたが僕の手元では `trait` 使わなくても行けました！！！
+ありがとうございます！！！
+
+
+他にも
+{% blockquote @rosylilly https://twitter.com/rosylilly/status/298062237988442114 %}
+@yoshiori こうでどうだろうか http://t.co/Sf1oc9OV
+{% endblockquote %}
+
+{% blockquote @tomoya55 https://twitter.com/tomoya55/status/298064513360605184 %}
+@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー
+{% endblockquote %}
+
+といろいろな方が教えてくれました！！！
+ありがとうございます！！！
