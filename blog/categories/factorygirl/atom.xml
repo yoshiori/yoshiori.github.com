@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: ruby | Yoshiori Blog]]></title>
-  <link href="http://yoshiori.github.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <title><![CDATA[Category: factorygirl | Yoshiori Blog]]></title>
+  <link href="http://yoshiori.github.com/blog/categories/factorygirl/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
   <updated>2013-02-03T22:25:53+09:00</updated>
   <id>http://yoshiori.github.com/</id>
@@ -99,115 +99,6 @@ FactoryGirl.create(:user).tasks
 
 <p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
 教えてエロイ人！！！！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
-    <link href="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/"/>
-    <updated>2013-01-30T20:38:00+09:00</updated>
-    <id>http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq</id>
-    <content type="html"><![CDATA[<p>元々こんなコードがあった
-<code>ruby
-Post.where(:tag =&gt; "test").map(&amp;:title).uniq
-</code></p>
-
-<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
-
-<p><code>ruby
-Post.where(:tag =&gt; "test").pluck(:title).uniq
-</code></p>
-
-<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
-
-<blockquote><p>uniq を前に持って来い</p></blockquote>
-
-<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
-ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
-
-<p>実際に実行してみると</p>
-
-<p><code>ruby
-irb(main):014:0&gt; Post.where(:tag =&gt; "test").pluck(:title).uniq
-   (3.4ms)  SELECT title FROM "posts" WHERE "posts"."tag" = 'test'
-=&gt; ["title1", "title2"]
-irb(main):015:0&gt; Post.where(:tag =&gt; "test").uniq.pluck(:title)
-   (5.3ms)  SELECT DISTINCT title FROM "posts" WHERE "posts"."tag" = 'test'
-=&gt; ["title1", "title2"]
-</code></p>
-
-<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
-件数増えると結構差が出ると思う。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[rails プロジェクトをはじめる手順]]></title>
-    <link href="http://yoshiori.github.com/blog/2012/08/14/rails-start/"/>
-    <updated>2012-08-14T15:25:00+09:00</updated>
-    <id>http://yoshiori.github.com/blog/2012/08/14/rails-start</id>
-    <content type="html"><![CDATA[<p>とりあえず現状の俺の理解での
-rails プロジェクトをはじめる手順をまとめてみた。</p>
-
-<ul>
-<li>rspec</li>
-<li>guard</li>
-</ul>
-
-
-<p>をデフォで使う感じ</p>
-
-<h2>プロジェクトの作成</h2>
-
-<pre><code>$ rails new rails_start
-$ cd rails_start
-</code></pre>
-
-<h2>git init と git-flow init</h2>
-
-<pre><code>$ git init
-$ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
-$ git commit -m init 
-$ git flow init
-</code></pre>
-
-<h2>RSpec と guard 使うようにする</h2>
-
-<pre><code>$ git flow feature start add_rspec_guard
-$ emacs Gemfile 
-</code></pre>
-
-<p>で、下記追加</p>
-
-<p><div><script src='https://gist.github.com/3346958.js'></script>
-<noscript><pre><code>group :test, :development do
-  gem 'rspec-rails'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'growl', :require =&gt; false # for Mac
-  gem 'libnotify', :require =&gt; false # for *nix
-end</code></pre></noscript></div>
-</p>
-
-<pre><code>$ bundle install
-$ git rm -r test/
-$ rails g rspec:install
-$ guard init
-$ git add Guardfile Gemfile Gemfile.lock .rspec spec/
-$ git commit -m 'add rspec and guard'
-$ git flow feature finish add_rspec_guard
-</code></pre>
-
-<h2>下準備完了</h2>
-
-<p>あとは</p>
-
-<pre><code>$ guard
-</code></pre>
-
-<p>でテスト書きながら始める。</p>
-
-<p>で、いいのかなぁ？……</p>
 ]]></content>
   </entry>
   

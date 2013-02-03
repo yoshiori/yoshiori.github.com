@@ -5,12 +5,20 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新 - Yoshiori Blog</title>
+  <title>FactoryGirl の relation の定義の仕方がよくわからない＞＜ - Yoshiori Blog</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
-で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか…… &hellip;">
+  <meta name="description" content="FactoryGirl で relation 定義したいんだけど、具体的には 1
+2
+3
+4
+5
+6
+7
+class User &lt; ActiveRecord::Base has_many :tasks
+end
+class Task &lt; ActiveRecord::Base &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +27,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +76,7 @@
   
   <header>
     
-      <h1 class="entry-title">Git で Branch 切り替えた時とかに Emacs で開いてるファイルの Buffer を更新</h1>
+      <h1 class="entry-title">FactoryGirl の Relation の定義の仕方がよくわからない＞＜</h1>
     
     
       <p class="meta">
@@ -84,26 +92,97 @@
   
 
 
-<time datetime="2013-01-31T16:14:00+09:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+<time datetime="2013-02-03T22:09:00+09:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
-で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか……</p>
-
-<p>なんかそういう設定有るはずだよなぁとか思いながら見つけられてなかったんだけど、やっと見つけた。</p>
+<div class="entry-content"><p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; 変更のあったファイルの自動再読み込み</span>
-</span><span class='line'><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:tasks</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Task</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">:presence</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>これで安心！！</p>
+<p>こんな 2 つのモデルで</p>
+
+<figure class='code'><figcaption><span>users.rb  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">tasks</span> <span class="k">do</span>
+</span><span class='line'>      <span class="o">[</span>
+</span><span class='line'>       <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:task</span><span class="p">)</span> <span class="p">,</span>
+</span><span class='line'>      <span class="o">]</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>tasks.rb  </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:task</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいな定義をしておくと……</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="no">Failure</span><span class="o">/</span><span class="ss">Error</span><span class="p">:</span> <span class="no">Unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">matching</span> <span class="n">line</span> <span class="n">from</span> <span class="n">backtrace</span>
+</span><span class='line'> <span class="ss">SystemStackError</span><span class="p">:</span>
+</span><span class='line'>     <span class="n">stack</span> <span class="n">level</span> <span class="n">too</span> <span class="n">deep</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>まぁ、メッセージの通り循環参照になっちゃうからダメなのは分かる。</p>
+
+<p>でも、<code>:user</code> の宣言から <code>tasks</code> 外すと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で何も返ってこないし、逆に <code>:task</code> の方で <code>user</code> 外すと
+今度は <code>presence</code> のバリデーションに引っかかっちゃう</p>
+
+<p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
+教えてエロイ人！！！！</p>
 </div>
 
 
@@ -126,12 +205,12 @@
   
 
 
-<time datetime="2013-01-31T16:14:00+09:00" pubdate data-updated="true">Jan 31<span>st</span>, 2013</time>
+<time datetime="2013-02-03T22:09:00+09:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/emacs/'>emacs</a>
+    <a class='category' href='/blog/categories/factorygirl/'>factorygirl</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -139,9 +218,9 @@
     </p>
     
       <div class="sharing">
-  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -154,10 +233,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/30/use-pluck-uniq/" title="Previous Post: ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない">&laquo; ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</a>
+        <a class="basic-alignment left" href="/blog/2013/01/31/file-update-emacs/" title="Previous Post: Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新">&laquo; Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/02/03/factory-girl-relation/" title="Next Post: FactoryGirl の relation の定義の仕方がよくわからない＞＜">FactoryGirl の relation の定義の仕方がよくわからない＞＜ &raquo;</a>
       
     </p>
   </footer>
@@ -293,8 +370,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/';
-        var disqus_url = 'http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/';
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/';
         var disqus_script = 'embed.js';
       
     (function () {
