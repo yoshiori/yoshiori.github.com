@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress でブログページではなく新しいページを作る方法 - Yoshiori Blog</title>
+  <title>「SQL アンチパターン」は色んな戦争の火種になりそう - Yoshiori Blog</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="どうやるのかなーと思って Rakefile 見てたら見つけた。 &gt; rake new_page['test'] で、source/ の下に source
-└── test └─index.markdown って作成される。 中見てみたら new_post['title'] &hellip;">
+  <meta name="description" content="監訳の一人である @t_wada に献本頂きました。
+ありがとうございます！！！ でだ、いきなりだけどコレ、タイトルで損してると思うんだよね…… だって、SQL のアンチパターンてタイトルだったら、 join した結果の方で where で絞るよりも on 句で先に絞れ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/blog/2012/07/13/new-page/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress でブログページではなく新しいページを作る方法</h1>
+      <h1 class="entry-title">「SQL アンチパターン」は色んな戦争の火種になりそう</h1>
     
     
       <p class="meta">
@@ -84,44 +84,87 @@
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
+<div class="entry-content"><iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4873115892" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 
-<pre><code> &gt; rake new_page['test']
-</code></pre>
 
-<p>で、<code>source/</code> の下に</p>
+<p>監訳の一人である @t_wada に献本頂きました。
+ありがとうございます！！！</p>
 
-<pre><code>source
-└── test
-    └─index.markdown         
-</code></pre>
+<p>でだ、いきなりだけどコレ、タイトルで損してると思うんだよね……</p>
 
-<p>って作成される。</p>
+<p>だって、<code>SQL</code> のアンチパターンてタイトルだったら、</p>
 
-<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
+<blockquote><p><code>join</code> した結果の方で <code>where</code> で絞るよりも <code>on</code> 句で先に絞れ</p></blockquote>
 
-<p>一応テストで作ってみた → <a href="/test/">■</a></p>
+<p>的なのが書いてあると思うじゃん！！
+問い合わせ言語の事だと思うじゃん！！！</p>
 
-<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
-そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
+<p><strong>違った……</strong></p>
 
-<pre><code>---
-layout: page
-title: "hoge"
-date: 2012-07-13 14:27
-comments: true
-categories: 
----
-</code></pre>
+<p>ほとんど書いてあるのは DB 設計についてだった……
+まぁ、副題は「Avoiding the Pitfalls of Database Programming」のだし、まぁいいか。</p>
 
-<p>みたいな感じで書けば おｋ</p>
+<h1>んで、読んでみた感想とか</h1>
+
+<p>もうね、何年か DB 絡んだ開発したことのある人なら（・∀・）ﾆﾔﾆﾔ出来ると思う。</p>
+
+<blockquote><p>「&#8221;マルチカラムアトリビュート&#8221;とか 10 年前に通ったわー」</p></blockquote>
+
+<p>とか</p>
+
+<blockquote><p>「あーはいはい&#8221;インデックスショットガン&#8221;乙」</p></blockquote>
+
+<p>みたいな。</p>
+
+<blockquote><p>Explain の結果も見ないでインデックス貼りまくる奴いるよねーーー</p></blockquote>
+
+<p>とか、ドンドン盛り上がれそう。</p>
+
+<p>実際俺も&#8221;EAV（エンティティ・アトリビュート・バリュー）&#8221; はホントつい最近もやろうと思った。
+(結局複雑になりすぎるからやめたけど)</p>
+
+<h2>個人的に反対なアンチパターン</h2>
+
+<h3>ファントムファイル</h3>
+
+<p>ファントムファイルの解決策については実際に 2 度やったことがある。
+データの規模も、ユーザーの想定数もぜんぜん違う 2 つのアプリで……
+でもそのファイルへのアクセス方法とか逆に複雑になるだけで何も得しなかった。
+よく考えればファイルシステムそのものがファイルを扱うことに特化した KVS 的なものなんだからそっち使ったほうが良いというのが俺のプラクティスだなぁ</p>
+
+<h2>反対では無いけどあんまり賛同しないアンチパターン</h2>
+
+<h3>キーレスエントリ</h3>
+
+<p>外部キー制約で、</p>
+
+<blockquote><p>オーバーヘッド、……にはなりません</p></blockquote>
+
+<p>って書いてあるんだけど、いやなるでしょ……
+どの程度の更新頻度を見ているのかわからないけど、ソーシャルゲーム系とか外部キー制約とか貼ってたら無理な気がするんだけどどうなんだろう？</p>
+
+<p>ここは本当にこの文章を鵜呑みにしないで、設計時にちゃんと想定ユーザー数で負荷テストやらないと怖いことになりそう……</p>
+
+<h1>で、この本の本当に凄いところはパターンに名前を付けたこと</h1>
+
+<p>さて、ここまで読んでもらえばわかると思うんだけど、この本の本当に凄いところは <strong>パターンに名前を付けたこと</strong> だと思う。</p>
+
+<p>俺が書いたみたいに例えば「ファントムファイルは俺は反対だな」的な事が簡潔に言えるようなことになったのは本当に素晴らしいと思う。
+今までだったら「ファイルをさ、DB にデータとしていれるパターンあるじゃん！！いや、パスじゃなくてデータ自体をだよ！！ ほら、入れておくとカラムのデータとの整合性を保つのが楽だとか……
+」とかそんな説明をしてからじゃあ無いと議論が始められなかったのがサクッと始められるようになった。</p>
+
+<p>というわけで、タイトルに書いたとおり戦争の火種になってくれそうな本だなぁと。
+逆に今までは何度か DB 設計したことないとこういう議論が出来なかったのが本にまとまってくれたのでこれで誰でも議論に参加できるね！！！</p>
+
+<p>p.s.
+付録の 第 4 正規形とかの例が凄く良かったです！！（個人的に不得手な所だったので）</p>
 </div>
 
 
@@ -144,22 +187,16 @@ categories:
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
-  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2012/07/13/new-page/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2012/07/13/new-page/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2012/07/13/new-page/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -172,10 +209,8 @@ categories:
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/12/coderwall-badges/" title="Previous Post: Octopress のサイドバーに Coderwall Badges を表示">&laquo; Octopress のサイドバーに Coderwall Badges を表示</a>
+        <a class="basic-alignment left" href="/blog/2013/02/03/factory-girl-relation/" title="Previous Post: 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜">&laquo; 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/13/octopress-index-dot-html/" title="Next Post: Octopress の トップページを markdown で書く">Octopress の トップページを markdown で書く &raquo;</a>
       
     </p>
   </footer>
@@ -311,8 +346,8 @@ categories:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.com/blog/2012/07/13/new-page/';
-        var disqus_url = 'http://yoshiori.github.com/blog/2012/07/13/new-page/';
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/';
         var disqus_script = 'embed.js';
       
     (function () {
