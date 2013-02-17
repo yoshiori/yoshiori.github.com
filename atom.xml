@@ -4,7 +4,7 @@
   <title><![CDATA[Yoshiori Blog]]></title>
   <link href="http://yoshiori.github.com/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-02-10T23:48:09+09:00</updated>
+  <updated>2013-02-17T21:15:22+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[デブサミ 2013 で自分戦略について発表して来ました]]></title>
+    <link href="http://yoshiori.github.com/blog/2013/02/17/devsum-2013/"/>
+    <updated>2013-02-17T20:22:00+09:00</updated>
+    <id>http://yoshiori.github.com/blog/2013/02/17/devsum-2013</id>
+    <content type="html"><![CDATA[<p>今年も（！？）ギリギリオファーがありデブサミで発表して来ました。</p>
+
+<script async class="speakerdeck-embed" data-id="4c4519c059860130d1bf1231392d87a1" data-ratio="1.2896725440806" src="http://yoshiori.github.com//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>なんというか高卒 &amp;&amp; 25 歳からプログラマになったという二重苦みたいな環境なので
+大卒の人とかもっと若い頃からプログラム書いてた人は僕よりは楽に進めると思いますが、最低限こんなもんだよねって言うのを見てもらえればいいと思います。</p>
+
+<h2>口頭で説明した部分をざっくり書くと</h2>
+
+<ol>
+<li>25歳からプログラマになった</li>
+<li>組み込み系、SI を経て web系へ転職</li>
+<li>プログラマからプレイングマネージャになった</li>
+<li><p>自分戦略として考える軸として、</p>
+
+<ul>
+<li>お金（自分の市場価値）</li>
+<li>純粋に好奇心から自分のスキルを上げたい</li>
+</ul>
+
+
+<p>の 2 つを考えると考えやすいと思います。</p></li>
+<li><p>（僕の戦略として）目指すところは最強</p></li>
+<li>ドラクエで言うとお金貯めるよりステータス上げたい</li>
+<li>リーダーとしてそれなりにやれることは確認できた</li>
+<li>次のステップとしてはやはり自分の根っこはエンジニアなのでエンジニアとしてまたガッツリ LV を上げたい</li>
+<li>Java で一番の下手くそになれる会社は日本にはあんまりなさそうだなぁ</li>
+<li>言語も文化も変えたい(Java での伸び代よりも他の言語をガッツリやったほうが伸び代が有る)</li>
+<li>自分が尊敬できるエンジニアが一番集まっていて、かつ自分が一番の下手くそになれる会社を探した</li>
+<li>実際にコード書くとこんなにツッコミが！！！</li>
+<li>というわけで、ガッツリレベル上げたい人！！ <a href="https://www.wantedly.com/projects/2">一緒に働きましょう！！</a></li>
+</ol>
+
+
+<p>という感じです。</p>
+
+<h2>ついでに言っておくと</h2>
+
+<p>なんかブームみたいになっていたせいか「退職ブログは書かないの？」と聞かれるんだけど、
+俺は別れた女について聞かれても「俺にはもったいないくらい、いい女だったよ」以外の答えを持ってねーよ！！</p>
+
+<p>もうちょっと言うと、退職ブログを書く人を別に否定はしないけど、俺としては公に書けるようなことは何もないし
+上っ面のこと適当にでっち上げて書けるほど器用じゃないよって事です。</p>
+
+<p>どうしても知りたかったら焼肉でもおごってください。
+そこまで知りたい人には話しますよっと。</p>
+
+<h2>というわけで COOKPAD で働いています</h2>
+
+<p>いちエンジニアとして初めての言語、初めてのフレームワークという環境でガッツリ頑張っています！！
+マジで楽しいので是非一緒に働きましょう！！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[「SQL アンチパターン」は色んな戦争の火種になりそう]]></title>
