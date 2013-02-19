@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title:
 date: 2012-07-13 17:04
 comments: false
 sharing: true
