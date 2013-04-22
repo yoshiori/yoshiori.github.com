@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | yoshiori.github.com]]></title>
   <link href="http://yoshiori.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-02-19T13:43:19+09:00</updated>
+  <updated>2013-04-22T23:52:10+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Chanko の active_if で none を使えるようにしました]]></title>
+    <link href="http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
+    <updated>2013-04-22T23:21:00+09:00</updated>
+    <id>http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
+    <content type="html"><![CDATA[<p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
+
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
+
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
+
+<p><code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+ActiveIf.define(:not_device_hoge?) { !... }
+</code>
+と別々に定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, :not_device_hoge?
+</code>
+それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと
+<code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+</code>
+と定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, none(:device_hoge?)
+</code></p>
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので
+<code>ruby
+active_if :all_staffs?, any(none(:device_hoge?), none(:device_bar?))
+</code>
+のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<p>```ruby
+active_if any(any(any(none(:false, :false), :false), :false), :false)</p>
+
+<h1>true</h1>
+
+<p>```</p>
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>

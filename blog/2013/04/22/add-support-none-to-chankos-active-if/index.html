@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない - yoshiori.github.com</title>
+  <title>Chanko の active_if で none を使えるようにしました - yoshiori.github.com</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="元々こんなコードがあった 1
-Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した 1 &hellip;">
+  <meta name="description" content="Chanko の active_if は今まで all, any 相当の機能しかなかったのですが、none の機能を追加しました。
+（コード的にはいつでも one? 相当の機能も実装できるのですが、必要性を感じなかったので……） Add Support &#39;none&#39; to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
   <header>
     
-      <h1 class="entry-title">ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</h1>
+      <h1 class="entry-title">Chanko の Active_if で None を使えるようにしました</h1>
     
     
       <p class="meta">
@@ -84,53 +84,90 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
 
 
-<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-04-22T23:21:00+09:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>元々こんなコードがあった</p>
+<div class="entry-content"><p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span></code></pre></td></tr></table></div></figure>
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
 
-
-<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
-
-<blockquote><p>uniq を前に持って来い</p></blockquote>
-
-<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
-ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
-
-<p>実際に実行してみると</p>
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span><span class='line'>   <span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">015</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
-</span><span class='line'>   <span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="no">DISTINCT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:not_device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">!.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
-件数増えると結構差が出ると思う。</p>
+<p>と別々に定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:not_device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">),</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_bar?</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:false</span><span class="p">,</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
 </div>
 
 
@@ -153,12 +190,12 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
 
 
-<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-04-22T23:21:00+09:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/pr-review/'>pr-review</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+    <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
   
 </span>
 
@@ -166,9 +203,9 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
     </p>
     
       <div class="sharing">
-  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -181,10 +218,8 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/30/dot-emacs-renewal/" title="Previous Post: .emacs を一年に一回消してる">&laquo; .emacs を一年に一回消してる</a>
+        <a class="basic-alignment left" href="/blog/2013/02/17/devsum-2013/" title="Previous Post: デブサミ 2013 で自分戦略について発表して来ました">&laquo; デブサミ 2013 で自分戦略について発表して来ました</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/01/31/file-update-emacs/" title="Next Post: Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新">Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新 &raquo;</a>
       
     </p>
   </footer>
@@ -320,8 +355,8 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/';
-        var disqus_url = 'http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/';
+        var disqus_identifier = 'http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/';
+        var disqus_url = 'http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/';
         var disqus_script = 'embed.js';
       
     (function () {

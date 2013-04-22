@@ -9,8 +9,8 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="便利でいいね！！
-">
+  <meta name="description" content="Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。 source/_includes/asides/coderwall.html に下記ファイルを保存 {% if site.coderwall_user %}
+&lt;section &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,91 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-12T16:55:00+09:00" pubdate data-updated="true">Jul 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
+
+<p><code>source/_includes/asides/coderwall.html</code></p>
+
+<p>に下記ファイルを保存</p>
+
+<div><script src='https://gist.github.com/3096534.js'></script>
+<noscript><pre><code>{% if site.coderwall_user %}
+&lt;section class=&quot;well&quot;&gt;
+  &lt;ul class=&quot;nav&quot;&gt;
+    &lt;li class=&quot;nav-header&quot;&gt;Coderwall Badges&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div id=&quot;coderwall_badges&quot;&gt;&lt;/div&gt;
+  &lt;a href=&quot;http://coderwall.com/{{site.coderwall_user}}&quot;&gt;@{{site.coderwall_user}}&lt;/a&gt; on coderwall
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function(){
+      $.getJSON(&quot;http://coderwall.com/{{site.coderwall_user}}.json?callback=?&quot;, function(data){
+        for(var i = 0; i &lt; data.data.badges.length ; i++){
+          var badge = data.data.badges[i];
+          var badge_tag = $(&quot;&lt;img /&gt;&quot;);
+          badge_tag.attr(&quot;src&quot;,badge.badge);
+          badge_tag.css(&quot;width&quot;,&quot;50%&quot;);
+          $(&quot;#coderwall_badges&quot;).append(badge_tag);
+        }
+      });
+    });
+  &lt;/script&gt;
+&lt;/section&gt;
+{% endif %}</code></pre></noscript></div>
+
+
+<p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">asides/coderwall.html</span><span class="p-Indicator">,</span> <span class="nv">asides/twitter.html</span><span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同じく <code>_config.yaml</code> の下の方にユーザー名を書いてあげる</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># Coderwall badges</span>
+</span><span class='line'><span class="l-Scalar-Plain">coderwall_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yoshiori</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で、サイドバーに表示されます。</p>
+
+<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/11/init/">Octopress 始めました</a></h1>
     
     
@@ -117,6 +202,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の active_if で none を使えるようにしました</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/02/17/devsum-2013/">デブサミ 2013 で自分戦略について発表して来ました</a>
       </li>
     
@@ -130,10 +219,6 @@
     
       <li class="post">
         <a href="/blog/2013/01/31/file-update-emacs/">Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/30/use-pluck-uniq/">ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</a>
       </li>
     
   </ul>
