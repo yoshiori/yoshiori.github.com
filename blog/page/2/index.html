@@ -9,8 +9,8 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。 source/_includes/asides/coderwall.html に下記ファイルを保存 {% if site.coderwall_user %}
-&lt;section &hellip;">
+  <meta name="description" content="どうやるのかなーと思って Rakefile 見てたら見つけた。 &gt; rake new_page['test'] で、source/ の下に source
+└── test └─index.markdown って作成される。 中見てみたら new_post['title'] &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/13/new-page/">Octopress でブログページではなく新しいページを作る方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
+
+<pre><code> &gt; rake new_page['test']
+</code></pre>
+
+<p>で、<code>source/</code> の下に</p>
+
+<pre><code>source
+└── test
+    └─index.markdown         
+</code></pre>
+
+<p>って作成される。</p>
+
+<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
+
+<p>一応テストで作ってみた → <a href="/test/">■</a></p>
+
+<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
+そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
+
+<pre><code>---
+layout: page
+title: "hoge"
+date: 2012-07-13 14:27
+comments: true
+categories: 
+---
+</code></pre>
+
+<p>みたいな感じで書けば おｋ</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -202,6 +268,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/05/01/presentation-in-railsconf-2013/">RailsConf 2013 で LT してきました！！</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の active_if で none を使えるようにしました</a>
       </li>
     
@@ -215,10 +285,6 @@
     
       <li class="post">
         <a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/01/31/file-update-emacs/">Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新</a>
       </li>
     
   </ul>
