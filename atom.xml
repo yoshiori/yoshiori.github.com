@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.com]]></title>
   <link href="http://yoshiori.github.com/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-05-09T21:19:51+09:00</updated>
+  <updated>2013-08-02T01:18:02+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -326,7 +326,7 @@
 
 <p>こんな 2 つのモデルで</p>
 
-<figure class='code'><figcaption><span>users.rb  </span></figcaption>
+<figure class='code'><figcaption><span>users.rb </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -350,7 +350,7 @@
 
 
 
-<figure class='code'><figcaption><span>tasks.rb  </span></figcaption>
+<figure class='code'><figcaption><span>tasks.rb </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>

@@ -27,16 +27,18 @@ class Task &lt; ActiveRecord::Base &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/">
+  <link rel="canonical" href="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.com" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
@@ -120,7 +122,7 @@ class Task &lt; ActiveRecord::Base &hellip;">
 
 <p>こんな 2 つのモデルで</p>
 
-<figure class='code'><figcaption><span>users.rb  </span></figcaption>
+<figure class='code'><figcaption><span>users.rb </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -144,7 +146,7 @@ class Task &lt; ActiveRecord::Base &hellip;">
 
 
 
-<figure class='code'><figcaption><span>tasks.rb  </span></figcaption>
+<figure class='code'><figcaption><span>tasks.rb </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -260,9 +262,8 @@ end</code></pre></noscript></div>
     </p>
     
       <div class="sharing">
-  <a href="http://b.hatena.ne.jp/entry/http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" data-via="yoshiori" data-counturl="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -303,7 +304,7 @@ end</code></pre></noscript></div>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の active_if で none を使えるようにしました</a>
+        <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の Active_if で None を使えるようにしました</a>
       </li>
     
       <li class="post">
@@ -315,7 +316,7 @@ end</code></pre></noscript></div>
       </li>
     
       <li class="post">
-        <a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a>
+        <a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の Relation の定義の仕方がよくわからない＞＜</a>
       </li>
     
   </ul>
@@ -330,7 +331,7 @@ end</code></pre></noscript></div>
   <a href="https://github.com/yoshiori">@yoshiori</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -431,8 +432,8 @@ end</code></pre></noscript></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/ja_JP/all.js#appId=212934732101925&xfbml=1";
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -453,7 +454,7 @@ end</code></pre></noscript></div>
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

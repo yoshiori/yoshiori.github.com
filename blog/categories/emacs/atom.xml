@@ -4,7 +4,7 @@
   <title><![CDATA[Category: emacs | yoshiori.github.com]]></title>
   <link href="http://yoshiori.github.com/blog/categories/emacs/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-05-09T21:19:51+09:00</updated>
+  <updated>2013-08-02T01:18:02+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -69,17 +69,17 @@
 <p>「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
 そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
 
-<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&amp;width=832"></p>
+<p><img class="<a" src="href="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&amp;width=832">https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&amp;width=832</a>"></p>
 
 <p>```cl
-;; -<em>- Mode: Emacs-Lisp ; Coding: utf-8 -</em>-
-(require 'helm)
+;; &ndash;<em>&ndash; Mode: Emacs-Lisp ; Coding: utf-8 &ndash;</em>&ndash;
+(require &lsquo;helm)
 (require 'helm-config)
 (helm-mode 1)</p>
 
 <p>(defun my-helm ()
   (interactive)
-  (helm :sources '(</p>
+  (helm :sources &lsquo;(</p>
 
 <pre><code>               helm-c-source-buffers-list
                helm-c-source-recentf
@@ -89,14 +89,14 @@
     :buffer "*my helm*"))
 </code></pre>
 
-<p>(global-set-key (kbd "C-x b") 'my-helm)
-(global-set-key (kbd "M-x") 'helm-M-x)</p>
+<p>(global-set-key (kbd &ldquo;C-x b&rdquo;) &lsquo;my-helm)
+(global-set-key (kbd &ldquo;M-x&rdquo;) 'helm-M-x)</p>
 
 <p>(setq helm-samewindow nil)
-(push '("<em>helm-M-x</em>") popwin:special-display-config)</p>
+(push &lsquo;(&ldquo;<em>helm-M-x</em>&rdquo;) popwin:special-display-config)</p>
 
 <p>;; emacsの終了時に、履歴を保存する
-(remove-hook 'kill-emacs-hook 'helm-c-adaptive-save-history)</p>
+(remove-hook &lsquo;kill-emacs-hook 'helm-c-adaptive-save-history)</p>
 
 <p>;; ディレイは0.2秒
 (setq helm-input-idle-delay 0.02)</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | yoshiori.github.com]]></title>
   <link href="http://yoshiori.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.com/"/>
-  <updated>2013-05-09T21:19:51+09:00</updated>
+  <updated>2013-08-02T01:18:02+09:00</updated>
   <id>http://yoshiori.github.com/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -140,7 +140,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/coderwall.
 
 <p>で、サイドバーに表示されます。</p>
 
-<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
+<p><img class="post <a" src="href="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png">https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png</a>"></p>
 ]]></content>
   </entry>
   
