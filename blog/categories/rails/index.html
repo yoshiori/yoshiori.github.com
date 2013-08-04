@@ -193,10 +193,10 @@
   <div id="coderwall_badges"></div>
   <a href="http://coderwall.com/yoshiori">@yoshiori</a> on coderwall
   <script type="text/javascript">
-    $(document).ready(function(){
+    $(function(){
       $.ajax({
-        url: "http://coderwall.com/yoshiori.json?callback=?"
-        , type: 'jsonp'
+        url: "https://coderwall.com/yoshiori.json"
+        , dataType: 'jsonp'
         , success: function(data) {
           for(var i = 0; i < data.data.badges.length ; i++){
             var badge = data.data.badges[i];
