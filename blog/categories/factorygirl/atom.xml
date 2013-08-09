@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: factorygirl | yoshiori.github.io]]></title>
-  <link href="http://yoshiori.github.io/blog/categories/factorygirl/atom.xml" rel="self"/>
-  <link href="http://yoshiori.github.io/"/>
-  <updated>2013-08-10T02:49:27+09:00</updated>
-  <id>http://yoshiori.github.io/</id>
+  <link href="https://yoshiori.github.io/blog/categories/factorygirl/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
-    <link href="http://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
+    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
     <updated>2013-02-03T22:09:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
+    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
     <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
 
 <p><code>ruby

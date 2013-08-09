@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: emacs | yoshiori.github.io]]></title>
-  <link href="http://yoshiori.github.io/blog/categories/emacs/atom.xml" rel="self"/>
-  <link href="http://yoshiori.github.io/"/>
-  <updated>2013-08-10T02:49:27+09:00</updated>
-  <id>http://yoshiori.github.io/</id>
+  <link href="https://yoshiori.github.io/blog/categories/emacs/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新]]></title>
-    <link href="http://yoshiori.github.io/blog/2013/01/31/file-update-emacs/"/>
+    <link href="https://yoshiori.github.io/blog/2013/01/31/file-update-emacs/"/>
     <updated>2013-01-31T16:14:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2013/01/31/file-update-emacs</id>
+    <id>https://yoshiori.github.io/blog/2013/01/31/file-update-emacs</id>
     <content type="html"><![CDATA[<p>Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
 で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか……</p>
 
@@ -34,9 +34,9 @@
   
   <entry>
     <title type="html"><![CDATA[.emacs を一年に一回消してる]]></title>
-    <link href="http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/"/>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/"/>
     <updated>2013-01-30T19:10:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal</id>
+    <id>https://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal</id>
     <content type="html"><![CDATA[<h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
 
 <p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、

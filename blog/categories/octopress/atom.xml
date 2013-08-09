@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: octopress | yoshiori.github.io]]></title>
-  <link href="http://yoshiori.github.io/blog/categories/octopress/atom.xml" rel="self"/>
-  <link href="http://yoshiori.github.io/"/>
-  <updated>2013-08-10T02:49:27+09:00</updated>
-  <id>http://yoshiori.github.io/</id>
+  <link href="https://yoshiori.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Octopress の トップページを markdown で書く]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html/"/>
+    <link href="https://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html/"/>
     <updated>2012-07-13T17:35:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html</id>
+    <id>https://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html</id>
     <content type="html"><![CDATA[<p>なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
 検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。</p>
 
@@ -53,9 +53,9 @@ footer: false
   
   <entry>
     <title type="html"><![CDATA[Octopress でブログページではなく新しいページを作る方法]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/13/new-page/"/>
+    <link href="https://yoshiori.github.io/blog/2012/07/13/new-page/"/>
     <updated>2012-07-13T14:27:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/13/new-page</id>
+    <id>https://yoshiori.github.io/blog/2012/07/13/new-page</id>
     <content type="html"><![CDATA[<p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
 
 <pre><code> &gt; rake new_page['test']
@@ -92,9 +92,9 @@ categories:
   
   <entry>
     <title type="html"><![CDATA[Octopress のサイドバーに Coderwall Badges を表示]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/12/coderwall-badges/"/>
+    <link href="https://yoshiori.github.io/blog/2012/07/12/coderwall-badges/"/>
     <updated>2012-07-12T16:55:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/12/coderwall-badges</id>
+    <id>https://yoshiori.github.io/blog/2012/07/12/coderwall-badges</id>
     <content type="html"><![CDATA[<p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
 
 <p><code>source/_includes/asides/coderwall.html</code></p>
@@ -146,9 +146,9 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/coderwall.
   
   <entry>
     <title type="html"><![CDATA[Octopress 始めました]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/11/init/"/>
+    <link href="https://yoshiori.github.io/blog/2012/07/11/init/"/>
     <updated>2012-07-11T19:41:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/11/init</id>
+    <id>https://yoshiori.github.io/blog/2012/07/11/init</id>
     <content type="html"><![CDATA[<p>便利でいいね！！</p>
 ]]></content>
   </entry>
