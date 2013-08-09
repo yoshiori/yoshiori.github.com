@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: ruby | yoshiori.github.io]]></title>
-  <link href="https://yoshiori.github.io/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="https://yoshiori.github.io/"/>
-  <updated>2013-08-10T02:34:08+09:00</updated>
-  <id>https://yoshiori.github.io/</id>
+  <link href="http://yoshiori.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:41:04+09:00</updated>
+  <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RailsConf 2013 で LT してきました！！]]></title>
-    <link href="https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013/"/>
+    <link href="http://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013/"/>
     <updated>2013-05-01T19:19:00+09:00</updated>
-    <id>https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013</id>
+    <id>http://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013</id>
     <content type="html"><![CDATA[<p>RailsConf 2013 がポートランドで開催されたので行って来ました！！
 初の海外カンファレンス参加です！！</p>
 
@@ -47,7 +47,7 @@
 
 <p>とりあえず資料公開しておきます。</p>
 
-<script async class="speakerdeck-embed" data-id="d1c1311094f80130298d2efa0068aa13" data-ratio="1.2896725440806" src="https://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+<script async class="speakerdeck-embed" data-id="d1c1311094f80130298d2efa0068aa13" data-ratio="1.2896725440806" src="http://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
 
 
 <p>英語の文章を書くときに色々相談に乗ってくれた</p>
@@ -61,9 +61,9 @@
   
   <entry>
     <title type="html"><![CDATA[Chanko の active_if で none を使えるようにしました]]></title>
-    <link href="https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
+    <link href="http://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
     <updated>2013-04-22T23:21:00+09:00</updated>
-    <id>https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
+    <id>http://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
     <content type="html"><![CDATA[<p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
 （コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
 
@@ -128,9 +128,9 @@ active_if any(any(any(none(:false, :false), :false), :false), :false)</p>
   
   <entry>
     <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
-    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
+    <link href="http://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
     <updated>2013-02-03T22:09:00+09:00</updated>
-    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
+    <id>http://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
     <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
 
 <p><code>ruby
@@ -251,9 +251,9 @@ end</code></pre></noscript></div>
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
-    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
+    <link href="http://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
     <updated>2013-01-30T20:38:00+09:00</updated>
-    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
+    <id>http://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
     <content type="html"><![CDATA[<p>元々こんなコードがあった
 <code>ruby
 Post.where(:tag =&gt; "test").map(&amp;:title).uniq
@@ -290,9 +290,9 @@ irb(main):015:0&gt; Post.where(:tag =&gt; "test").uniq.pluck(:title)
   
   <entry>
     <title type="html"><![CDATA[rails プロジェクトをはじめる手順]]></title>
-    <link href="https://yoshiori.github.io/blog/2012/08/14/rails-start/"/>
+    <link href="http://yoshiori.github.io/blog/2012/08/14/rails-start/"/>
     <updated>2012-08-14T15:25:00+09:00</updated>
-    <id>https://yoshiori.github.io/blog/2012/08/14/rails-start</id>
+    <id>http://yoshiori.github.io/blog/2012/08/14/rails-start</id>
     <content type="html"><![CDATA[<p>とりあえず現状の俺の理解での
 rails プロジェクトをはじめる手順をまとめてみた。</p>
 
