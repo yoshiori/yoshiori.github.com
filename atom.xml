@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="https://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="https://yoshiori.github.io/"/>
-  <updated>2013-08-10T00:35:52+09:00</updated>
+  <updated>2013-08-10T02:34:08+09:00</updated>
   <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[「コーディングを支える技術」読み終わってました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/08/10/langbook/"/>
+    <updated>2013-08-10T00:41:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/08/10/langbook</id>
+    <content type="html"><![CDATA[<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=F8F8F8&IS2=1&bg1=F8F8F8&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=477415654X" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+
+<p>メール読み返したら</p>
+
+<blockquote><p>「本送るから今の住所教えて！！」</p></blockquote>
+
+<p>って言われた時に</p>
+
+<blockquote><p>「書評書くの遅れて 5 月くらいになっちゃうよ」</p></blockquote>
+
+<p>って答えてました。
+<strong>時の流れって怖いですね！！</strong>
+ヨシオリです。</p>
+
+<p>本当にごめん＞＜</p>
+
+<p>実は RailsConf の帰りの飛行機の中で読み終わってたんだけど、感想書くの延び延びになっちゃってた＞＜</p>
+
+<h2>で、感想</h2>
+
+<p>西尾さんの前に書いた<a href="http://www.amazon.co.jp/gp/product/4839922829/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4839922829&linkCode=as2&tag=yoshiori-22">Jythonプログラミング</a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=yoshiori-22&l=as2&o=9&a=4839922829" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />の時に</p>
+
+<blockquote><p>クラス使わないでクラス的なことを表現するのが一番面白かった。
+そっち系のもっと読みたいなぁ</p></blockquote>
+
+<p>って思ってたんだけど、まさにそんな本がでて凄く楽しく読みました。</p>
+
+<p>プログラミングとか新しいことを勉強しようとしたら
+「<strong>なんでそうなっているのか思想を学ぶ</strong>」
+のが良いと思うんだけど、その<strong>思想</strong>が生まれた<strong>歴史</strong>まで学べたら更に良いよねって事でそんなのがいっぱい詰まっている本です。</p>
+
+<p>例えば<em>第 3 章</em>で<strong>文法の誕生</strong>から始まって、<em>第 4 章</em>で<code>if</code>文を<code>GOTO</code>で表すところから始まり、<code>while</code>、<code>for</code> への説明へ続いていきます。</p>
+
+<p>その後もそんな感じで全開で成り立ちから学んでいきます。
+だってまさか「型」の説明の導入が「ランプのオンオフで数字を表してみよう」から始まるとは普通思わないよね！！
+そこから固定小数点、浮動小数点の話に入っていって……みたいな感じで</p>
+
+<p>他にもエラー処理の仕組みとか動的スコープと静的スコープの話とか並行処理の話とか……
+なんというかプログラムやってる人がハマったり難しいと感じがちな部分が成り立ちから丁寧に説明されてて</p>
+
+<blockquote><p>あぁ、俺がプログラミングやりはじてた頃にこの本があったらどんだけ良かったか……</p></blockquote>
+
+<p>って思いながら読みました。</p>
+
+<p>どれかのプログラミング言語に依存してたりしないでプログラミング言語について学べるので
+プログラマはみんな読むと良いと思うよ！！</p>
+
+<p>p.s.
+そしてこういう話を飲みながらダラダラと話すのが一番面白かったりするので是非誘って下しあ＞＜</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RailsConf 2013 で LT してきました！！]]></title>

@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない - yoshiori.github.io</title>
+  <title>「コーディングを支える技術」読み終わってました - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="元々こんなコードがあった 1
-Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した 1 &hellip;">
+  <meta name="description" content="メール読み返したら 「本送るから今の住所教えて！！」 って言われた時に 「書評書くの遅れて 5 月くらいになっちゃうよ」 って答えてました。
+時の流れって怖いですね！！
+ヨシオリです。 本当にごめん＞＜ 実は RailsConf の帰りの飛行機の中で読み終わってたんだけど、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq">
+  <link rel="canonical" href="https://yoshiori.github.io/blog/2013/08/10/langbook">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -70,7 +71,7 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
   <header>
     
-      <h1 class="entry-title">ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</h1>
+      <h1 class="entry-title">「コーディングを支える技術」読み終わってました</h1>
     
     
       <p class="meta">
@@ -86,53 +87,63 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
 
 
-<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-08-10T00:41:00+09:00" pubdate data-updated="true">Aug 10<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>元々こんなコードがあった</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="entry-content"><iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=F8F8F8&IS2=1&bg1=F8F8F8&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=477415654X" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
 
 
-<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
+<p>メール読み返したら</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span></code></pre></td></tr></table></div></figure>
+<blockquote><p>「本送るから今の住所教えて！！」</p></blockquote>
 
+<p>って言われた時に</p>
 
-<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
+<blockquote><p>「書評書くの遅れて 5 月くらいになっちゃうよ」</p></blockquote>
 
-<blockquote><p>uniq を前に持って来い</p></blockquote>
+<p>って答えてました。
+<strong>時の流れって怖いですね！！</strong>
+ヨシオリです。</p>
 
-<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
-ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
+<p>本当にごめん＞＜</p>
 
-<p>実際に実行してみると</p>
+<p>実は RailsConf の帰りの飛行機の中で読み終わってたんだけど、感想書くの延び延びになっちゃってた＞＜</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
-</span><span class='line'>   <span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">015</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
-</span><span class='line'>   <span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="no">DISTINCT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
-</span></code></pre></td></tr></table></div></figure>
+<h2>で、感想</h2>
 
+<p>西尾さんの前に書いた<a href="http://www.amazon.co.jp/gp/product/4839922829/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4839922829&linkCode=as2&tag=yoshiori-22">Jythonプログラミング</a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=yoshiori-22&l=as2&o=9&a=4839922829" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />の時に</p>
 
-<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
-件数増えると結構差が出ると思う。</p>
+<blockquote><p>クラス使わないでクラス的なことを表現するのが一番面白かった。
+そっち系のもっと読みたいなぁ</p></blockquote>
+
+<p>って思ってたんだけど、まさにそんな本がでて凄く楽しく読みました。</p>
+
+<p>プログラミングとか新しいことを勉強しようとしたら
+「<strong>なんでそうなっているのか思想を学ぶ</strong>」
+のが良いと思うんだけど、その<strong>思想</strong>が生まれた<strong>歴史</strong>まで学べたら更に良いよねって事でそんなのがいっぱい詰まっている本です。</p>
+
+<p>例えば<em>第 3 章</em>で<strong>文法の誕生</strong>から始まって、<em>第 4 章</em>で<code>if</code>文を<code>GOTO</code>で表すところから始まり、<code>while</code>、<code>for</code> への説明へ続いていきます。</p>
+
+<p>その後もそんな感じで全開で成り立ちから学んでいきます。
+だってまさか「型」の説明の導入が「ランプのオンオフで数字を表してみよう」から始まるとは普通思わないよね！！
+そこから固定小数点、浮動小数点の話に入っていって……みたいな感じで</p>
+
+<p>他にもエラー処理の仕組みとか動的スコープと静的スコープの話とか並行処理の話とか……
+なんというかプログラムやってる人がハマったり難しいと感じがちな部分が成り立ちから丁寧に説明されてて</p>
+
+<blockquote><p>あぁ、俺がプログラミングやりはじてた頃にこの本があったらどんだけ良かったか……</p></blockquote>
+
+<p>って思いながら読みました。</p>
+
+<p>どれかのプログラミング言語に依存してたりしないでプログラミング言語について学べるので
+プログラマはみんな読むと良いと思うよ！！</p>
+
+<p>p.s.
+そしてこういう話を飲みながらダラダラと話すのが一番面白かったりするので是非誘って下しあ＞＜</p>
 </div>
 
 
@@ -155,21 +166,15 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
   
 
 
-<time datetime="2013-01-30T20:38:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+<time datetime="2013-08-10T00:41:00+09:00" pubdate data-updated="true">Aug 10<span>th</span>, 2013</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/pr-review/'>pr-review</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
-  
-</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/" data-via="yoshiori" data-counturl="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://yoshiori.github.io/blog/2013/08/10/langbook/" data-via="yoshiori" data-counturl="https://yoshiori.github.io/blog/2013/08/10/langbook/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -182,10 +187,8 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/01/30/dot-emacs-renewal/" title="Previous Post: .emacs を一年に一回消してる">&laquo; .emacs を一年に一回消してる</a>
+        <a class="basic-alignment left" href="/blog/2013/05/01/presentation-in-railsconf-2013/" title="Previous Post: RailsConf 2013 で LT してきました！！">&laquo; RailsConf 2013 で LT してきました！！</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/01/31/file-update-emacs/" title="Next Post: Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新">Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新 &raquo;</a>
       
     </p>
   </footer>
@@ -311,8 +314,8 @@ Post.where(:tag =&gt; &quot;test&quot;).map(&amp;:title).uniq で、title しか
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/';
-        var disqus_url = 'https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/';
+        var disqus_identifier = 'https://yoshiori.github.io/blog/2013/08/10/langbook/';
+        var disqus_url = 'https://yoshiori.github.io/blog/2013/08/10/langbook/';
         var disqus_script = 'embed.js';
       
     (function () {
