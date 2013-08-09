@@ -1,0 +1,888 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[「コーディングを支える技術」読み終わってました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/08/10/langbook/"/>
+    <updated>2013-08-10T00:41:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/08/10/langbook</id>
+    <content type="html"><![CDATA[<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=F8F8F8&IS2=1&bg1=F8F8F8&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=477415654X" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+
+<p>メール読み返したら</p>
+
+<blockquote><p>「本送るから今の住所教えて！！」</p></blockquote>
+
+<p>って言われた時に</p>
+
+<blockquote><p>「書評書くの遅れて 5 月くらいになっちゃうよ」</p></blockquote>
+
+<p>って答えてました。
+<strong>時の流れって怖いですね！！</strong>
+ヨシオリです。</p>
+
+<p>本当にごめん＞＜</p>
+
+<p>実は RailsConf の帰りの飛行機の中で読み終わってたんだけど、感想書くの延び延びになっちゃってた＞＜</p>
+
+<h2>で、感想</h2>
+
+<p>西尾さんの前に書いた<a href="http://www.amazon.co.jp/gp/product/4839922829/ref=as_li_ss_tl?ie=UTF8&camp=247&creative=7399&creativeASIN=4839922829&linkCode=as2&tag=yoshiori-22">Jythonプログラミング</a><img src="http://ir-jp.amazon-adsystem.com/e/ir?t=yoshiori-22&l=as2&o=9&a=4839922829" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />の時に</p>
+
+<blockquote><p>クラス使わないでクラス的なことを表現するのが一番面白かった。
+そっち系のもっと読みたいなぁ</p></blockquote>
+
+<p>って思ってたんだけど、まさにそんな本がでて凄く楽しく読みました。</p>
+
+<p>プログラミングとか新しいことを勉強しようとしたら
+「<strong>なんでそうなっているのか思想を学ぶ</strong>」
+のが良いと思うんだけど、その<strong>思想</strong>が生まれた<strong>歴史</strong>まで学べたら更に良いよねって事でそんなのがいっぱい詰まっている本です。</p>
+
+<p>例えば<em>第 3 章</em>で<strong>文法の誕生</strong>から始まって、<em>第 4 章</em>で<code>if</code>文を<code>GOTO</code>で表すところから始まり、<code>while</code>、<code>for</code> への説明へ続いていきます。</p>
+
+<p>その後もそんな感じで全開で成り立ちから学んでいきます。
+だってまさか「型」の説明の導入が「ランプのオンオフで数字を表してみよう」から始まるとは普通思わないよね！！
+そこから固定小数点、浮動小数点の話に入っていって……みたいな感じで</p>
+
+<p>他にもエラー処理の仕組みとか動的スコープと静的スコープの話とか並行処理の話とか……
+なんというかプログラムやってる人がハマったり難しいと感じがちな部分が成り立ちから丁寧に説明されてて</p>
+
+<blockquote><p>あぁ、俺がプログラミングやりはじてた頃にこの本があったらどんだけ良かったか……</p></blockquote>
+
+<p>って思いながら読みました。</p>
+
+<p>どれかのプログラミング言語に依存してたりしないでプログラミング言語について学べるので
+プログラマはみんな読むと良いと思うよ！！</p>
+
+<p>p.s.
+そしてこういう話を飲みながらダラダラと話すのが一番面白かったりするので是非誘って下しあ＞＜</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[RailsConf 2013 で LT してきました！！]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013/"/>
+    <updated>2013-05-01T19:19:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013</id>
+    <content type="html"><![CDATA[<p>RailsConf 2013 がポートランドで開催されたので行って来ました！！
+初の海外カンファレンス参加です！！</p>
+
+<p>英語とか全然出来ないので必死に勉強していったのですが、やはり付け焼刃ではなかなか難しかったです＞＜</p>
+
+<p>で、まぁ、出来ないからといって挑戦しないことには何も成長しないので LT に応募して発表して来ました。</p>
+
+<object type="application/x-shockwave-flash" height="300" width="400" id="clip_embed_player_flash" data="http://www-cdn.justin.tv/widgets/archive_embed_player.swf" bgcolor="#000000"><param name="movie" value="http://www-cdn.justin.tv/widgets/archive_embed_player.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="allowFullScreen" value="true" /><param name="flashvars" value="auto_play=false&start_volume=25&title=Title&channel=confreaks&chapter_id=2250576" /></object>
+
+
+<br /><a href="http://www.justin.tv/confreaks#r=-rid-&amp;s=em" class="trk" style="padding: 2px 0px 4px; display: block; width: 320px; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;">Watch live video from Confreaks - Live Streaming on Justin.tv</a>
+
+
+<p>マジ今聞き直しても背中の汗が止まらない酷い英語ですね＞＜</p>
+
+<p>でも、皆さん優しくて終わった後、暖かい声を頂きました</p>
+
+<blockquote><p>@yoshiori amazing talk :) #railsconf</p><footer><strong>@senthilnayagam</strong> <cite><a href='https://twitter.com/senthilnayagam/status/329768448601239554'>twitter.com/senthilnayagam/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>Ladies and gentlemen, @yoshiori is a bad ass developer. That last lightening talk was killer. #railsconf</p><footer><strong>@davidcmolina</strong> <cite><a href='https://twitter.com/davidcmolina/status/329768905306406912'>twitter.com/davidcmolina/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>Hillarious! Well done! Love the dialog style presentation! @yoshiori #railsconf  // Thanks for the correction, @tmaesaka!</p><footer><strong>@crueber</strong> <cite><a href='https://twitter.com/crueber/status/329769643977871360'>twitter.com/crueber/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>@yoshiori @a_matsuda hey rubygems-mirror-command looks great. @raggi and @markimbriaco had a way to download the all the gems in a few mins!</p><footer><strong>@qrush</strong> <cite><a href='https://twitter.com/qrush/status/329770309089644544'>twitter.com/qrush/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>@yoshiori Your lightning talk was awesome. How did you make the slides?</p><footer><strong>@ckrailo</strong> <cite><a href='https://twitter.com/ckrailo/status/330031270493032448'>twitter.com/ckrailo/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>とりあえず資料公開しておきます。</p>
+
+<script async class="speakerdeck-embed" data-id="d1c1311094f80130298d2efa0068aa13" data-ratio="1.2896725440806" src="https://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>英語の文章を書くときに色々相談に乗ってくれた</p>
+
+<p><a href="https://twitter.com/mrkn">@mrkn</a>,<a href="https://twitter.com/tmaesaka">@tmaesaka</a>,<a href="https://twitter.com/adorechic">@adorechic</a>,<a href="https://twitter.com/r7kamura">@r7kamura</a> 本当にありがとう！！</p>
+
+<p>そして丁度 RailsConf に参加している期間で試用期間が終わり COOKPAD の正式な一員になりました。
+試用期間にもかかわらず RailsConf に参加させていただいた会社にも大感謝です。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Chanko の active_if で none を使えるようにしました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
+    <updated>2013-04-22T23:21:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
+    <content type="html"><![CDATA[<p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
+
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
+
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:not_device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">!.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と別々に定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:not_device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">),</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_bar?</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:false</span><span class="p">,</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[デブサミ 2013 で自分戦略について発表して来ました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/02/17/devsum-2013/"/>
+    <updated>2013-02-17T20:22:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/02/17/devsum-2013</id>
+    <content type="html"><![CDATA[<p>今年も（！？）ギリギリオファーがありデブサミで発表して来ました。</p>
+
+<script async class="speakerdeck-embed" data-id="4c4519c059860130d1bf1231392d87a1" data-ratio="1.2896725440806" src="https://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>なんというか高卒 &amp;&amp; 25 歳からプログラマになったという二重苦みたいな環境なので
+大卒の人とかもっと若い頃からプログラム書いてた人は僕よりは楽に進めると思いますが、最低限こんなもんだよねって言うのを見てもらえればいいと思います。</p>
+
+<h2>口頭で説明した部分をざっくり書くと</h2>
+
+<ol>
+<li>25歳からプログラマになった</li>
+<li>組み込み系、SI を経て web系へ転職</li>
+<li>プログラマからプレイングマネージャになった</li>
+<li><p>自分戦略として考える軸として、</p>
+
+<ul>
+<li>お金（自分の市場価値）</li>
+<li>純粋に好奇心から自分のスキルを上げたい</li>
+</ul>
+
+
+<p>の 2 つを考えると考えやすいと思います。</p></li>
+<li><p>（僕の戦略として）目指すところは最強</p></li>
+<li>ドラクエで言うとお金貯めるよりステータス上げたい</li>
+<li>リーダーとしてそれなりにやれることは確認できた</li>
+<li>次のステップとしてはやはり自分の根っこはエンジニアなのでエンジニアとしてまたガッツリ LV を上げたい</li>
+<li>Java で一番の下手くそになれる会社は日本にはあんまりなさそうだなぁ</li>
+<li>言語も文化も変えたい(Java での伸び代よりも他の言語をガッツリやったほうが伸び代が有る)</li>
+<li>自分が尊敬できるエンジニアが一番集まっていて、かつ自分が一番の下手くそになれる会社を探した</li>
+<li>実際にコード書くとこんなにツッコミが！！！</li>
+<li>というわけで、ガッツリレベル上げたい人！！ <a href="https://www.wantedly.com/projects/2">一緒に働きましょう！！</a></li>
+</ol>
+
+
+<p>という感じです。</p>
+
+<h2>ついでに言っておくと</h2>
+
+<p>なんかブームみたいになっていたせいか「退職ブログは書かないの？」と聞かれるんだけど、
+俺は別れた女について聞かれても「俺にはもったいないくらい、いい女だったよ」以外の答えを持ってねーよ！！</p>
+
+<p>もうちょっと言うと、退職ブログを書く人を別に否定はしないけど、俺としては公に書けるようなことは何もないし
+上っ面のこと適当にでっち上げて書けるほど器用じゃないよって事です。</p>
+
+<p>どうしても知りたかったら焼肉でもおごってください。
+そこまで知りたい人には話しますよっと。</p>
+
+<h2>というわけで COOKPAD で働いています</h2>
+
+<p>いちエンジニアとして初めての言語、初めてのフレームワークという環境でガッツリ頑張っています！！
+マジで楽しいので是非一緒に働きましょう！！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[「SQL アンチパターン」は色んな戦争の火種になりそう]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/"/>
+    <updated>2013-02-10T22:29:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns</id>
+    <content type="html"><![CDATA[<iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4873115892" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+
+<p>監訳の一人である @t_wada に献本頂きました。
+ありがとうございます！！！</p>
+
+<p>でだ、いきなりだけどコレ、タイトルで損してると思うんだよね……</p>
+
+<p>だって、<code>SQL</code> のアンチパターンてタイトルだったら、</p>
+
+<blockquote><p><code>join</code> した結果の方で <code>where</code> で絞るよりも <code>on</code> 句で先に絞れ</p></blockquote>
+
+<p>的なのが書いてあると思うじゃん！！
+問い合わせ言語の事だと思うじゃん！！！</p>
+
+<p><strong>違った……</strong></p>
+
+<p>ほとんど書いてあるのは DB 設計についてだった……
+まぁ、副題は「Avoiding the Pitfalls of Database Programming」のだし、まぁいいか。</p>
+
+<h1>んで、読んでみた感想とか</h1>
+
+<p>もうね、何年か DB 絡んだ開発したことのある人なら（・∀・）ﾆﾔﾆﾔ出来ると思う。</p>
+
+<blockquote><p>「&#8221;マルチカラムアトリビュート&#8221;とか 10 年前に通ったわー」</p></blockquote>
+
+<p>とか</p>
+
+<blockquote><p>「あーはいはい&#8221;インデックスショットガン&#8221;乙」</p></blockquote>
+
+<p>みたいな。</p>
+
+<blockquote><p>Explain の結果も見ないでインデックス貼りまくる奴いるよねーーー</p></blockquote>
+
+<p>とか、ドンドン盛り上がれそう。</p>
+
+<p>実際俺も&#8221;EAV（エンティティ・アトリビュート・バリュー）&#8221; はホントつい最近もやろうと思った。
+(結局複雑になりすぎるからやめたけど)</p>
+
+<h2>個人的に反対なアンチパターン</h2>
+
+<h3>ファントムファイル</h3>
+
+<p>ファントムファイルの解決策については実際に 2 度やったことがある。
+データの規模も、ユーザーの想定数もぜんぜん違う 2 つのアプリで……
+でもそのファイルへのアクセス方法とか逆に複雑になるだけで何も得しなかった。
+よく考えればファイルシステムそのものがファイルを扱うことに特化した KVS 的なものなんだからそっち使ったほうが良いというのが俺のプラクティスだなぁ</p>
+
+<h2>反対では無いけどあんまり賛同しないアンチパターン</h2>
+
+<h3>キーレスエントリ</h3>
+
+<p>外部キー制約で、</p>
+
+<blockquote><p>オーバーヘッド、……にはなりません</p></blockquote>
+
+<p>って書いてあるんだけど、いやなるでしょ……
+どの程度の更新頻度を見ているのかわからないけど、ソーシャルゲーム系とか外部キー制約とか貼ってたら無理な気がするんだけどどうなんだろう？</p>
+
+<p>ここは本当にこの文章を鵜呑みにしないで、設計時にちゃんと想定ユーザー数で負荷テストやらないと怖いことになりそう……</p>
+
+<h1>で、この本の本当に凄いところはパターンに名前を付けたこと</h1>
+
+<p>さて、ここまで読んでもらえばわかると思うんだけど、この本の本当に凄いところは <strong>パターンに名前を付けたこと</strong> だと思う。</p>
+
+<p>俺が書いたみたいに例えば「ファントムファイルは俺は反対だな」的な事が簡潔に言えるようなことになったのは本当に素晴らしいと思う。
+今までだったら「ファイルをさ、DB にデータとしていれるパターンあるじゃん！！いや、パスじゃなくてデータ自体をだよ！！ ほら、入れておくとカラムのデータとの整合性を保つのが楽だとか……
+」とかそんな説明をしてからじゃあ無いと議論が始められなかったのがサクッと始められるようになった。</p>
+
+<p>というわけで、タイトルに書いたとおり戦争の火種になってくれそうな本だなぁと。
+逆に今までは何度か DB 設計したことないとこういう議論が出来なかったのが本にまとまってくれたのでこれで誰でも議論に参加できるね！！！</p>
+
+<h3>p.s.</h3>
+
+<p>付録の 第 4 正規形とかの例が凄く良かったです！！（個人的に不得手な所だったので）</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
+    <updated>2013-02-03T22:09:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
+    <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:tasks</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Task</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">:presence</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな 2 つのモデルで</p>
+
+<figure class='code'><figcaption><span>users.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">tasks</span> <span class="k">do</span>
+</span><span class='line'>      <span class="o">[</span>
+</span><span class='line'>       <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:task</span><span class="p">)</span> <span class="p">,</span>
+</span><span class='line'>      <span class="o">]</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>tasks.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:task</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいな定義をしておくと……</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="no">Failure</span><span class="o">/</span><span class="ss">Error</span><span class="p">:</span> <span class="no">Unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">matching</span> <span class="n">line</span> <span class="n">from</span> <span class="n">backtrace</span>
+</span><span class='line'> <span class="ss">SystemStackError</span><span class="p">:</span>
+</span><span class='line'>     <span class="n">stack</span> <span class="n">level</span> <span class="n">too</span> <span class="n">deep</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>まぁ、メッセージの通り循環参照になっちゃうからダメなのは分かる。</p>
+
+<p>でも、<code>:user</code> の宣言から <code>tasks</code> 外すと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で何も返ってこないし、逆に <code>:task</code> の方で <code>user</code> 外すと
+今度は <code>presence</code> のバリデーションに引っかかっちゃう</p>
+
+<p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
+教えてエロイ人！！！！</p>
+
+<p>追記</p>
+
+<blockquote><p>@yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298061407499468801'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<div><script src='https://gist.github.com/4701800.js'></script>
+<noscript><pre><code>FactoryGirl.define do
+  factory :user do
+    after(:create) do |user|
+      FactoryGirl.create_list(:task, 10, user_id: user.id)
+    end
+  end
+  
+  factory :task do
+    trait :with_user do
+      user
+    end
+  end
+end</code></pre></noscript></div>
+
+
+<p>と教えてもらいました</p>
+
+<blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298062728004788224'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>とのことでしたが僕の手元では <code>trait</code> 使わなくても行けました！！！
+ありがとうございます！！！</p>
+
+<p>他にも</p>
+
+<blockquote><p>@yoshiori こうでどうだろうか http://t.co/Sf1oc9OV</p><footer><strong>@rosylilly</strong> <cite><a href='https://twitter.com/rosylilly/status/298062237988442114'>twitter.com/rosylilly/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー</p><footer><strong>@tomoya55</strong> <cite><a href='https://twitter.com/tomoya55/status/298064513360605184'>twitter.com/tomoya55/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>といろいろな方が教えてくれました！！！
+ありがとうございます！！！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/31/file-update-emacs/"/>
+    <updated>2013-01-31T16:14:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/31/file-update-emacs</id>
+    <content type="html"><![CDATA[<p>Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
+で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか……</p>
+
+<p>なんかそういう設定有るはずだよなぁとか思いながら見つけられてなかったんだけど、やっと見つけた。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; 変更のあったファイルの自動再読み込み</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-auto-revert-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで安心！！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
+    <updated>2013-01-30T20:38:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
+    <content type="html"><![CDATA[<p>元々こんなコードがあった</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
+
+<blockquote><p>uniq を前に持って来い</p></blockquote>
+
+<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
+ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
+
+<p>実際に実行してみると</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">014</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span>
+</span><span class='line'>   <span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">4</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
+</span><span class='line'><span class="n">irb</span><span class="p">(</span><span class="n">main</span><span class="p">):</span><span class="mo">015</span><span class="p">:</span><span class="mi">0</span><span class="o">&gt;</span> <span class="no">Post</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="ss">:tag</span> <span class="o">=&gt;</span> <span class="s2">&quot;test&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">pluck</span><span class="p">(</span><span class="ss">:title</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">(</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="n">ms</span><span class="p">)</span>  <span class="no">SELECT</span> <span class="no">DISTINCT</span> <span class="n">title</span> <span class="no">FROM</span> <span class="s2">&quot;posts&quot;</span> <span class="no">WHERE</span> <span class="s2">&quot;posts&quot;</span><span class="o">.</span><span class="s2">&quot;tag&quot;</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;title1&quot;</span><span class="p">,</span> <span class="s2">&quot;title2&quot;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
+件数増えると結構差が出ると思う。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[.emacs を一年に一回消してる]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/"/>
+    <updated>2013-01-30T19:10:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal</id>
+    <content type="html"><![CDATA[<h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
+
+<p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
+やっぱり自分でもなんとかしたいなぁと思って思い切って <code>rm -rm .emacs</code> してみたら結構良かったので一年に一回くらいの頻度で消すようにしてる。</p>
+
+<p>大掃除とかじゃなく一から作りなおさないとなんか秘伝のタレ的なの残っちゃうので結構おすすめ。</p>
+
+<p>今回は emacs24 に完全移行って事て anything → helm した。
+ あと、ここ数年は Mac しか使ってないので OS の判定とかもしなくした。</p>
+
+<h3>emacs24 の package-install 便利</h3>
+
+<p>なんかほぼ使いたいものはこれで入れられるし、入れると勝手に require してくれちゃうみたいで、
+メジャーモードとかはインストールしたらそのまま使えた。</p>
+
+<p>リポジトリだけ追加したので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">package-initialize</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>を追加した。</p>
+
+<h3>anythong(helm) 無いと生きていけない</h3>
+
+<p>脳みその容量が全然足りないので、便利そうな elisp 見つけてもショートカットとか覚えられない！！！
+って事ばかりなので anything(helm) が無いと生きていけない。</p>
+
+<p>「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
+そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&width=832"></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm-config</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">helm-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-helm</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">helm</span> <span class="ss">:sources</span> <span class="o">&#39;</span><span class="p">(</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffers-list</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-recentf</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-files-in-current-dir</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-mac-spotlight</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffer-not-found</span><span class="p">)</span>
+</span><span class='line'>        <span class="ss">:buffer</span> <span class="s">&quot;*my helm*&quot;</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-x b&quot;</span><span class="p">)</span> <span class="ss">&#39;my-helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-x&quot;</span><span class="p">)</span> <span class="ss">&#39;helm-M-x</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-samewindow</span> <span class="no">nil</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;*helm-M-x*&quot;</span><span class="p">)</span> <span class="nv">popwin:special-display-config</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; emacsの終了時に、履歴を保存する</span>
+</span><span class='line'><span class="p">(</span><span class="nv">remove-hook</span> <span class="ss">&#39;kill-emacs-hook</span> <span class="ss">&#39;helm-c-adaptive-save-history</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; ディレイは0.2秒</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-input-idle-delay</span> <span class="mf">0.02</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; 候補のディレクトリが一つしかない場合に、自動的に展開しない</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-ff-auto-update-initial-value</span> <span class="no">nil</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>今のところこんな簡単な設定。</p>
+
+<p>まだどうも helm の find-file に慣れないのでどうにかしたいなぁ……</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[rails プロジェクトをはじめる手順]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/08/14/rails-start/"/>
+    <updated>2012-08-14T15:25:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/08/14/rails-start</id>
+    <content type="html"><![CDATA[<p>とりあえず現状の俺の理解での
+rails プロジェクトをはじめる手順をまとめてみた。</p>
+
+<ul>
+<li>rspec</li>
+<li>guard</li>
+</ul>
+
+
+<p>をデフォで使う感じ</p>
+
+<h2>プロジェクトの作成</h2>
+
+<pre><code>$ rails new rails_start
+$ cd rails_start
+</code></pre>
+
+<h2>git init と git-flow init</h2>
+
+<pre><code>$ git init
+$ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
+$ git commit -m init 
+$ git flow init
+</code></pre>
+
+<h2>RSpec と guard 使うようにする</h2>
+
+<pre><code>$ git flow feature start add_rspec_guard
+$ emacs Gemfile 
+</code></pre>
+
+<p>で、下記追加</p>
+
+<div><script src='https://gist.github.com/3346958.js'></script>
+<noscript><pre><code>group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'growl', :require =&gt; false # for Mac
+  gem 'libnotify', :require =&gt; false # for *nix
+end</code></pre></noscript></div>
+
+
+<pre><code>$ bundle install
+$ git rm -r test/
+$ rails g rspec:install
+$ guard init
+$ git add Guardfile Gemfile Gemfile.lock .rspec spec/
+$ git commit -m 'add rspec and guard'
+$ git flow feature finish add_rspec_guard
+</code></pre>
+
+<h2>下準備完了</h2>
+
+<p>あとは</p>
+
+<pre><code>$ guard
+</code></pre>
+
+<p>でテスト書きながら始める。</p>
+
+<p>で、いいのかなぁ？……</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress の トップページを markdown で書く]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html/"/>
+    <updated>2012-07-13T17:35:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html</id>
+    <content type="html"><![CDATA[<p>なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
+検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。</p>
+
+<p>ただ直すだけなら <code>source/index.html</code> を修正すればいいんだけど
+折角 Octopress にして markdown で書けるのに HTML 手描きとかイヤンなので markdown で書いてみた。</p>
+
+<ol>
+<li><code>source/index.html</code> をおもむろに削除</li>
+<li><code>source/index.markdown</code> を作成</li>
+</ol>
+
+
+<p>で、出来た。</p>
+
+<p><code>source/index.markdown</code> のメタ情報は</p>
+
+<pre><code>---
+layout: page
+title: 
+date: 2012-07-13 17:04
+comments: false
+sharing: true
+footer: false
+---
+</code></pre>
+
+<p>みたいな感じで <code>title</code> 要素を空にしておけばタイトルも上に出る日付も出ないので良い感じになった。</p>
+
+<p>ついでに標準だと上にあるナビゲーションの <code>blog</code> って項目押すとトップに飛ぶようになっててなんか違うので
+<code>source/_includes/custom/navigation.html</code> を良しなに修正すればおｋ</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress でブログページではなく新しいページを作る方法]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/07/13/new-page/"/>
+    <updated>2012-07-13T14:27:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/07/13/new-page</id>
+    <content type="html"><![CDATA[<p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
+
+<pre><code> &gt; rake new_page['test']
+</code></pre>
+
+<p>で、<code>source/</code> の下に</p>
+
+<pre><code>source
+└── test
+    └─index.markdown         
+</code></pre>
+
+<p>って作成される。</p>
+
+<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
+
+<p>一応テストで作ってみた → <a href="https://yoshiori.github.io/test/">■</a></p>
+
+<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
+そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
+
+<pre><code>---
+layout: page
+title: "hoge"
+date: 2012-07-13 14:27
+comments: true
+categories: 
+---
+</code></pre>
+
+<p>みたいな感じで書けば おｋ</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress のサイドバーに Coderwall Badges を表示]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/07/12/coderwall-badges/"/>
+    <updated>2012-07-12T16:55:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/07/12/coderwall-badges</id>
+    <content type="html"><![CDATA[<p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
+
+<p><code>source/_includes/asides/coderwall.html</code></p>
+
+<p>に下記ファイルを保存</p>
+
+<div><script src='https://gist.github.com/3096534.js'></script>
+<noscript><pre><code>{% if site.coderwall_user %}
+&lt;section class=&quot;well&quot;&gt;
+  &lt;ul class=&quot;nav&quot;&gt;
+    &lt;li class=&quot;nav-header&quot;&gt;Coderwall Badges&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div id=&quot;coderwall_badges&quot;&gt;&lt;/div&gt;
+  &lt;a href=&quot;http://coderwall.com/{{site.coderwall_user}}&quot;&gt;@{{site.coderwall_user}}&lt;/a&gt; on coderwall
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function(){
+      $.getJSON(&quot;http://coderwall.com/{{site.coderwall_user}}.json?callback=?&quot;, function(data){
+        for(var i = 0; i &lt; data.data.badges.length ; i++){
+          var badge = data.data.badges[i];
+          var badge_tag = $(&quot;&lt;img /&gt;&quot;);
+          badge_tag.attr(&quot;src&quot;,badge.badge);
+          badge_tag.css(&quot;width&quot;,&quot;50%&quot;);
+          $(&quot;#coderwall_badges&quot;).append(badge_tag);
+        }
+      });
+    });
+  &lt;/script&gt;
+&lt;/section&gt;
+{% endif %}</code></pre></noscript></div>
+
+
+<p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">asides/coderwall.html</span><span class="p-Indicator">,</span> <span class="nv">asides/twitter.html</span><span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同じく <code>_config.yaml</code> の下の方にユーザー名を書いてあげる</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># Coderwall badges</span>
+</span><span class='line'><span class="l-Scalar-Plain">coderwall_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yoshiori</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で、サイドバーに表示されます。</p>
+
+<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress 始めました]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/07/11/init/"/>
+    <updated>2012-07-11T19:41:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/07/11/init</id>
+    <content type="html"><![CDATA[<p>便利でいいね！！</p>
+]]></content>
+  </entry>
+  
+</feed>

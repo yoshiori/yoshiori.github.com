@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: factorygirl | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/factorygirl/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
+    <updated>2013-02-03T22:09:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
+    <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
+
+<p><code>ruby
+class User &lt; ActiveRecord::Base
+  has_many :tasks
+end
+class Task &lt; ActiveRecord::Base
+  belongs_to :user
+  validates :user, :presence =&gt; true
+end
+</code>
+こんな 2 つのモデルで</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>users.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;tasks do</span>
+</span><span class='line'><span class="sr">  [</span>
+</span><span class='line'><span class="sr">   FactoryGirl.create(:task) ,</span>
+</span><span class='line'><span class="sr">  ]</span>
+</span><span class='line'><span class="sr">end</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end</span>
+</span><span class='line'><span class="sr">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>tasks.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:task</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;user</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end</span>
+</span><span class='line'><span class="sr">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>みたいな定義をしておくと……</p>
+
+<p>```</p>
+
+<pre><code> Failure/Error: Unable to find matching line from backtrace
+ SystemStackError:
+     stack level too deep
+</code></pre>
+
+<p>```</p>
+
+<p>まぁ、メッセージの通り循環参照になっちゃうからダメなのは分かる。</p>
+
+<p>でも、<code>:user</code> の宣言から <code>tasks</code> 外すと
+<code>ruby
+FactoryGirl.create(:user).tasks
+</code>
+で何も返ってこないし、逆に <code>:task</code> の方で <code>user</code> 外すと
+今度は <code>presence</code> のバリデーションに引っかかっちゃう</p>
+
+<p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
+教えてエロイ人！！！！</p>
+
+<p>追記</p>
+
+<p><blockquote><p>@yoshiori こんな感じでどうでしょうか <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298061407499468801">https://twitter.com/naoty_k/status/298061407499468801</a></strong></footer></blockquote>
+<div><script src='https://gist.github.com/4701800.js'></script>
+<noscript><pre><code>FactoryGirl.define do
+  factory :user do
+    after(:create) do |user|
+      FactoryGirl.create_list(:task, 10, user_id: user.id)
+    end
+  end
+  
+  factory :task do
+    trait :with_user do
+      user
+    end
+  end
+end</code></pre></noscript></div>
+</p>
+
+<p>と教えてもらいました</p>
+
+<p><blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298062728004788224">https://twitter.com/naoty_k/status/298062728004788224</a></strong></footer></blockquote></p>
+
+<p>とのことでしたが僕の手元では <code>trait</code> 使わなくても行けました！！！
+ありがとうございます！！！</p>
+
+<p>他にも
+<blockquote><p>@yoshiori こうでどうだろうか <a href="http://t.co/Sf1oc9OV">http://t.co/Sf1oc9OV</a></p><footer><strong>@rosylilly <a href="https://twitter.com/rosylilly/status/298062237988442114">https://twitter.com/rosylilly/status/298062237988442114</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー</p><footer><strong>@tomoya55 <a href="https://twitter.com/tomoya55/status/298064513360605184">https://twitter.com/tomoya55/status/298064513360605184</a></strong></footer></blockquote></p>
+
+<p>といろいろな方が教えてくれました！！！
+ありがとうございます！！！</p>
+]]></content>
+  </entry>
+  
+</feed>

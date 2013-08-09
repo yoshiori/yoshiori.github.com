@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Chanko の active_if で none を使えるようにしました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
+    <updated>2013-04-22T23:21:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
+    <content type="html"><![CDATA[<p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
+
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
+
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
+
+<p><code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+ActiveIf.define(:not_device_hoge?) { !... }
+</code>
+と別々に定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, :not_device_hoge?
+</code>
+それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと
+<code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+</code>
+と定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, none(:device_hoge?)
+</code></p>
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので
+<code>ruby
+active_if :all_staffs?, any(none(:device_hoge?), none(:device_bar?))
+</code>
+のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<p>```ruby
+active_if any(any(any(none(:false, :false), :false), :false), :false)</p>
+
+<h1>true</h1>
+
+<p>```</p>
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
+    <updated>2013-01-30T20:38:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
+    <content type="html"><![CDATA[<p>元々こんなコードがあった
+<code>ruby
+Post.where(:tag =&gt; "test").map(&amp;:title).uniq
+</code></p>
+
+<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
+
+<p><code>ruby
+Post.where(:tag =&gt; "test").pluck(:title).uniq
+</code></p>
+
+<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
+
+<blockquote><p>uniq を前に持って来い</p></blockquote>
+
+<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
+ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
+
+<p>実際に実行してみると</p>
+
+<p><code>ruby
+irb(main):014:0&gt; Post.where(:tag =&gt; "test").pluck(:title).uniq
+   (3.4ms)  SELECT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+irb(main):015:0&gt; Post.where(:tag =&gt; "test").uniq.pluck(:title)
+   (5.3ms)  SELECT DISTINCT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+</code></p>
+
+<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
+件数増えると結構差が出ると思う。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[rails プロジェクトをはじめる手順]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/08/14/rails-start/"/>
+    <updated>2012-08-14T15:25:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/08/14/rails-start</id>
+    <content type="html"><![CDATA[<p>とりあえず現状の俺の理解での
+rails プロジェクトをはじめる手順をまとめてみた。</p>
+
+<ul>
+<li>rspec</li>
+<li>guard</li>
+</ul>
+
+
+<p>をデフォで使う感じ</p>
+
+<h2>プロジェクトの作成</h2>
+
+<pre><code>$ rails new rails_start
+$ cd rails_start
+</code></pre>
+
+<h2>git init と git-flow init</h2>
+
+<pre><code>$ git init
+$ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
+$ git commit -m init 
+$ git flow init
+</code></pre>
+
+<h2>RSpec と guard 使うようにする</h2>
+
+<pre><code>$ git flow feature start add_rspec_guard
+$ emacs Gemfile 
+</code></pre>
+
+<p>で、下記追加</p>
+
+<p><div><script src='https://gist.github.com/3346958.js'></script>
+<noscript><pre><code>group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'growl', :require =&gt; false # for Mac
+  gem 'libnotify', :require =&gt; false # for *nix
+end</code></pre></noscript></div>
+</p>
+
+<pre><code>$ bundle install
+$ git rm -r test/
+$ rails g rspec:install
+$ guard init
+$ git add Guardfile Gemfile Gemfile.lock .rspec spec/
+$ git commit -m 'add rspec and guard'
+$ git flow feature finish add_rspec_guard
+</code></pre>
+
+<h2>下準備完了</h2>
+
+<p>あとは</p>
+
+<pre><code>$ guard
+</code></pre>
+
+<p>でテスト書きながら始める。</p>
+
+<p>で、いいのかなぁ？……</p>
+]]></content>
+  </entry>
+  
+</feed>

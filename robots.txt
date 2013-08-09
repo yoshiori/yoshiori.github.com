@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://yoshiori.github.io/sitemap.xml 

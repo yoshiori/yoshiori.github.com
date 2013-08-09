@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: pr-review | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/pr-review/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
+    <updated>2013-01-30T20:38:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
+    <content type="html"><![CDATA[<p>元々こんなコードがあった
+<code>ruby
+Post.where(:tag =&gt; "test").map(&amp;:title).uniq
+</code></p>
+
+<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
+
+<p><code>ruby
+Post.where(:tag =&gt; "test").pluck(:title).uniq
+</code></p>
+
+<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
+
+<blockquote><p>uniq を前に持って来い</p></blockquote>
+
+<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
+ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
+
+<p>実際に実行してみると</p>
+
+<p><code>ruby
+irb(main):014:0&gt; Post.where(:tag =&gt; "test").pluck(:title).uniq
+   (3.4ms)  SELECT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+irb(main):015:0&gt; Post.where(:tag =&gt; "test").uniq.pluck(:title)
+   (5.3ms)  SELECT DISTINCT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+</code></p>
+
+<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
+件数増えると結構差が出ると思う。</p>
+]]></content>
+  </entry>
+  
+</feed>

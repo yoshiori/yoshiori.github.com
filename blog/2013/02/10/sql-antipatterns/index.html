@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>「SQL アンチパターン」は色んな戦争の火種になりそう - yoshiori.github.io</title>
+  <meta name="author" content="Yoshiori SHOJI">
+
+  
+  <meta name="description" content="監訳の一人である @t_wada に献本頂きました。
+ありがとうございます！！！ でだ、いきなりだけどコレ、タイトルで損してると思うんだよね…… だって、SQL のアンチパターンてタイトルだったら、 join した結果の方で where で絞るよりも on 句で先に絞れ &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yoshiori.github.io</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yoshiori.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/resume/">Resume</a></li>
+  <li><a href="https://github.com/yoshiori">Github</a></li>
+  <li><a href="http://d.hatena.ne.jp/Yoshiori">Hatena blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">「SQL アンチパターン」は色んな戦争の火種になりそう</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4873115892" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+
+<p>監訳の一人である @t_wada に献本頂きました。
+ありがとうございます！！！</p>
+
+<p>でだ、いきなりだけどコレ、タイトルで損してると思うんだよね……</p>
+
+<p>だって、<code>SQL</code> のアンチパターンてタイトルだったら、</p>
+
+<blockquote><p><code>join</code> した結果の方で <code>where</code> で絞るよりも <code>on</code> 句で先に絞れ</p></blockquote>
+
+<p>的なのが書いてあると思うじゃん！！
+問い合わせ言語の事だと思うじゃん！！！</p>
+
+<p><strong>違った……</strong></p>
+
+<p>ほとんど書いてあるのは DB 設計についてだった……
+まぁ、副題は「Avoiding the Pitfalls of Database Programming」のだし、まぁいいか。</p>
+
+<h1>んで、読んでみた感想とか</h1>
+
+<p>もうね、何年か DB 絡んだ開発したことのある人なら（・∀・）ﾆﾔﾆﾔ出来ると思う。</p>
+
+<blockquote><p>「&#8221;マルチカラムアトリビュート&#8221;とか 10 年前に通ったわー」</p></blockquote>
+
+<p>とか</p>
+
+<blockquote><p>「あーはいはい&#8221;インデックスショットガン&#8221;乙」</p></blockquote>
+
+<p>みたいな。</p>
+
+<blockquote><p>Explain の結果も見ないでインデックス貼りまくる奴いるよねーーー</p></blockquote>
+
+<p>とか、ドンドン盛り上がれそう。</p>
+
+<p>実際俺も&#8221;EAV（エンティティ・アトリビュート・バリュー）&#8221; はホントつい最近もやろうと思った。
+(結局複雑になりすぎるからやめたけど)</p>
+
+<h2>個人的に反対なアンチパターン</h2>
+
+<h3>ファントムファイル</h3>
+
+<p>ファントムファイルの解決策については実際に 2 度やったことがある。
+データの規模も、ユーザーの想定数もぜんぜん違う 2 つのアプリで……
+でもそのファイルへのアクセス方法とか逆に複雑になるだけで何も得しなかった。
+よく考えればファイルシステムそのものがファイルを扱うことに特化した KVS 的なものなんだからそっち使ったほうが良いというのが俺のプラクティスだなぁ</p>
+
+<h2>反対では無いけどあんまり賛同しないアンチパターン</h2>
+
+<h3>キーレスエントリ</h3>
+
+<p>外部キー制約で、</p>
+
+<blockquote><p>オーバーヘッド、……にはなりません</p></blockquote>
+
+<p>って書いてあるんだけど、いやなるでしょ……
+どの程度の更新頻度を見ているのかわからないけど、ソーシャルゲーム系とか外部キー制約とか貼ってたら無理な気がするんだけどどうなんだろう？</p>
+
+<p>ここは本当にこの文章を鵜呑みにしないで、設計時にちゃんと想定ユーザー数で負荷テストやらないと怖いことになりそう……</p>
+
+<h1>で、この本の本当に凄いところはパターンに名前を付けたこと</h1>
+
+<p>さて、ここまで読んでもらえばわかると思うんだけど、この本の本当に凄いところは <strong>パターンに名前を付けたこと</strong> だと思う。</p>
+
+<p>俺が書いたみたいに例えば「ファントムファイルは俺は反対だな」的な事が簡潔に言えるようなことになったのは本当に素晴らしいと思う。
+今までだったら「ファイルをさ、DB にデータとしていれるパターンあるじゃん！！いや、パスじゃなくてデータ自体をだよ！！ ほら、入れておくとカラムのデータとの整合性を保つのが楽だとか……
+」とかそんな説明をしてからじゃあ無いと議論が始められなかったのがサクッと始められるようになった。</p>
+
+<p>というわけで、タイトルに書いたとおり戦争の火種になってくれそうな本だなぁと。
+逆に今までは何度か DB 設計したことないとこういう議論が出来なかったのが本にまとまってくれたのでこれで誰でも議論に参加できるね！！！</p>
+
+<h3>p.s.</h3>
+
+<p>付録の 第 4 正規形とかの例が凄く良かったです！！（個人的に不得手な所だったので）</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/" data-via="yoshiori" data-counturl="https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/03/factory-girl-relation/" title="Previous Post: 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜">&laquo; 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/02/17/devsum-2013/" title="Next Post: デブサミ 2013 で自分戦略について発表して来ました">デブサミ 2013 で自分戦略について発表して来ました &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/10/langbook/">「コーディングを支える技術」読み終わってました</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/05/01/presentation-in-railsconf-2013/">RailsConf 2013 で LT してきました！！</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の Active_if で None を使えるようにしました</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/17/devsum-2013/">デブサミ 2013 で自分戦略について発表して来ました</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/02/10/sql-antipatterns/">「SQL アンチパターン」は色んな戦争の火種になりそう</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/yoshiori">@yoshiori</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'yoshiori',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="well">
+  <h1>Coderwall Badges</h1>
+  <div id="coderwall_badges"></div>
+  <a href="http://coderwall.com/yoshiori">@yoshiori</a> on coderwall
+  <script type="text/javascript">
+    $(function(){
+      $.ajax({
+        url: "https://coderwall.com/yoshiori.json"
+        , dataType: 'jsonp'
+        , success: function(data) {
+          for(var i = 0; i < data.data.badges.length ; i++){
+            var badge = data.data.badges[i];
+            var badge_tag = $("<img />");
+            badge_tag.attr("src",badge.badge);
+            badge_tag.css("width","33%");
+            $("#coderwall_badges").append(badge_tag);
+          }
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/yoshiori" data-widget-id="365845268207386624">@yoshiori からのツイート</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Yoshiori SHOJI -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'yoshiorigithubblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/';
+        var disqus_url = 'https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

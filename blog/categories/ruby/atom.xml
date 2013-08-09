@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ruby | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T02:53:15+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[RailsConf 2013 で LT してきました！！]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013/"/>
+    <updated>2013-05-01T19:19:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013</id>
+    <content type="html"><![CDATA[<p>RailsConf 2013 がポートランドで開催されたので行って来ました！！
+初の海外カンファレンス参加です！！</p>
+
+<p>英語とか全然出来ないので必死に勉強していったのですが、やはり付け焼刃ではなかなか難しかったです＞＜</p>
+
+<p>で、まぁ、出来ないからといって挑戦しないことには何も成長しないので LT に応募して発表して来ました。</p>
+
+<object type="application/x-shockwave-flash" height="300" width="400" id="clip_embed_player_flash" data="http://www-cdn.justin.tv/widgets/archive_embed_player.swf" bgcolor="#000000"><param name="movie" value="http://www-cdn.justin.tv/widgets/archive_embed_player.swf" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="allowFullScreen" value="true" /><param name="flashvars" value="auto_play=false&start_volume=25&title=Title&channel=confreaks&chapter_id=2250576" /></object>
+
+
+<br /><a href="http://www.justin.tv/confreaks#r=-rid-&amp;s=em" class="trk" style="padding: 2px 0px 4px; display: block; width: 320px; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;">Watch live video from Confreaks - Live Streaming on Justin.tv</a>
+
+
+<p>マジ今聞き直しても背中の汗が止まらない酷い英語ですね＞＜</p>
+
+<p>でも、皆さん優しくて終わった後、暖かい声を頂きました</p>
+
+<p><blockquote><p>@yoshiori amazing talk :) #railsconf</p><footer><strong>@senthilnayagam <a href="https://twitter.com/senthilnayagam/status/329768448601239554">https://twitter.com/senthilnayagam/status/329768448601239554</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>Ladies and gentlemen, @yoshiori is a bad ass developer. That last lightening talk was killer. #railsconf</p><footer><strong>@davidcmolina <a href="https://twitter.com/davidcmolina/status/329768905306406912">https://twitter.com/davidcmolina/status/329768905306406912</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>Hillarious! Well done! Love the dialog style presentation! @yoshiori #railsconf  // Thanks for the correction, @tmaesaka!</p><footer><strong>@crueber <a href="https://twitter.com/crueber/status/329769643977871360">https://twitter.com/crueber/status/329769643977871360</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>@yoshiori @a_matsuda hey rubygems-mirror-command looks great. @raggi and @markimbriaco had a way to download the all the gems in a few mins!</p><footer><strong>@qrush <a href="https://twitter.com/qrush/status/329770309089644544">https://twitter.com/qrush/status/329770309089644544</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>@yoshiori Your lightning talk was awesome. How did you make the slides?</p><footer><strong>@ckrailo <a href="https://twitter.com/ckrailo/status/330031270493032448">https://twitter.com/ckrailo/status/330031270493032448</a></strong></footer></blockquote></p>
+
+<p>とりあえず資料公開しておきます。</p>
+
+<script async class="speakerdeck-embed" data-id="d1c1311094f80130298d2efa0068aa13" data-ratio="1.2896725440806" src="https://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>英語の文章を書くときに色々相談に乗ってくれた</p>
+
+<p><a href="https://twitter.com/mrkn">@mrkn</a>,<a href="https://twitter.com/tmaesaka">@tmaesaka</a>,<a href="https://twitter.com/adorechic">@adorechic</a>,<a href="https://twitter.com/r7kamura">@r7kamura</a> 本当にありがとう！！</p>
+
+<p>そして丁度 RailsConf に参加している期間で試用期間が終わり COOKPAD の正式な一員になりました。
+試用期間にもかかわらず RailsConf に参加させていただいた会社にも大感謝です。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Chanko の active_if で none を使えるようにしました]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/"/>
+    <updated>2013-04-22T23:21:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if</id>
+    <content type="html"><![CDATA[<p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
+
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
+
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
+
+<p><code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+ActiveIf.define(:not_device_hoge?) { !... }
+</code>
+と別々に定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, :not_device_hoge?
+</code>
+それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと
+<code>ruby
+ActiveIf.define(:device_hoge?) { ... }
+</code>
+と定義しておいて</p>
+
+<p><code>ruby
+active_if :all_staffs?, :device_hoge?
+</code></p>
+
+<p><code>ruby
+active_if :all_staffs?, none(:device_hoge?)
+</code></p>
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので
+<code>ruby
+active_if :all_staffs?, any(none(:device_hoge?), none(:device_bar?))
+</code>
+のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<p>```ruby
+active_if any(any(any(none(:false, :false), :false), :false), :false)</p>
+
+<h1>true</h1>
+
+<p>```</p>
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
+    <updated>2013-02-03T22:09:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
+    <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
+
+<p><code>ruby
+class User &lt; ActiveRecord::Base
+  has_many :tasks
+end
+class Task &lt; ActiveRecord::Base
+  belongs_to :user
+  validates :user, :presence =&gt; true
+end
+</code>
+こんな 2 つのモデルで</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>users.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;tasks do</span>
+</span><span class='line'><span class="sr">  [</span>
+</span><span class='line'><span class="sr">   FactoryGirl.create(:task) ,</span>
+</span><span class='line'><span class="sr">  ]</span>
+</span><span class='line'><span class="sr">end</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end</span>
+</span><span class='line'><span class="sr">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>tasks.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:task</span> <span class="k">do</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;pre&gt;&lt;code&gt;user</span>
+</span><span class='line'><span class="sr">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;</span><span class="sr">/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;p&gt;  end</span>
+</span><span class='line'><span class="sr">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>みたいな定義をしておくと……</p>
+
+<p>```</p>
+
+<pre><code> Failure/Error: Unable to find matching line from backtrace
+ SystemStackError:
+     stack level too deep
+</code></pre>
+
+<p>```</p>
+
+<p>まぁ、メッセージの通り循環参照になっちゃうからダメなのは分かる。</p>
+
+<p>でも、<code>:user</code> の宣言から <code>tasks</code> 外すと
+<code>ruby
+FactoryGirl.create(:user).tasks
+</code>
+で何も返ってこないし、逆に <code>:task</code> の方で <code>user</code> 外すと
+今度は <code>presence</code> のバリデーションに引っかかっちゃう</p>
+
+<p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
+教えてエロイ人！！！！</p>
+
+<p>追記</p>
+
+<p><blockquote><p>@yoshiori こんな感じでどうでしょうか <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298061407499468801">https://twitter.com/naoty_k/status/298061407499468801</a></strong></footer></blockquote>
+<div><script src='https://gist.github.com/4701800.js'></script>
+<noscript><pre><code>FactoryGirl.define do
+  factory :user do
+    after(:create) do |user|
+      FactoryGirl.create_list(:task, 10, user_id: user.id)
+    end
+  end
+  
+  factory :task do
+    trait :with_user do
+      user
+    end
+  end
+end</code></pre></noscript></div>
+</p>
+
+<p>と教えてもらいました</p>
+
+<p><blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298062728004788224">https://twitter.com/naoty_k/status/298062728004788224</a></strong></footer></blockquote></p>
+
+<p>とのことでしたが僕の手元では <code>trait</code> 使わなくても行けました！！！
+ありがとうございます！！！</p>
+
+<p>他にも
+<blockquote><p>@yoshiori こうでどうだろうか <a href="http://t.co/Sf1oc9OV">http://t.co/Sf1oc9OV</a></p><footer><strong>@rosylilly <a href="https://twitter.com/rosylilly/status/298062237988442114">https://twitter.com/rosylilly/status/298062237988442114</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー</p><footer><strong>@tomoya55 <a href="https://twitter.com/tomoya55/status/298064513360605184">https://twitter.com/tomoya55/status/298064513360605184</a></strong></footer></blockquote></p>
+
+<p>といろいろな方が教えてくれました！！！
+ありがとうございます！！！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
+    <updated>2013-01-30T20:38:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
+    <content type="html"><![CDATA[<p>元々こんなコードがあった
+<code>ruby
+Post.where(:tag =&gt; "test").map(&amp;:title).uniq
+</code></p>
+
+<p>で、title しか使ってないんだからいちいち ActiveRecode のオブジェクト作って取り出すより pluck 使うように修正した</p>
+
+<p><code>ruby
+Post.where(:tag =&gt; "test").pluck(:title).uniq
+</code></p>
+
+<p>そう、俺はここで満足してしまった……で、pull request 出した結果突っ込まれ。</p>
+
+<blockquote><p>uniq を前に持って来い</p></blockquote>
+
+<p>ActiveRecord::Relation の uniq は DISTINCT を付けてくれるので DB 側で処理される。
+ところが pluck は Array が返ってくるので Array#uniq になってしまう。</p>
+
+<p>実際に実行してみると</p>
+
+<p><code>ruby
+irb(main):014:0&gt; Post.where(:tag =&gt; "test").pluck(:title).uniq
+   (3.4ms)  SELECT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+irb(main):015:0&gt; Post.where(:tag =&gt; "test").uniq.pluck(:title)
+   (5.3ms)  SELECT DISTINCT title FROM "posts" WHERE "posts"."tag" = 'test'
+=&gt; ["title1", "title2"]
+</code></p>
+
+<p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
+件数増えると結構差が出ると思う。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[rails プロジェクトをはじめる手順]]></title>
+    <link href="https://yoshiori.github.io/blog/2012/08/14/rails-start/"/>
+    <updated>2012-08-14T15:25:00+09:00</updated>
+    <id>https://yoshiori.github.io/blog/2012/08/14/rails-start</id>
+    <content type="html"><![CDATA[<p>とりあえず現状の俺の理解での
+rails プロジェクトをはじめる手順をまとめてみた。</p>
+
+<ul>
+<li>rspec</li>
+<li>guard</li>
+</ul>
+
+
+<p>をデフォで使う感じ</p>
+
+<h2>プロジェクトの作成</h2>
+
+<pre><code>$ rails new rails_start
+$ cd rails_start
+</code></pre>
+
+<h2>git init と git-flow init</h2>
+
+<pre><code>$ git init
+$ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
+$ git commit -m init 
+$ git flow init
+</code></pre>
+
+<h2>RSpec と guard 使うようにする</h2>
+
+<pre><code>$ git flow feature start add_rspec_guard
+$ emacs Gemfile 
+</code></pre>
+
+<p>で、下記追加</p>
+
+<p><div><script src='https://gist.github.com/3346958.js'></script>
+<noscript><pre><code>group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'growl', :require =&gt; false # for Mac
+  gem 'libnotify', :require =&gt; false # for *nix
+end</code></pre></noscript></div>
+</p>
+
+<pre><code>$ bundle install
+$ git rm -r test/
+$ rails g rspec:install
+$ guard init
+$ git add Guardfile Gemfile Gemfile.lock .rspec spec/
+$ git commit -m 'add rspec and guard'
+$ git flow feature finish add_rspec_guard
+</code></pre>
+
+<h2>下準備完了</h2>
+
+<p>あとは</p>
+
+<pre><code>$ guard
+</code></pre>
+
+<p>でテスト書きながら始める。</p>
+
+<p>で、いいのかなぁ？……</p>
+]]></content>
+  </entry>
+  
+</feed>
