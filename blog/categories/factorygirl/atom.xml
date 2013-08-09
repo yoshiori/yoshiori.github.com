@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: factorygirl | yoshiori.github.com]]></title>
-  <link href="http://yoshiori.github.com/blog/categories/factorygirl/atom.xml" rel="self"/>
-  <link href="http://yoshiori.github.com/"/>
-  <updated>2013-08-09T23:56:06+09:00</updated>
-  <id>http://yoshiori.github.com/</id>
+  <title><![CDATA[Category: factorygirl | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/factorygirl/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T00:31:48+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜]]></title>
-    <link href="http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/"/>
+    <link href="https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/"/>
     <updated>2013-02-03T22:09:00+09:00</updated>
-    <id>http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation</id>
+    <id>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation</id>
     <content type="html"><![CDATA[<p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
 
 <p><code>ruby

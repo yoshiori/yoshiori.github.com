@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://yoshiori.github.com/sitemap.xml 
+Sitemap: https://yoshiori.github.io/sitemap.xml 

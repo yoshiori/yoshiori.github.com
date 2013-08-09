@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: pr-review | yoshiori.github.com]]></title>
-  <link href="http://yoshiori.github.com/blog/categories/pr-review/atom.xml" rel="self"/>
-  <link href="http://yoshiori.github.com/"/>
-  <updated>2013-08-09T23:56:06+09:00</updated>
-  <id>http://yoshiori.github.com/</id>
+  <title><![CDATA[Category: pr-review | yoshiori.github.io]]></title>
+  <link href="https://yoshiori.github.io/blog/categories/pr-review/atom.xml" rel="self"/>
+  <link href="https://yoshiori.github.io/"/>
+  <updated>2013-08-10T00:31:48+09:00</updated>
+  <id>https://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない]]></title>
-    <link href="http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/"/>
+    <link href="https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/"/>
     <updated>2013-01-30T20:38:00+09:00</updated>
-    <id>http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq</id>
+    <id>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq</id>
     <content type="html"><![CDATA[<p>元々こんなコードがあった
 <code>ruby
 Post.where(:tag =&gt; "test").map(&amp;:title).uniq

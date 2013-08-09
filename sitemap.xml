@@ -1,85 +1,85 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://yoshiori.github.com/blog/2012/07/11/init/</loc>
+        <loc>https://yoshiori.github.io/blog/2012/07/11/init/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2012/07/12/coderwall-badges/</loc>
+        <loc>https://yoshiori.github.io/blog/2012/07/12/coderwall-badges/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2012/07/13/new-page/</loc>
+        <loc>https://yoshiori.github.io/blog/2012/07/13/new-page/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2012/07/13/octopress-index-dot-html/</loc>
+        <loc>https://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2012/08/14/rails-start/</loc>
+        <loc>https://yoshiori.github.io/blog/2012/08/14/rails-start/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/01/30/dot-emacs-renewal/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/01/30/use-pluck-uniq/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/01/30/use-pluck-uniq/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/01/31/file-update-emacs/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/01/31/file-update-emacs/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/02/03/factory-girl-relation/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/02/03/factory-girl-relation/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/02/10/sql-antipatterns/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/02/17/devsum-2013/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/02/17/devsum-2013/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
         <loc>
-            http://yoshiori.github.com/blog/2013/04/22/add-support-none-to-chankos-active-if/
+            https://yoshiori.github.io/blog/2013/04/22/add-support-none-to-chankos-active-if/
         </loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/2013/05/01/presentation-in-railsconf-2013/</loc>
+        <loc>https://yoshiori.github.io/blog/2013/05/01/presentation-in-railsconf-2013/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/blog/archives/</loc>
+        <loc>https://yoshiori.github.io/blog/archives/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/</loc>
+        <loc>https://yoshiori.github.io/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/</loc>
+        <loc>https://yoshiori.github.io/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/resume/</loc>
+        <loc>https://yoshiori.github.io/resume/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/robots.txt</loc>
+        <loc>https://yoshiori.github.io/robots.txt</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/test/</loc>
+        <loc>https://yoshiori.github.io/test/</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
     <url>
-        <loc>http://yoshiori.github.com/test/test.html</loc>
+        <loc>https://yoshiori.github.io/test/test.html</loc>
         <lastmod>2013-08-05T00:20:10+09:00</lastmod>
     </url>
 </urlset>
