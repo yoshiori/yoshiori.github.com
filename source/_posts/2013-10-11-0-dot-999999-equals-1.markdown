@@ -1,0 +1,45 @@
+---
+layout: post
+title: "小学生でもわかる計算だけで 0.9999…… が 1 な事を説明"
+date: 2013-10-11 21:29
+comments: true
+categories:
+---
+
+最近、学のない僕は定期的に会社で [@mrkn](https://twitter.com/mrkn) と [@conceal_rs](https://twitter.com/conceal_rs/) に数学を教わっています。
+
+今日も教わっていたんだけどそこで、小学生で習ったことくらいしか使わないで {% m %} 0.9999\ldots {% em %} が {% m %} 1 {% em %} なことを証明できちゃったことに感動した。
+
+## ということで説明
+
+最初の第一歩で小数点の循環して続いているところだけとりだす
+{% math %}
+  0.9999\ldots - 0.0999\ldots = 0.9
+{% endmath %}
+で、次に {% m %} 0.9999\ldots {% em %} を {% m %} x {% em %}  に置き換えると
+
+{% math %}
+  x - x \div 10 = 0.9\\
+  \Downarrow\\
+  x - \frac{x}{10} = 0.9\\
+  \Downarrow\\
+  10x - x = 9\\
+  \Downarrow\\
+  9x = 9\\
+  \Downarrow\\
+  x = \frac{9}{9}\\
+  \Downarrow\\
+  x = 1\\
+{% endmath %}
+
+で、さっき {% m %} 0.9999\ldots {% em %} を {% m %} x {% em %} にしたので戻すと
+
+{% math %}
+  0.9999\ldots = 1\\
+{% endmath %}
+
+出来た！！！
+
+すごいね！！
+
+あと、`MathJax` というか `LaTeX` 難しい＞＜
