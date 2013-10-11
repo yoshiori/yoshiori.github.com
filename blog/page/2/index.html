@@ -9,9 +9,10 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
-検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。 ただ直すだけなら source/index.html を修正すればいいんだけど
-折角 Octopress にして &hellip;">
+  <meta name="description" content="とりあえず現状の俺の理解での
+rails プロジェクトをはじめる手順をまとめてみた。 rspec
+guard をデフォで使う感じ プロジェクトの作成 $ rails new rails_start
+$ cd rails_start git init と git-flow init $ git &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -68,6 +69,97 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/08/14/rails-start/">Rails プロジェクトをはじめる手順</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-08-14T15:25:00+09:00" pubdate data-updated="true">Aug 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>とりあえず現状の俺の理解での
+rails プロジェクトをはじめる手順をまとめてみた。</p>
+
+<ul>
+<li>rspec</li>
+<li>guard</li>
+</ul>
+
+
+<p>をデフォで使う感じ</p>
+
+<h2>プロジェクトの作成</h2>
+
+<pre><code>$ rails new rails_start
+$ cd rails_start
+</code></pre>
+
+<h2>git init と git-flow init</h2>
+
+<pre><code>$ git init
+$ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
+$ git commit -m init 
+$ git flow init
+</code></pre>
+
+<h2>RSpec と guard 使うようにする</h2>
+
+<pre><code>$ git flow feature start add_rspec_guard
+$ emacs Gemfile 
+</code></pre>
+
+<p>で、下記追加</p>
+
+<div><script src='https://gist.github.com/3346958.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<pre><code>$ bundle install
+$ git rm -r test/
+$ rails g rspec:install
+$ guard init
+$ git add Guardfile Gemfile Gemfile.lock .rspec spec/
+$ git commit -m 'add rspec and guard'
+$ git flow feature finish add_rspec_guard
+</code></pre>
+
+<h2>下準備完了</h2>
+
+<p>あとは</p>
+
+<pre><code>$ guard
+</code></pre>
+
+<p>でテスト書きながら始める。</p>
+
+<p>で、いいのかなぁ？……</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -315,6 +407,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/10/11/0-dot-999999-equals-1/">小学生でもわかる計算だけで 0.9999…… が 1 な事を説明</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/10/langbook/">「コーディングを支える技術」読み終わってました</a>
       </li>
     
@@ -328,10 +424,6 @@ categories:
     
       <li class="post">
         <a href="/blog/2013/02/17/devsum-2013/">デブサミ 2013 で自分戦略について発表して来ました</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/10/sql-antipatterns/">「SQL アンチパターン」は色んな戦争の火種になりそう</a>
       </li>
     
   </ul>

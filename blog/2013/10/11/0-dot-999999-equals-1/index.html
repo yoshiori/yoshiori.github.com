@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Blog Archive - yoshiori.github.io</title>
+  <title>小学生でもわかる計算だけで 0.9999…… が 1 な事を説明 - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Blog Archive 2013 小学生でもわかる計算だけで 0.9999…… が 1 な事を説明
-Oct 11 2013 「コーディングを支える技術」読み終わってました
-Aug 10 2013 RailsConf 2013 で LT してきました！！
-May 01 2013 posted &hellip;">
+  <meta name="description" content="最近、学のない僕は定期的に会社で @mrkn と @conceal_rs に数学を教わっています。 今日も教わっていたんだけどそこで、小学生で習ったことくらいしか使わないで が なことを証明できちゃったことに感動した。 ということで説明 最初の第一歩で小数点の循環して続いているところだけとりだす &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ May 01 2013 posted &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.io/blog/archives/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -68,219 +65,130 @@ May 01 2013 posted &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Blog Archive</h1>
+    
+      <h1 class="entry-title">小学生でもわかる計算だけで 0.9999…… が 1 な事を説明</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-11T21:29:00+09:00" pubdate data-updated="true">Oct 11<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>最近、学のない僕は定期的に会社で <a href="https://twitter.com/mrkn">@mrkn</a> と <a href="https://twitter.com/conceal_rs/">@conceal_rs</a> に数学を教わっています。</p>
 
-  
-  <h2>2013</h2>
+<p>今日も教わっていたんだけどそこで、小学生で習ったことくらいしか使わないで <script type="math/tex"> 0.9999\ldots </script> が <script type="math/tex"> 1 </script> なことを証明できちゃったことに感動した。</p>
 
-<article>
-  
-<h1><a href="/blog/2013/10/11/0-dot-999999-equals-1/">小学生でもわかる計算だけで 0.9999…… が 1 な事を説明</a></h1>
-<time datetime="2013-10-11T21:29:00+09:00" pubdate><span class='month'>Oct</span> <span class='day'>11</span> <span class='year'>2013</span></time>
+<h2>ということで説明</h2>
 
+<p>最初の第一歩で小数点の循環して続いているところだけとりだす</p>
 
-</article>
+<script type="math/tex; mode=display">
+  0.9999\ldots - 0.0999\ldots = 0.9
+</script>
 
 
+<p>で、次に <script type="math/tex"> 0.9999\ldots </script> を <script type="math/tex"> x </script>  に置き換えると</p>
 
-<article>
-  
-<h1><a href="/blog/2013/08/10/langbook/">「コーディングを支える技術」読み終わってました</a></h1>
-<time datetime="2013-08-10T00:41:00+09:00" pubdate><span class='month'>Aug</span> <span class='day'>10</span> <span class='year'>2013</span></time>
+<script type="math/tex; mode=display">
+  x - x \div 10 = 0.9\\
+  \Downarrow\\
+  x - \frac{x}{10} = 0.9\\
+  \Downarrow\\
+  10x - x = 9\\
+  \Downarrow\\
+  9x = 9\\
+  \Downarrow\\
+  x = \frac{9}{9}\\
+  \Downarrow\\
+  x = 1\\
+</script>
 
 
-</article>
+<p>で、さっき <script type="math/tex"> 0.9999\ldots </script> を <script type="math/tex"> x </script> にしたので戻すと</p>
 
+<script type="math/tex; mode=display">
+  0.9999\ldots = 1\\
+</script>
 
 
-<article>
-  
-<h1><a href="/blog/2013/05/01/presentation-in-railsconf-2013/">RailsConf 2013 で LT してきました！！</a></h1>
-<time datetime="2013-05-01T19:19:00+09:00" pubdate><span class='month'>May</span> <span class='day'>01</span> <span class='year'>2013</span></time>
+<p>出来た！！！</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<p>すごいね！！</p>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の active_if で none を使えるようにしました</a></h1>
-<time datetime="2013-04-22T23:21:00+09:00" pubdate><span class='month'>Apr</span> <span class='day'>22</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/02/17/devsum-2013/">デブサミ 2013 で自分戦略について発表して来ました</a></h1>
-<time datetime="2013-02-17T20:22:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>17</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/02/10/sql-antipatterns/">「SQL アンチパターン」は色んな戦争の火種になりそう</a></h1>
-<time datetime="2013-02-10T22:29:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>10</span> <span class='year'>2013</span></time>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a></h1>
-<time datetime="2013-02-03T22:09:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>03</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/factorygirl/'>factorygirl</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/31/file-update-emacs/">Git で branch 切り替えた時とかに emacs で開いてるファイルの buffer を更新</a></h1>
-<time datetime="2013-01-31T16:14:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>31</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/emacs/'>emacs</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/30/use-pluck-uniq/">ActiveRecord::Relation#pluck 使うときは Array が返ってくるの忘れちゃいけない</a></h1>
-<time datetime="2013-01-30T20:38:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>30</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/pr-review/'>pr-review</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/01/30/dot-emacs-renewal/">.emacs を一年に一回消してる</a></h1>
-<time datetime="2013-01-30T19:10:00+09:00" pubdate><span class='month'>Jan</span> <span class='day'>30</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/emacs/'>emacs</a></span>
-</footer>
-
-
-</article>
-
-
-
-  
-  <h2>2012</h2>
-
-<article>
-  
-<h1><a href="/blog/2012/08/14/rails-start/">rails プロジェクトをはじめる手順</a></h1>
-<time datetime="2012-08-14T15:25:00+09:00" pubdate><span class='month'>Aug</span> <span class='day'>14</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/13/octopress-index-dot-html/">Octopress の トップページを markdown で書く</a></h1>
-<time datetime="2012-07-13T17:35:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>13</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/13/new-page/">Octopress でブログページではなく新しいページを作る方法</a></h1>
-<time datetime="2012-07-13T14:27:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>13</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a></h1>
-<time datetime="2012-07-12T16:55:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>12</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/11/init/">Octopress 始めました</a></h1>
-<time datetime="2012-07-11T19:41:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>11</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
-
-
-</article>
-
+<p>あと、<code>MathJax</code> というか <code>LaTeX</code> 難しい＞＜</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-11T21:29:00+09:00" pubdate data-updated="true">Oct 11<span>th</span>, 2013</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/10/langbook/" title="Previous Post: 「コーディングを支える技術」読み終わってました">&laquo; 「コーディングを支える技術」読み終わってました</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -395,7 +303,10 @@ May 01 2013 posted &hellip;">
       var disqus_shortname = 'yoshiorigithubblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

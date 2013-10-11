@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2013-08-10T03:41:43+09:00</updated>
+  <updated>2013-10-11T22:09:53+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[小学生でもわかる計算だけで 0.9999…… が 1 な事を説明]]></title>
+    <link href="http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1/"/>
+    <updated>2013-10-11T21:29:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2013/10/11/0-dot-999999-equals-1</id>
+    <content type="html"><![CDATA[<p>最近、学のない僕は定期的に会社で <a href="https://twitter.com/mrkn">@mrkn</a> と <a href="https://twitter.com/conceal_rs/">@conceal_rs</a> に数学を教わっています。</p>
+
+<p>今日も教わっていたんだけどそこで、小学生で習ったことくらいしか使わないで <script type="math/tex"> 0.9999\ldots </script> が <script type="math/tex"> 1 </script> なことを証明できちゃったことに感動した。</p>
+
+<h2>ということで説明</h2>
+
+<p>最初の第一歩で小数点の循環して続いているところだけとりだす</p>
+
+<script type="math/tex; mode=display">
+  0.9999\ldots - 0.0999\ldots = 0.9
+</script>
+
+
+<p>で、次に <script type="math/tex"> 0.9999\ldots </script> を <script type="math/tex"> x </script>  に置き換えると</p>
+
+<script type="math/tex; mode=display">
+  x - x \div 10 = 0.9\\
+  \Downarrow\\
+  x - \frac{x}{10} = 0.9\\
+  \Downarrow\\
+  10x - x = 9\\
+  \Downarrow\\
+  9x = 9\\
+  \Downarrow\\
+  x = \frac{9}{9}\\
+  \Downarrow\\
+  x = 1\\
+</script>
+
+
+<p>で、さっき <script type="math/tex"> 0.9999\ldots </script> を <script type="math/tex"> x </script> にしたので戻すと</p>
+
+<script type="math/tex; mode=display">
+  0.9999\ldots = 1\\
+</script>
+
+
+<p>出来た！！！</p>
+
+<p>すごいね！！</p>
+
+<p>あと、<code>MathJax</code> というか <code>LaTeX</code> 難しい＞＜</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[「コーディングを支える技術」読み終わってました]]></title>
