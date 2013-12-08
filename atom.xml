@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2013-10-11T22:09:53+09:00</updated>
+  <updated>2013-12-08T23:54:41+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,202 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[BabyFace という gem を作りました]]></title>
+    <link href="http://yoshiori.github.io/blog/2013/12/09/babyface-gem/"/>
+    <updated>2013-12-09T00:00:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2013/12/09/babyface-gem</id>
+    <content type="html"><![CDATA[<p>「<a href="http://ja.wikipedia.org/wiki/%E5%8D%98%E7%B4%94%E3%83%99%E3%82%A4%E3%82%BA%E5%88%86%E9%A1%9E%E5%99%A8">単純ベイズ分類器</a>」を簡単に組み込める gem を作ってみました！！</p>
+
+<h1>BabyFace</h1>
+
+<p><a href="https://github.com/yoshiori/baby_face">https://github.com/yoshiori/baby_face</a></p>
+
+<h2>簡単な使い方</h2>
+
+<p>判定したいクラスで BabyFace を include してちょっと設定書くだけです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Entry</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:ham</span><span class="p">,</span> <span class="ss">:spam</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな形で指定します</p>
+
+<ul>
+<li>features
+
+<ul>
+<li>学習対象にする値</li>
+</ul>
+</li>
+<li>categories
+
+<ul>
+<li>カテゴリ分け</li>
+</ul>
+</li>
+</ul>
+
+
+<p>が最小の設定になります。
+これだけで、<code>Entry</code> のインスタンスに <code>baby_face</code> というのが生えます。
+で、<code>categories</code> を元に学習用と判定用のメソッドが生えます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">entry1</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">train_ham</span> <span class="c1"># ham を学習</span>
+</span><span class='line'><span class="n">entry2</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">train_spam</span> <span class="c1"># spam を学習</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">entry3</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">ham?</span> <span class="c1"># ham かどうか判定</span>
+</span><span class='line'><span class="n">entry3</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">spam?</span> <span class="c1"># spam かどうか判定</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じで特に難しいこと考えないで使えます。</p>
+
+<h2>もうちょっとカスタマイズ</h2>
+
+<h3>学習データの保存</h3>
+
+<p>学習データはそのままだとメモリ上にあり保存されないので保存できるようにしてあります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">BabyFace</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/tmp/baby_face&quot;</span>
+</span><span class='line'><span class="n">entry</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">save</span> <span class="c1"># =&gt; /tmp/baby_face/entry.babyface</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>文字列の分解方法</h3>
+
+<p>デフォルトでは <code>String#split</code> していますが、カスタマイズできます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;mecab&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;baby_face&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">wakachi</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@wakachi</span> <span class="o">||=</span> <span class="ss">MeCab</span><span class="p">:</span><span class="ss">:Tagger</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;-O wakati&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@wakachi</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Entry</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:light_side</span><span class="p">,</span> <span class="ss">:dark_side</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">tokenizer</span><span class="p">:</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span> <span class="n">wakachi</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいな感じで渡せます。
+MeCab とか使って日本語を分かち書きする処理などを渡したり出来ます。</p>
+
+<h3>ネストしたオブジェクト</h3>
+
+<p>ActiveRecord の関連みたいなのも学習対象にすることが出来ます。
+関連先でも <code>include</code> して <code>features</code> だけ書いていたらそれも使われます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:comments</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:comments</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:ham</span><span class="p">,</span> <span class="ss">:spam</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:message</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>学習データ詳細</h3>
+
+<p>BabyFace はフィールドごとに単語を別扱いしています。
+なので、上記の例で言えば <code>title</code> に入っている「殺す」と <code>body</code> に入っている「殺す」は別扱いしています。</p>
+
+<h1>まとめ</h1>
+
+<p>機械学習とかその辺のことは全然分かってないのですが、覚えるためにとりあえず自分で触ってみました。
+さくっと組み込めるので投稿系のサービス作ってみるときとかに気軽に導入したり出来ると思います。
+あと、自分のブログとはてブ数とか学習させて今から投稿する記事がはてブ稼げるかどうかとか見てみるのも楽しいかも。</p>
+
+<p>まだ作ったばかりで色々足りないと思いますが、使ってみてください＞＜</p>
+
+<p><a href="https://rubygems.org/gems/baby_face">https://rubygems.org/gems/baby_face</a></p>
+
+<h1>そして名前の由来</h1>
+
+<p>突然だけどスタンド使いとプログラマは似ていると思う。
+自分から生み出したものが動作し世の中に影響を与える……
+スタンドとはプログラムのことかもしれない。
+そしてそんなプログラムを書ける人間はスタンド使いなのかもしれない。</p>
+
+<p>だからプログラマ同士は惹かれ合うのかもしれない……</p>
+
+<p>僕の大好きな第五部に「ベイビィ・フェイス」というちょっと変わったスタンドが出てきます。</p>
+
+<blockquote><p>追跡するターゲットの遺伝子情報をノートパソコン型のスタンドへ入力、それを母体となる女性に受胎させることで、遠隔パワー型のスタンドを生み出す能力。</p></blockquote>
+
+<p>という能力。</p>
+
+<p>さらに作品中ではドンドン色々なことを学習させていくという感じです。</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/c2c5476da60f6af5321c1258c118c031c0b210a8/687474703a2f2f6661726d332e737461746963666c69636b722e636f6d2f323833352f31313137323639363539335f326539386439383164305f6f2e6a7067" alt="" /></p>
+
+<p>コレって完全に教師あり学習だなぁと思ってたので今回の gem にこの名前をつけました。</p>
+
+<p>実は人生初の ruby-gem です。</p>
+
+<p>そして調べてたら「<a href="http://dic.nicovideo.jp/a/%E3%83%87%E3%82%A3%E3%83%BB%E3%83%A2%E3%83%BC%E3%83%AB%E3%83%88">しかし、このディ・モールトの使い方はイタリア語としてはディ・モールト間違っている。</a>」とかでてきてちょっとショックでしたが僕は元気です。</p>
+
+<p>と、いうわけで実は「<a href="http://www.adventar.org/calendars/122">ジョジョの奇妙な冒険 Advent Calendar 2013</a>」の参加エントリでした。</p>
+
+<blockquote><p>やっぱりプログラマなんだからプログラムで語らないとね!!</p></blockquote>
+
+<p>と言うとかっこいいけど、実は普通に便乗して自分の gem の宣伝しただけですねｗｗ</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[小学生でもわかる計算だけで 0.9999…… が 1 な事を説明]]></title>

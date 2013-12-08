@@ -9,10 +9,8 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="とりあえず現状の俺の理解での
-rails プロジェクトをはじめる手順をまとめてみた。 rspec
-guard をデフォで使う感じ プロジェクトの作成 $ rails new rails_start
-$ cd rails_start git init と git-flow init $ git &hellip;">
+  <meta name="description" content="ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。 なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
+やっぱり自分でもなんとかしたいなぁと思って思い切って rm -rm .emacs &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +67,143 @@ $ cd rails_start git init と git-flow init $ git &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/30/dot-emacs-renewal/">.emacs を一年に一回消してる</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-30T19:10:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
+
+<p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
+やっぱり自分でもなんとかしたいなぁと思って思い切って <code>rm -rm .emacs</code> してみたら結構良かったので一年に一回くらいの頻度で消すようにしてる。</p>
+
+<p>大掃除とかじゃなく一から作りなおさないとなんか秘伝のタレ的なの残っちゃうので結構おすすめ。</p>
+
+<p>今回は emacs24 に完全移行って事て anything → helm した。
+ あと、ここ数年は Mac しか使ってないので OS の判定とかもしなくした。</p>
+
+<h3>emacs24 の package-install 便利</h3>
+
+<p>なんかほぼ使いたいものはこれで入れられるし、入れると勝手に require してくれちゃうみたいで、
+メジャーモードとかはインストールしたらそのまま使えた。</p>
+
+<p>リポジトリだけ追加したので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">package-initialize</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>を追加した。</p>
+
+<h3>anythong(helm) 無いと生きていけない</h3>
+
+<p>脳みその容量が全然足りないので、便利そうな elisp 見つけてもショートカットとか覚えられない！！！
+って事ばかりなので anything(helm) が無いと生きていけない。</p>
+
+<p>「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
+そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&width=832"></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm-config</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">helm-mode</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-helm</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">helm</span> <span class="ss">:sources</span> <span class="o">&#39;</span><span class="p">(</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffers-list</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-recentf</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-files-in-current-dir</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-mac-spotlight</span>
+</span><span class='line'>                   <span class="nv">helm-c-source-buffer-not-found</span><span class="p">)</span>
+</span><span class='line'>        <span class="ss">:buffer</span> <span class="s">&quot;*my helm*&quot;</span><span class="p">))</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-x b&quot;</span><span class="p">)</span> <span class="ss">&#39;my-helm</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-x&quot;</span><span class="p">)</span> <span class="ss">&#39;helm-M-x</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-samewindow</span> <span class="no">nil</span><span class="p">)</span>
+</span><span class='line'><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;*helm-M-x*&quot;</span><span class="p">)</span> <span class="nv">popwin:special-display-config</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; emacsの終了時に、履歴を保存する</span>
+</span><span class='line'><span class="p">(</span><span class="nv">remove-hook</span> <span class="ss">&#39;kill-emacs-hook</span> <span class="ss">&#39;helm-c-adaptive-save-history</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; ディレイは0.2秒</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-input-idle-delay</span> <span class="mf">0.02</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">;; 候補のディレクトリが一つしかない場合に、自動的に展開しない</span>
+</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-ff-auto-update-initial-value</span> <span class="no">nil</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>今のところこんな簡単な設定。</p>
+
+<p>まだどうも helm の find-file に慣れないのでどうにかしたいなぁ……</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -407,6 +542,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/12/09/babyface-gem/">BabyFace という Gem を作りました</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/10/11/0-dot-999999-equals-1/">小学生でもわかる計算だけで 0.9999…… が 1 な事を説明</a>
       </li>
     
@@ -420,10 +559,6 @@ categories:
     
       <li class="post">
         <a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の Active_if で None を使えるようにしました</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/02/17/devsum-2013/">デブサミ 2013 で自分戦略について発表して来ました</a>
       </li>
     
   </ul>
