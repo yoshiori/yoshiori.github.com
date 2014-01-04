@@ -9,8 +9,16 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Git で作業してると branch 切り替えたり stash したり色々と emacs の buffer で開いてるファイルが裏で更新されることが増えた。
-で、気づかずにセーブしようとして確認でて上書きすると裏であった変更消しちゃうし開き直すと今書いたの消えちゃうしとか…… &hellip;">
+  <meta name="description" content="FactoryGirl で relation 定義したいんだけど、具体的には 1
+2
+3
+4
+5
+6
+7
+class User &lt; ActiveRecord::Base has_many :tasks
+end
+class Task &lt; ActiveRecord::Base &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +75,155 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の Relation の定義の仕方がよくわからない＞＜</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-03T22:09:00+09:00" pubdate data-updated="true">Feb 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>FactoryGirl で relation 定義したいんだけど、具体的には</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:tasks</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">Task</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">belongs_to</span> <span class="ss">:user</span>
+</span><span class='line'>  <span class="n">validates</span> <span class="ss">:user</span><span class="p">,</span> <span class="ss">:presence</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな 2 つのモデルで</p>
+
+<figure class='code'><figcaption><span>users.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:user</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">tasks</span> <span class="k">do</span>
+</span><span class='line'>      <span class="o">[</span>
+</span><span class='line'>       <span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:task</span><span class="p">)</span> <span class="p">,</span>
+</span><span class='line'>      <span class="o">]</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span>tasks.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">factory</span> <span class="ss">:task</span> <span class="k">do</span>
+</span><span class='line'>    <span class="n">user</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいな定義をしておくと……</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="no">Failure</span><span class="o">/</span><span class="ss">Error</span><span class="p">:</span> <span class="no">Unable</span> <span class="n">to</span> <span class="n">find</span> <span class="n">matching</span> <span class="n">line</span> <span class="n">from</span> <span class="n">backtrace</span>
+</span><span class='line'> <span class="ss">SystemStackError</span><span class="p">:</span>
+</span><span class='line'>     <span class="n">stack</span> <span class="n">level</span> <span class="n">too</span> <span class="n">deep</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>まぁ、メッセージの通り循環参照になっちゃうからダメなのは分かる。</p>
+
+<p>でも、<code>:user</code> の宣言から <code>tasks</code> 外すと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">FactoryGirl</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">tasks</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で何も返ってこないし、逆に <code>:task</code> の方で <code>user</code> 外すと
+今度は <code>presence</code> のバリデーションに引っかかっちゃう</p>
+
+<p>絶対書き方間違えてるせいなんだけど、どうやったらいいのかわからない＞＜
+教えてエロイ人！！！！</p>
+
+<p>追記</p>
+
+<blockquote><p>@yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298061407499468801'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<div><script src='https://gist.github.com/4701800.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p>と教えてもらいました</p>
+
+<blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298062728004788224'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>とのことでしたが僕の手元では <code>trait</code> 使わなくても行けました！！！
+ありがとうございます！！！</p>
+
+<p>他にも</p>
+
+<blockquote><p>@yoshiori こうでどうだろうか http://t.co/Sf1oc9OV</p><footer><strong>@rosylilly</strong> <cite><a href='https://twitter.com/rosylilly/status/298062237988442114'>twitter.com/rosylilly/status/&hellip;</a></cite></footer></blockquote>
+
+
+
+
+<blockquote><p>@yoshiori userの定義に、after :create do … end でtasksを追加するとよさそうー</p><footer><strong>@tomoya55</strong> <cite><a href='https://twitter.com/tomoya55/status/298064513360605184'>twitter.com/tomoya55/status/&hellip;</a></cite></footer></blockquote>
+
+
+<p>といろいろな方が教えてくれました！！！
+ありがとうございます！！！</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -665,6 +822,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/01/04/hatena-id-syntax/">Jekyll/Octopress ではてな ID 記法的なの</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/01/04/rebuild-dot-fm/">Rebuild.fm が一つの答えかもしれない</a>
       </li>
     
@@ -678,10 +839,6 @@ categories:
     
       <li class="post">
         <a href="/blog/2013/10/11/0-dot-999999-equals-1/">小学生でもわかる計算だけで 0.9999…… が 1 な事を説明</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/10/langbook/">「コーディングを支える技術」読み終わってました</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-01-04T16:08:27+09:00</updated>
+  <updated>2014-01-04T16:34:17+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jekyll/Octopress ではてな ID 記法的なの]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/01/04/hatena-id-syntax/"/>
+    <updated>2014-01-04T16:13:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/01/04/hatena-id-syntax</id>
+    <content type="html"><![CDATA[<p>なんとなく調べたらサクッと作れそうだったのと自分で使いたかったので <code>Jekyll/Octopress</code> で<code>はてな ID 記法</code>的なの書けるプラグイン書いた。</p>
+
+<p><a href="https://github.com/yoshiori/jekyll_hatena_id_plugin">https://github.com/yoshiori/jekyll_hatena_id_plugin</a></p>
+
+<h2>使い方</h2>
+
+<p><a href="https://raw.github.com/yoshiori/jekyll_hatena_id_plugin/master/hatena_id.rb">hatena_id.rb</a> を <code>plugins</code> ディレクトリにコピーして、あとは ID リンクしたい場所で
+<code>{% id Yoshiori %}</code> とか書けば行けます。</p>
+
+<p><a href="http://d.hatena.ne.jp/Yoshiori/">id:Yoshiori</a></p>
+
+<p>ついでに <code>detail</code> にも対応しておいたので <code>{% id Yoshiori detail %}</code> と書けば</p>
+
+<p><a href="http://d.hatena.ne.jp/Yoshiori/"><img width="16" alt="id:Yoshiori" src="http://www.hatena.ne.jp/users/Yoshiori/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:Yoshiori</a></p>
+
+<p>とアイコンも表示されます。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rebuild.fm が一つの答えかもしれない]]></title>
