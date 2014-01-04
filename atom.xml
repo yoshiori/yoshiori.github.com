@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-01-04T13:39:51+09:00</updated>
+  <updated>2014-01-04T16:03:34+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,35 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rebuild.fm が一つの答えかもしれない]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/"/>
+    <updated>2014-01-04T13:43:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm</id>
+    <content type="html"><![CDATA[<p>何年か前に<a href="http://d.hatena.ne.jp/nishiohirokazu/"><img width="16" alt="id:nishiohirokazu" src="http://www.hatena.ne.jp/users/nishiohirokazu/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:nishiohirokazu</a>と話している時、<code>Gemfile.lock</code> の仕組みが素晴らしいという話をしました。</p>
+
+<p>で、その内容自体は今回はどうでもよくて、その時に「こういう違う言語の良い仕組みとかってやっぱり他の言語に広まりにくいよね」という話をしていました。（だから Smalltalk にオーパーツが的な話がよくあったり）</p>
+
+<p>なんでだろうって話している時に、例えばコレが友人との雑談でなく LL イベントとかで発表されていたら <code>Gemfile</code> って聞こえた途端に「あ、Ruby の話だな」って思って別の作業しちゃったり、あんまりちゃんと聞かなかったりしちゃうよねと（LL 実行委員会の方々ごめんなさい＞＜）</p>
+
+<p>多分、ブログとかに書かれてても同じように「あ、違う言語の話だな」って思って読み飛ばしたりしちゃうんだろうなぁと。</p>
+
+<p>で、そんなことずーっと忘れてたんだけど、この前 <a href="http://rebuild.fm/">Rebuild.fm</a> 聞いている時にふと「あ、これが一つの答えなのでは？」と思った。</p>
+
+<ul>
+<li>適度な更新間隔で</li>
+<li>信頼しているエンジニアが</li>
+<li>その時に興味ある技術を適当に</li>
+<li>設計思想とかも含めて話す</li>
+</ul>
+
+
+<p>これって本当にエンジニアの雑談に近いなぁと思った。</p>
+
+<p>ということで、最近は通勤中に聞く <a href="http://rebuild.fm/">Rebuild.fm</a> が楽しみです。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[BOOKSCANプレミアム会員の 1/3 の値段で快適生活]]></title>

@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>「SQL アンチパターン」は色んな戦争の火種になりそう - yoshiori.github.io</title>
+  <title>Rebuild.fm が一つの答えかもしれない - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="監訳の一人である @t_wada に献本頂きました。
-ありがとうございます！！！ でだ、いきなりだけどコレ、タイトルで損してると思うんだよね…… だって、SQL のアンチパターンてタイトルだったら、 join した結果の方で where で絞るよりも on 句で先に絞れ &hellip;">
+  <meta name="description" content="何年か前にid:nishiohirokazuと話している時、Gemfile.lock の仕組みが素晴らしいという話をしました。 で、その内容自体は今回はどうでもよくて、その時に「こういう違う言語の良い仕組みとかってやっぱり他の言語に広まりにくいよね」という話をしていました。（だから &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -70,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">「SQL アンチパターン」は色んな戦争の火種になりそう</h1>
+      <h1 class="entry-title">Rebuild.fm が一つの答えかもしれない</h1>
     
     
       <p class="meta">
@@ -86,88 +85,34 @@
   
 
 
-<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
+<time datetime="2014-01-04T13:43:00+09:00" pubdate data-updated="true">Jan 4<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><iframe src="http://rcm-jp.amazon.co.jp/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=yoshiori-22&o=9&p=8&l=as4&m=amazon&f=ifr&ref=ss_til&asins=4873115892" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+<div class="entry-content"><p>何年か前に<a href="http://d.hatena.ne.jp/nishiohirokazu/"><img width="16" alt="id:nishiohirokazu" src="http://www.hatena.ne.jp/users/nishiohirokazu/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:nishiohirokazu</a>と話している時、<code>Gemfile.lock</code> の仕組みが素晴らしいという話をしました。</p>
+
+<p>で、その内容自体は今回はどうでもよくて、その時に「こういう違う言語の良い仕組みとかってやっぱり他の言語に広まりにくいよね」という話をしていました。（だから Smalltalk にオーパーツが的な話がよくあったり）</p>
+
+<p>なんでだろうって話している時に、例えばコレが友人との雑談でなく LL イベントとかで発表されていたら <code>Gemfile</code> って聞こえた途端に「あ、Ruby の話だな」って思って別の作業しちゃったり、あんまりちゃんと聞かなかったりしちゃうよねと（LL 実行委員会の方々ごめんなさい＞＜）</p>
+
+<p>多分、ブログとかに書かれてても同じように「あ、違う言語の話だな」って思って読み飛ばしたりしちゃうんだろうなぁと。</p>
+
+<p>で、そんなことずーっと忘れてたんだけど、この前 <a href="http://rebuild.fm/">Rebuild.fm</a> 聞いている時にふと「あ、これが一つの答えなのでは？」と思った。</p>
+
+<ul>
+<li>適度な更新間隔で</li>
+<li>信頼しているエンジニアが</li>
+<li>その時に興味ある技術を適当に</li>
+<li>設計思想とかも含めて話す</li>
+</ul>
 
 
-<p>監訳の一人である @t_wada に献本頂きました。
-ありがとうございます！！！</p>
+<p>これって本当にエンジニアの雑談に近いなぁと思った。</p>
 
-<p>でだ、いきなりだけどコレ、タイトルで損してると思うんだよね……</p>
-
-<p>だって、<code>SQL</code> のアンチパターンてタイトルだったら、</p>
-
-<blockquote><p><code>join</code> した結果の方で <code>where</code> で絞るよりも <code>on</code> 句で先に絞れ</p></blockquote>
-
-<p>的なのが書いてあると思うじゃん！！
-問い合わせ言語の事だと思うじゃん！！！</p>
-
-<p><strong>違った……</strong></p>
-
-<p>ほとんど書いてあるのは DB 設計についてだった……
-まぁ、副題は「Avoiding the Pitfalls of Database Programming」のだし、まぁいいか。</p>
-
-<h1>んで、読んでみた感想とか</h1>
-
-<p>もうね、何年か DB 絡んだ開発したことのある人なら（・∀・）ﾆﾔﾆﾔ出来ると思う。</p>
-
-<blockquote><p>「&#8221;マルチカラムアトリビュート&#8221;とか 10 年前に通ったわー」</p></blockquote>
-
-<p>とか</p>
-
-<blockquote><p>「あーはいはい&#8221;インデックスショットガン&#8221;乙」</p></blockquote>
-
-<p>みたいな。</p>
-
-<blockquote><p>Explain の結果も見ないでインデックス貼りまくる奴いるよねーーー</p></blockquote>
-
-<p>とか、ドンドン盛り上がれそう。</p>
-
-<p>実際俺も&#8221;EAV（エンティティ・アトリビュート・バリュー）&#8221; はホントつい最近もやろうと思った。
-(結局複雑になりすぎるからやめたけど)</p>
-
-<h2>個人的に反対なアンチパターン</h2>
-
-<h3>ファントムファイル</h3>
-
-<p>ファントムファイルの解決策については実際に 2 度やったことがある。
-データの規模も、ユーザーの想定数もぜんぜん違う 2 つのアプリで……
-でもそのファイルへのアクセス方法とか逆に複雑になるだけで何も得しなかった。
-よく考えればファイルシステムそのものがファイルを扱うことに特化した KVS 的なものなんだからそっち使ったほうが良いというのが俺のプラクティスだなぁ</p>
-
-<h2>反対では無いけどあんまり賛同しないアンチパターン</h2>
-
-<h3>キーレスエントリ</h3>
-
-<p>外部キー制約で、</p>
-
-<blockquote><p>オーバーヘッド、……にはなりません</p></blockquote>
-
-<p>って書いてあるんだけど、いやなるでしょ……
-どの程度の更新頻度を見ているのかわからないけど、ソーシャルゲーム系とか外部キー制約とか貼ってたら無理な気がするんだけどどうなんだろう？</p>
-
-<p>ここは本当にこの文章を鵜呑みにしないで、設計時にちゃんと想定ユーザー数で負荷テストやらないと怖いことになりそう……</p>
-
-<h1>で、この本の本当に凄いところはパターンに名前を付けたこと</h1>
-
-<p>さて、ここまで読んでもらえばわかると思うんだけど、この本の本当に凄いところは <strong>パターンに名前を付けたこと</strong> だと思う。</p>
-
-<p>俺が書いたみたいに例えば「ファントムファイルは俺は反対だな」的な事が簡潔に言えるようなことになったのは本当に素晴らしいと思う。
-今までだったら「ファイルをさ、DB にデータとしていれるパターンあるじゃん！！いや、パスじゃなくてデータ自体をだよ！！ ほら、入れておくとカラムのデータとの整合性を保つのが楽だとか……
-」とかそんな説明をしてからじゃあ無いと議論が始められなかったのがサクッと始められるようになった。</p>
-
-<p>というわけで、タイトルに書いたとおり戦争の火種になってくれそうな本だなぁと。
-逆に今までは何度か DB 設計したことないとこういう議論が出来なかったのが本にまとまってくれたのでこれで誰でも議論に参加できるね！！！</p>
-
-<h3>p.s.</h3>
-
-<p>付録の 第 4 正規形とかの例が凄く良かったです！！（個人的に不得手な所だったので）</p>
+<p>ということで、最近は通勤中に聞く <a href="http://rebuild.fm/">Rebuild.fm</a> が楽しみです。</p>
 </div>
 
 
@@ -190,7 +135,7 @@
   
 
 
-<time datetime="2013-02-10T22:29:00+09:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
+<time datetime="2014-01-04T13:43:00+09:00" pubdate data-updated="true">Jan 4<span>th</span>, 2014</time>
       
 
 
@@ -199,7 +144,7 @@
       <div class="sharing">
   <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -212,10 +157,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/02/03/factory-girl-relation/" title="Previous Post: 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜">&laquo; 【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a>
+        <a class="basic-alignment left" href="/blog/2014/01/02/bookscan/" title="Previous Post: BOOKSCANプレミアム会員の 1/3 の値段で快適生活">&laquo; BOOKSCANプレミアム会員の 1/3 の値段で快適生活</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/02/17/devsum-2013/" title="Next Post: デブサミ 2013 で自分戦略について発表して来ました">デブサミ 2013 で自分戦略について発表して来ました &raquo;</a>
       
     </p>
   </footer>
@@ -341,8 +284,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/';
-        var disqus_url = 'http://yoshiori.github.io/blog/2013/02/10/sql-antipatterns/';
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm/';
         var disqus_script = 'embed.js';
       
     (function () {
