@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-01-04T16:03:34+09:00</updated>
+  <updated>2014-01-04T16:05:24+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -20,7 +20,7 @@
     <id>http://yoshiori.github.io/blog/2014/01/04/rebuild-dot-fm</id>
     <content type="html"><![CDATA[<p>何年か前に<a href="http://d.hatena.ne.jp/nishiohirokazu/"><img width="16" alt="id:nishiohirokazu" src="http://www.hatena.ne.jp/users/nishiohirokazu/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:nishiohirokazu</a>と話している時、<code>Gemfile.lock</code> の仕組みが素晴らしいという話をしました。</p>
 
-<p>で、その内容自体は今回はどうでもよくて、その時に「こういう違う言語の良い仕組みとかってやっぱり他の言語に広まりにくいよね」という話をしていました。（だから Smalltalk にオーパーツが的な話がよくあったり）</p>
+<p>で、その内容自体は今回はどうでもよくて、その時に「こういう違う言語の良い仕組みとかってやっぱり他の言語に広まりにくいよね」という話をしていました。（だから 「Smalltalk にオーパーツが！！」的な話がよくあったり）</p>
 
 <p>なんでだろうって話している時に、例えばコレが友人との雑談でなく LL イベントとかで発表されていたら <code>Gemfile</code> って聞こえた途端に「あ、Ruby の話だな」って思って別の作業しちゃったり、あんまりちゃんと聞かなかったりしちゃうよねと（LL 実行委員会の方々ごめんなさい＞＜）</p>
 
