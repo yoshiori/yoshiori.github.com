@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>test2 - yoshiori.github.io</title>
+  <title>アクセルを踏むためのテストとブレーキを踏むためのテスト - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Test2 Jul 13th, 2012 テストですよリローテッド Jul 13th, 2012 Tweet Comments Please enable JavaScript to view the comments powered by Disqus. Recent Posts &hellip;">
+  <meta name="description" content="Rebuild.fm#29 聴いてて少し語りたくなってるので書いてみる。 テスト考2014 &ndash; Hidden in Plain Sight から発してると認識してるんだけど新年早々テストについて盛り上がってますね！ で、個人的な意見を書くまえに、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.io/test/test.html">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -65,32 +65,15 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Test2</h1>
-    <p class="meta">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-13T12:04:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time></p>
-  </header>
-  
-  <h1>テストですよリローテッド</h1>
-
-  
-    <footer>
+    
+      <h1 class="entry-title">アクセルを踏むためのテストとブレーキを踏むためのテスト</h1>
+    
+    
       <p class="meta">
         
-        
 
 
 
@@ -102,14 +85,82 @@
   
 
 
-<time datetime="2012-07-13T12:04:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2014-01-14T23:12:00+09:00" pubdate data-updated="true">Jan 14<span>th</span>, 2014</time>
         
       </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="http://rebuild.fm/29/">Rebuild.fm#29</a> 聴いてて少し語りたくなってるので書いてみる。</p>
+
+<p><a href="http://kenn.hatenablog.com/entry/2014/01/03/095026">テスト考2014 &ndash; Hidden in Plain Sight</a> から発してると認識してるんだけど新年早々テストについて盛り上がってますね！</p>
+
+<p>で、個人的な意見を書くまえに、俺はテストどころかコンピュータサイエンスも学んだ事ない人間ですので色々見当違いな事言ってるかもしれないけど、エンジニアのスタートが組み込み系の QA エンジニアなので現場感覚はそれなりにあるつもりです。</p>
+
+<p>で、早速なんだけど上記ブログから引用させてもらうと</p>
+
+<blockquote><p>まぁ、なんにせよ、現在のウェブアプリ開発におけるテストなんて一歩間違えれば「ままごと」みたいなレベルだから、そんなに原理主義的になるのはダサいよねって話です。</p></blockquote>
+
+<p><a href="http://d.hatena.ne.jp/kennejima/"><img width="16" alt="id:kennejima" src="http://www.hatena.ne.jp/users/kennejima/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:kennejima</a> に百パー同意で、ぶっちゃけちゃんと QA やった人間からすると境界値テストすらしてないしホワイトボックステストだらけなテストで品質管理とか何言ってんの状態。</p>
+
+<p>で、じゃあテストってどうなのよって話になると思うので、俺が気をつけてることとか考えていることを書いていく。</p>
+
+<p>俺は TDD が結構好きなので、基本はテスト書いてからコードを書く。
+でも、これは品質管理のために書いてるんじゃ無くて実際にサーバ立ち上げて何回かクリックしたりして目で確認するのがめんどくさいとか、コンソールに表示された長い文字が正しいかどうか判断するのがめんどくさいから緑か赤で判別してるだけって感じ。</p>
+
+<p><a href="http://d.hatena.ne.jp/t-wada/"><img width="16" alt="id:t-wada" src="http://www.hatena.ne.jp/users/t-wada/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:t-wada</a> がよく言っているデベロップメントテストってやつ（だと思う）</p>
+
+<p>んで、ここから話がややこしくなってる原因だと思うんだけど、こういう開発を進めるためのテストで品質管理をしようとしはじめるんだよね。
+で、それは別にそんなに悪い事じゃないんだけど本質的には違うものだと意識しておかないといけない。
+意識しないで書くとデベロップメントテストで品質保証しようとして無駄に多いテスト書いて「テストが負債になってコード書きにくい」とか上記のブログにも書かれてる「地獄への道は善意で舗装されている」的な馬鹿なことが発生する。</p>
+
+<p>でもこれ、考えるとすっげー当たり前の事なんだよね。
+だって、 <strong>デベロップメントテストは開発者がアクセルを踏むためのテストで、品質管理のテストは開発者に適切にブレーキを踏ませるためのテスト</strong> なんだから。本質的には逆を向いてるんだよね。</p>
+
+<p>それを意識しないから「とりあえずテスト書いておけば人に指摘されなくて済む的なチンケなプライド」とか、「昔テスト書かなかった自分への贖罪」とか、「チャンとテスト書いてる俺カッケー」とかのドロドロしたものが混じって負債に近いテストしか書かなくなっちゃうんじゃないかな。</p>
+
+<p>でも、デベロップメントテストってその性質上、実装ベッタリになっちゃう事が多いと思うんだよね。だって開発を進めるために書いてるんだからなるべく小さくサイクルを回したいしそれはしょうがないと思うし、別に悪いことじゃ無いと思うんだよ。</p>
+
+<p>ただ、それ、もしくはそれだけを品質管理の為のテストにしちゃうのがややこしくなってるんだよね。
+でも、ぶっちゃけ Web 開発に置いては有る程度許容しちゃっていいと思うんだよ。それこそ組み込み系のような一度製品出しちゃったら回収騒ぎで数億円が一気にぶっとぶとかじゃない場合がほとんどだから（そういうのと比べれば）最低限に見える保証で出しちゃってエラーが出たら直せばいい。
+同じ理屈で、課金系とか認証系の部分は開発者に適切にブレーキを踏ませるべきなのでテストを充実させておかなきゃいけない。</p>
+
+<p>なので、それ以外の本当に大事なところ以外はデベロップメントテストを流用してある程度品質を担保しつつ、短いサイクルでリリースを繰り返して大きな障害を出さないようにするのがいいんじゃないかな？</p>
+
+<p>で、テストを書くときは、 <strong>アクセルを踏むためのデベロップメントテスト</strong> なのか <strong>適切にブレーキを踏むための品質保証のためのテスト</strong> なのかを意識するだけでだいぶ違うんじゃないかな。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
       
-        <div class="sharing">
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-14T23:12:00+09:00" pubdate data-updated="true">Jan 14<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
   <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/test/test.html" data-via="yoshiori" data-counturl="http://yoshiori.github.io/test/test.html" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -119,9 +170,14 @@
   
 </div>
 
+    
+    <p class="meta">
       
-    </footer>
-  
+        <a class="basic-alignment left" href="/blog/2014/01/04/hatena-id-syntax/" title="Previous Post: Jekyll/Octopress ではてな ID 記法的なの">&laquo; Jekyll/Octopress ではてな ID 記法的なの</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
   <section>
@@ -244,8 +300,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.io/test/test.html';
-        var disqus_url = 'http://yoshiori.github.io/test/test.html';
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/';
         var disqus_script = 'embed.js';
       
     (function () {

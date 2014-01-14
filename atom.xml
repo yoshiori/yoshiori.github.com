@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-01-04T16:34:17+09:00</updated>
+  <updated>2014-01-14T23:40:19+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[アクセルを踏むためのテストとブレーキを踏むためのテスト]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go/"/>
+    <updated>2014-01-14T23:12:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/01/14/drive-a-go-go</id>
+    <content type="html"><![CDATA[<p><a href="http://rebuild.fm/29/">Rebuild.fm#29</a> 聴いてて少し語りたくなってるので書いてみる。</p>
+
+<p><a href="http://kenn.hatenablog.com/entry/2014/01/03/095026">テスト考2014 &ndash; Hidden in Plain Sight</a> から発してると認識してるんだけど新年早々テストについて盛り上がってますね！</p>
+
+<p>で、個人的な意見を書くまえに、俺はテストどころかコンピュータサイエンスも学んだ事ない人間ですので色々見当違いな事言ってるかもしれないけど、エンジニアのスタートが組み込み系の QA エンジニアなので現場感覚はそれなりにあるつもりです。</p>
+
+<p>で、早速なんだけど上記ブログから引用させてもらうと</p>
+
+<blockquote><p>まぁ、なんにせよ、現在のウェブアプリ開発におけるテストなんて一歩間違えれば「ままごと」みたいなレベルだから、そんなに原理主義的になるのはダサいよねって話です。</p></blockquote>
+
+<p><a href="http://d.hatena.ne.jp/kennejima/"><img width="16" alt="id:kennejima" src="http://www.hatena.ne.jp/users/kennejima/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:kennejima</a> に百パー同意で、ぶっちゃけちゃんと QA やった人間からすると境界値テストすらしてないしホワイトボックステストだらけなテストで品質管理とか何言ってんの状態。</p>
+
+<p>で、じゃあテストってどうなのよって話になると思うので、俺が気をつけてることとか考えていることを書いていく。</p>
+
+<p>俺は TDD が結構好きなので、基本はテスト書いてからコードを書く。
+でも、これは品質管理のために書いてるんじゃ無くて実際にサーバ立ち上げて何回かクリックしたりして目で確認するのがめんどくさいとか、コンソールに表示された長い文字が正しいかどうか判断するのがめんどくさいから緑か赤で判別してるだけって感じ。</p>
+
+<p><a href="http://d.hatena.ne.jp/t-wada/"><img width="16" alt="id:t-wada" src="http://www.hatena.ne.jp/users/t-wada/profile_s.gif" height="16" style="border: none; vertical-align: middle;margin-right: 4px; margin-left: 2px; margin-bottom: 2px;" />id:t-wada</a> がよく言っているデベロップメントテストってやつ（だと思う）</p>
+
+<p>んで、ここから話がややこしくなってる原因だと思うんだけど、こういう開発を進めるためのテストで品質管理をしようとしはじめるんだよね。
+で、それは別にそんなに悪い事じゃないんだけど本質的には違うものだと意識しておかないといけない。
+意識しないで書くとデベロップメントテストで品質保証しようとして無駄に多いテスト書いて「テストが負債になってコード書きにくい」とか上記のブログにも書かれてる「地獄への道は善意で舗装されている」的な馬鹿なことが発生する。</p>
+
+<p>でもこれ、考えるとすっげー当たり前の事なんだよね。
+だって、 <strong>デベロップメントテストは開発者がアクセルを踏むためのテストで、品質管理のテストは開発者に適切にブレーキを踏ませるためのテスト</strong> なんだから。本質的には逆を向いてるんだよね。</p>
+
+<p>それを意識しないから「とりあえずテスト書いておけば人に指摘されなくて済む的なチンケなプライド」とか、「昔テスト書かなかった自分への贖罪」とか、「チャンとテスト書いてる俺カッケー」とかのドロドロしたものが混じって負債に近いテストしか書かなくなっちゃうんじゃないかな。</p>
+
+<p>でも、デベロップメントテストってその性質上、実装ベッタリになっちゃう事が多いと思うんだよね。だって開発を進めるために書いてるんだからなるべく小さくサイクルを回したいしそれはしょうがないと思うし、別に悪いことじゃ無いと思うんだよ。</p>
+
+<p>ただ、それ、もしくはそれだけを品質管理の為のテストにしちゃうのがややこしくなってるんだよね。
+でも、ぶっちゃけ Web 開発に置いては有る程度許容しちゃっていいと思うんだよ。それこそ組み込み系のような一度製品出しちゃったら回収騒ぎで数億円が一気にぶっとぶとかじゃない場合がほとんどだから（そういうのと比べれば）最低限に見える保証で出しちゃってエラーが出たら直せばいい。
+同じ理屈で、課金系とか認証系の部分は開発者に適切にブレーキを踏ませるべきなのでテストを充実させておかなきゃいけない。</p>
+
+<p>なので、それ以外の本当に大事なところ以外はデベロップメントテストを流用してある程度品質を担保しつつ、短いサイクルでリリースを繰り返して大きな障害を出さないようにするのがいいんじゃないかな？</p>
+
+<p>で、テストを書くときは、 <strong>アクセルを踏むためのデベロップメントテスト</strong> なのか <strong>適切にブレーキを踏むための品質保証のためのテスト</strong> なのかを意識するだけでだいぶ違うんじゃないかな。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Jekyll/Octopress ではてな ID 記法的なの]]></title>
