@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-01-14T23:40:19+09:00</updated>
+  <updated>2014-02-13T20:55:10+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[「何故クックパッドのサービス開発は日々進化しているのか」という発表をしました。]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/02/13/how-we-cook-cookpad-dot-com/"/>
+    <updated>2014-02-13T20:48:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/02/13/how-we-cook-cookpad-dot-com</id>
+    <content type="html"><![CDATA[<p>デブサミで「<a href="http://event.shoeisha.jp/devsumi/20140213/session/377/">何故クックパッドのサービス開発は日々進化しているのか</a>」というタイトルで発表させていただきました。</p>
+
+<p>資料はこちら</p>
+
+<script async class="speakerdeck-embed" data-id="8cc658a076ac013148646268bd6e389b" data-ratio="1.33333333333333" src="http://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>発表している時の僕のユーザーさんは聞いてくれている人とこの資料を見てくれている人なので少しでも楽しんでいただけたら嬉しいなと思います。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[アクセルを踏むためのテストとブレーキを踏むためのテスト]]></title>
@@ -1268,15 +1284,6 @@ categories:
 <p>で、サイドバーに表示されます。</p>
 
 <p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress 始めました]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/11/init/"/>
-    <updated>2012-07-11T19:41:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/11/init</id>
-    <content type="html"><![CDATA[<p>便利でいいね！！</p>
 ]]></content>
   </entry>
   
