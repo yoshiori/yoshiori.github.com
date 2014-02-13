@@ -14,3 +14,8 @@ categories:
 
 発表している時の僕のユーザーさんは聞いてくれている人とこの資料を見てくれている人なので少しでも楽しんでいただけたら嬉しいなと思います。
 
+発表資料の中で色々な資料にリンク貼っていますが、[発表資料 | クックパッド開発者ブログ](http://techlife.cookpad.com/presentations/)に全てまとまっています。
+
+
+今回の僕の資料もあとで上がると思います。
+[というか、これも Github で管理されてたりしますｗ](https://github.com/cookpad/presentations/pull/2)
