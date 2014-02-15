@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-02-13T21:21:37+09:00</updated>
+  <updated>2014-02-15T23:55:43+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,54 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[友人の山城が死んだ]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/02/15/my-friend/"/>
+    <updated>2014-02-15T21:46:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/02/15/my-friend</id>
+    <content type="html"><![CDATA[<p>山城が死んだ。</p>
+
+<p>妹さんに</p>
+
+<blockquote><p>アイツが生きていた事、残しておきたいからみんなでブログとか書いていいですか？</p></blockquote>
+
+<p>って聞いたら</p>
+
+<blockquote><p>兄もそのほうが絶対喜ぶと思いますので是非</p></blockquote>
+
+<p>と言ってもらえたので書き残そうと思う。</p>
+
+<p>「人は死ぬ」ってすっごい当たり前のことなんだけどもいざ降りかかってみると全然良くわからない。
+事実として受け入れられないとか実感わかないとかじゃなくて、本当に「よくわからない」というのが正直な感想だ。</p>
+
+<p>なので<a href="http://yamashi.ro/">みんなで壮大に悪ふざけしてきた</a>。
+「不謹慎だ」とかいう人も居るかもしれないけど、ごめん、俺らにはこうすることしか出来なかった。</p>
+
+<iframe width="560" height="315" src="http://yoshiori.github.io//www.youtube.com/embed/aX4c1-lS018" frameborder="0" allowfullscreen></iframe>
+
+
+<p>盛大に花火も打ち上げた。
+Twitter とかで全然知らない人が「なんか花火上がってる」とか言ってて楽しかった。
+その花火は僕らが友人を送るために上げました。</p>
+
+<p>綺麗でしょ？</p>
+
+<p>LT で思いを吐き出してきた。</p>
+
+<script async class="speakerdeck-embed" data-id="37da6c5077de01315a1e1214273280ab" data-ratio="1.33333333333333" src="http://yoshiori.github.io//speakerdeck.com/assets/embed.js"></script>
+
+
+<p>友人を送るためって言ったけど、結局は自分のためにそれぞれやっているんだなと。
+何人かが「今日でやっと何かが落ちた気がする」って言っていて納得した。</p>
+
+<p>僕の中でも今日、完全に山城は死んだ。</p>
+
+<p>ありがとう</p>
+
+<p>ばいばい</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[「何故クックパッドのサービス開発は日々進化しているのか」という発表をしました。]]></title>
@@ -1252,43 +1300,6 @@ categories:
 </code></pre>
 
 <p>みたいな感じで書けば おｋ</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress のサイドバーに Coderwall Badges を表示]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/12/coderwall-badges/"/>
-    <updated>2012-07-12T16:55:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/12/coderwall-badges</id>
-    <content type="html"><![CDATA[<p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
-
-<p><code>source/_includes/asides/coderwall.html</code></p>
-
-<p>に下記ファイルを保存</p>
-
-<div><script src='https://gist.github.com/3096534.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
-<p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">asides/coderwall.html</span><span class="p-Indicator">,</span> <span class="nv">asides/twitter.html</span><span class="p-Indicator">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>同じく <code>_config.yaml</code> の下の方にユーザー名を書いてあげる</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># Coderwall badges</span>
-</span><span class='line'><span class="l-Scalar-Plain">coderwall_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yoshiori</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>で、サイドバーに表示されます。</p>
-
-<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
 ]]></content>
   </entry>
   

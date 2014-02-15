@@ -9,8 +9,7 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="便利でいいね！！
-">
+  <meta name="description" content="Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。 source/_includes/asides/coderwall.html に下記ファイルを保存 _config.yaml の 49 行目くらいの default_asides に &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +72,70 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-12T16:55:00+09:00" pubdate data-updated="true">Jul 12<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
+
+<p><code>source/_includes/asides/coderwall.html</code></p>
+
+<p>に下記ファイルを保存</p>
+
+<div><script src='https://gist.github.com/3096534.js'></script>
+<noscript><pre><code></code></pre></noscript></div>
+
+
+<p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">asides/coderwall.html</span><span class="p-Indicator">,</span> <span class="nv">asides/twitter.html</span><span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>同じく <code>_config.yaml</code> の下の方にユーザー名を書いてあげる</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># Coderwall badges</span>
+</span><span class='line'><span class="l-Scalar-Plain">coderwall_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yoshiori</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で、サイドバーに表示されます。</p>
+
+<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2012/07/11/init/">Octopress 始めました</a></h1>
     
     
@@ -119,6 +182,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/15/my-friend/">友人の山城が死んだ</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/13/how-we-cook-cookpad-dot-com/">「何故クックパッドのサービス開発は日々進化しているのか」という発表をしました。</a>
       </li>
     
@@ -132,10 +199,6 @@
     
       <li class="post">
         <a href="/blog/2014/01/04/rebuild-dot-fm/">Rebuild.fm が一つの答えかもしれない</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/02/bookscan/">BOOKSCANプレミアム会員の 1/3 の値段で快適生活</a>
       </li>
     
   </ul>

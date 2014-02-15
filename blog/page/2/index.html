@@ -9,8 +9,8 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="今年も（！？）ギリギリオファーがありデブサミで発表して来ました。 なんというか高卒 &amp;&amp; 25 歳からプログラマになったという二重苦みたいな環境なので
-大卒の人とかもっと若い頃からプログラム書いてた人は僕よりは楽に進めると思いますが、 &hellip;">
+  <meta name="description" content="Chanko の active_if は今まで all, any 相当の機能しかなかったのですが、none の機能を追加しました。
+（コード的にはいつでも one? 相当の機能も実装できるのですが、必要性を感じなかったので……） Add Support &#39;none&#39; to &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +67,118 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/04/22/add-support-none-to-chankos-active-if/">Chanko の Active_if で None を使えるようにしました</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-04-22T23:21:00+09:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><code>Chanko</code> の <code>active_if</code> は今まで <code>all</code>, <code>any</code> 相当の機能しかなかったのですが、<code>none</code> の機能を追加しました。
+（コード的にはいつでも <code>one?</code> 相当の機能も実装できるのですが、必要性を感じなかったので……）</p>
+
+<p><a href="https://github.com/cookpad/chanko/pull/31">Add Support &#39;none&#39; to active_if by yoshiori · Pull Request #31 · cookpad/chanko</a></p>
+
+<p>これにより例えば特定のデバイスに向けた機能と特定のデバイスを弾きたい機能があった場合に今までは</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:not_device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">!.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と別々に定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:not_device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>それぞれ書いていました。
+（<code>active_if</code> はデフォルトは <code>all</code> になります）</p>
+
+<p>これを <code>none</code> を使うと</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">ActiveIf</span><span class="o">.</span><span class="n">define</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span> <span class="p">{</span> <span class="o">.</span><span class="n">.</span><span class="o">.</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と定義しておいて</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="ss">:device_hoge?</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>と書くことが出来るようになりました。</p>
+
+<p>また、入れ子もサポートしていますので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="ss">:all_staffs?</span><span class="p">,</span> <span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:device_hoge?</span><span class="p">),</span> <span class="n">none</span><span class="p">(</span><span class="ss">:device_bar?</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>のような事も書けます。</p>
+
+<p>ちなみにこの機能を書くときに似た処理である <code>any</code> と <code>none</code> を統合した結果、<code>any</code> も入れ子をサポートするようになったので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">active_if</span> <span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">any</span><span class="p">(</span><span class="n">none</span><span class="p">(</span><span class="ss">:false</span><span class="p">,</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">),</span> <span class="ss">:false</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>というようなモノもサポートするようになりました。</p>
+
+<p>（実際にやるのは推奨しませんがｗｗｗ）</p>
+
+<p>ということで、自分のコードが取り込まれたのが嬉しくて久しぶりにブログを書いてみました。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -896,70 +1008,6 @@ categories:
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-07-12T16:55:00+09:00" pubdate data-updated="true">Jul 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。</p>
-
-<p><code>source/_includes/asides/coderwall.html</code></p>
-
-<p>に下記ファイルを保存</p>
-
-<div><script src='https://gist.github.com/3096534.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
-<p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">asides/github.html</span><span class="p-Indicator">,</span> <span class="nv">asides/coderwall.html</span><span class="p-Indicator">,</span> <span class="nv">asides/twitter.html</span><span class="p-Indicator">]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>同じく <code>_config.yaml</code> の下の方にユーザー名を書いてあげる</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="c1"># Coderwall badges</span>
-</span><span class='line'><span class="l-Scalar-Plain">coderwall_user</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">yoshiori</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>で、サイドバーに表示されます。</p>
-
-<p><img class="post" src="https://img.skitch.com/20120712-btk6k5wjbisfq4wwifsedpmmgm.png"></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -977,6 +1025,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/02/15/my-friend/">友人の山城が死んだ</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/13/how-we-cook-cookpad-dot-com/">「何故クックパッドのサービス開発は日々進化しているのか」という発表をしました。</a>
       </li>
     
@@ -990,10 +1042,6 @@ categories:
     
       <li class="post">
         <a href="/blog/2014/01/04/rebuild-dot-fm/">Rebuild.fm が一つの答えかもしれない</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/02/bookscan/">BOOKSCANプレミアム会員の 1/3 の値段で快適生活</a>
       </li>
     
   </ul>
