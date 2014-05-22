@@ -66,7 +66,6 @@ FactoryGirl.create(:user).tasks
 {% blockquote @naoty_k https://twitter.com/naoty_k/status/298061407499468801 %}
 @yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK
 {% endblockquote %}
-{% gist 4701800 %}
 
 と教えてもらいました
 

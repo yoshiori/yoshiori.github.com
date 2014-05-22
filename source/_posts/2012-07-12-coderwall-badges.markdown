@@ -9,8 +9,31 @@ Octpress のサイドバーに Coderwall の Badge を表示したいなと思�
 
 `source/_includes/asides/coderwall.html`
 
-に下記ファイルを保存
-{% gist 3096534 %}
+に下記を保存
+```html
+{% if site.coderwall_user %}
+<section class="well">
+  <ul class="nav">
+    <li class="nav-header">Coderwall Badges</li>
+  </ul>
+  <div id="coderwall_badges"></div>
+  <a href="http://coderwall.com/{{site.coderwall_user}}">@{{site.coderwall_user}}</a> on coderwall
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $.getJSON("http://coderwall.com/{{site.coderwall_user}}.json?callback=?", function(data){
+        for(var i = 0; i < data.data.badges.length ; i++){
+          var badge = data.data.badges[i];
+          var badge_tag = $("<img />");
+          badge_tag.attr("src",badge.badge);
+          badge_tag.css("width","50%");
+          $("#coderwall_badges").append(badge_tag);
+        }
+      });
+    });
+  </script>
+</section>
+{% endif %}
+```
 
 
 `_config.yaml` の 49 行目くらいの `default_asides` に `asides/coderwall.html` を追加
