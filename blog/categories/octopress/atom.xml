@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-02-15T23:55:43+09:00</updated>
+  <updated>2014-05-22T19:01:02+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -99,10 +99,37 @@ categories:
 
 <p><code>source/_includes/asides/coderwall.html</code></p>
 
-<p>に下記ファイルを保存
-<div><script src='https://gist.github.com/3096534.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p>に下記を保存
+```html
+
+<section class="well">
+  <ul class="nav"></p>
+
+<pre><code>&lt;li class="nav-header"&gt;Coderwall Badges&lt;/li&gt;
+</code></pre>
+
+<p>  </ul>
+  <div id="coderwall_badges"></div>
+  <a href="http://coderwall.com/yoshiori">@yoshiori</a> on coderwall
+  <script type="text/javascript"></p>
+
+<pre><code>$(document).ready(function(){
+  $.getJSON("http://coderwall.com/yoshiori.json?callback=?", function(data){
+    for(var i = 0; i &lt; data.data.badges.length ; i++){
+      var badge = data.data.badges[i];
+      var badge_tag = $("&lt;img /&gt;");
+      badge_tag.attr("src",badge.badge);
+      badge_tag.css("width","50%");
+      $("#coderwall_badges").append(badge_tag);
+    }
+  });
+});
+</code></pre>
+
+<p>  </script>
+</section>
+
+```</p>
 
 <p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加
 <code>yaml

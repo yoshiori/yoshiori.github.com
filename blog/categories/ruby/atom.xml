@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ruby | yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-02-15T23:55:43+09:00</updated>
+  <updated>2014-05-22T19:01:02+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -215,10 +215,7 @@ FactoryGirl.create(:user).tasks
 
 <p>追記</p>
 
-<p><blockquote><p>@yoshiori こんな感じでどうでしょうか <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298061407499468801">https://twitter.com/naoty_k/status/298061407499468801</a></strong></footer></blockquote>
-<div><script src='https://gist.github.com/4701800.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p><blockquote><p>@yoshiori こんな感じでどうでしょうか <a href="https://t.co/ScRDRvLK">https://t.co/ScRDRvLK</a></p><footer><strong>@naoty_k <a href="https://twitter.com/naoty_k/status/298061407499468801">https://twitter.com/naoty_k/status/298061407499468801</a></strong></footer></blockquote></p>
 
 <p>と教えてもらいました</p>
 
@@ -302,21 +299,27 @@ $ cd rails_start
 
 <pre><code>$ git init
 $ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
-$ git commit -m init 
+$ git commit -m init
 $ git flow init
 </code></pre>
 
 <h2>RSpec と guard 使うようにする</h2>
 
 <pre><code>$ git flow feature start add_rspec_guard
-$ emacs Gemfile 
+$ emacs Gemfile
 </code></pre>
 
 <p>で、下記追加</p>
 
-<p><div><script src='https://gist.github.com/3346958.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-</p>
+<p><code>ruby
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'growl', :require =&gt; false # for Mac
+  gem 'libnotify', :require =&gt; false # for *nix
+end
+</code></p>
 
 <pre><code>$ bundle install
 $ git rm -r test/

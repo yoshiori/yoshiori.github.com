@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-02-15T23:55:43+09:00</updated>
+  <updated>2014-05-22T19:01:02+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Pomodoro Timer の Atom Package 作った！]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/"/>
+    <updated>2014-05-22T18:08:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom</id>
+    <content type="html"><![CDATA[<p>なんか某所で急に Pomodoro Technique の話で盛り上がりはじめて</p>
+
+<blockquote><p>タイマー何使ってる！？</p></blockquote>
+
+<p>みたいな話題になってみんな思い思いお気に入りのタイマーを自慢し始めた。
+で、俺はシンプルで気に入ってた <a href="http://www.beatpoints.com/cherrytomato/">CherryTomato</a> をオススメしてたんだけど、
+久しぶりに見たらだいぶバージョンが変わっていたのでバージョンアップしてみた。上書きで。</p>
+
+<p>そしたら動かなくなった…… orz</p>
+
+<blockquote class="twitter-tweet" lang="ja"><p>pomodoro で普段使っているタイマーアプリをアップデートしたら起動しなくなってタスクが始められない悲しみに陥っている</p>&mdash; Yoshiori (@yoshiori) <a href="https://twitter.com/yoshiori/statuses/468673476300005377">2014, 5月 20</a></blockquote>
+
+
+<script async src="http://yoshiori.github.io//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+<p>俺が Pomodoro Timer に求めるのは凄くシンプルで</p>
+
+<ul>
+<li>チクタク音がする。</li>
+<li>途中で Abort 出来る</li>
+</ul>
+
+
+<p>のみで、タスク内容入力できるとかは結局面倒くさくなるのでいらない。
+iPhone のタイマーでもいいかと思ったんだけど、普段は Mac にヘッドフォンつないで音楽聞いて仕事してるので Mac 上で動くタイマーが欲しかった。</p>
+
+<p>というわけでなかなか良いのが見つからないのでカッとなって Atom Package で作った。</p>
+
+<p><a href="https://atom.io/packages/pomodoro">https://atom.io/packages/pomodoro</a></p>
+
+<p>すげーシンプルでコマンドは二個だけ。</p>
+
+<ul>
+<li><code>pomodoro:start</code> &ndash; Start timer</li>
+<li><code>pomodoro:abort</code> &ndash; Abort timer</li>
+</ul>
+
+
+<p>あと、折角なのでタイマーと連動してコマンド実行できるようにしておいた</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/5bd4dd38-3eb4-41c5-a8db-a6fb97f2dbe3/d41b10d4d482748a14c40e0590f9a321/deep/0/Settings----Users-yoshiori-.atom-packages-pomodoro.png" alt="" /></p>
+
+<p>こんな感じで設定画面でそれぞれのタイミングで実行したい処理を設定できる。</p>
+
+<p>例えば……</p>
+
+<ul>
+<li>ポモドーロスタートの時にお気に入りのプレイリストを再生する AppleScript 呼び出したり</li>
+<li>ポモドーロスタート時に「今からポモドーロだから邪魔すんな」って Twitter につぶやいたり</li>
+<li>ポモドーロ終わったら休憩用の音楽かけるとか</li>
+</ul>
+
+
+<p>色々出来る。</p>
+
+<p>とりあえずポモドーロ終わったら強制的に Mac をサスペンドするには</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'>/System/Library/CoreServices/Menu<span class="se">\ </span>Extras/User.menu/Contents/Resources/CGSession -suspend
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな shell script 用意しておいて Permission 755 にしておいて、そのパスを <code>Path to Execute With Timer Finish</code> に書いておけば動きます。</p>
+
+<p>あと、atom package 公開するとこんな感じでお祝いされます
+<img src="https://www.evernote.com/shard/s4/sh/55fa6d81-b664-4f55-87dc-3878286e8bdc/8ef576f35040f1d002e6eecad402f0bc/deep/0/yoshiori@yoshiori-MacBookAir----.atom-packages-pomodoro---zsh.png" alt="" /></p>
+
+<p>ワイワイ</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[友人の山城が死んだ]]></title>
@@ -956,10 +1035,6 @@ MeCab とか使って日本語を分かち書きする処理などを渡した�
 <blockquote><p>@yoshiori こんな感じでどうでしょうか https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298061407499468801'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
 
 
-<div><script src='https://gist.github.com/4701800.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-
 <p>と教えてもらいました</p>
 
 <blockquote><p>@yoshiori すいません、さっきのは循環しそうなので、修正しました。 https://t.co/ScRDRvLK</p><footer><strong>@naoty_k</strong> <cite><a href='https://twitter.com/naoty_k/status/298062728004788224'>twitter.com/naoty_k/status/&hellip;</a></cite></footer></blockquote>
@@ -1188,20 +1263,33 @@ $ cd rails_start
 
 <pre><code>$ git init
 $ git add .gitignore Gemfile Gemfile.lock README.rdoc Rakefile app config config.ru db doc lib log public script test vendor
-$ git commit -m init 
+$ git commit -m init
 $ git flow init
 </code></pre>
 
 <h2>RSpec と guard 使うようにする</h2>
 
 <pre><code>$ git flow feature start add_rspec_guard
-$ emacs Gemfile 
+$ emacs Gemfile
 </code></pre>
 
 <p>で、下記追加</p>
 
-<div><script src='https://gist.github.com/3346958.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:test</span><span class="p">,</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec-rails&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;growl&#39;</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="kp">false</span> <span class="c1"># for Mac</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;libnotify&#39;</span><span class="p">,</span> <span class="ss">:require</span> <span class="o">=&gt;</span> <span class="kp">false</span> <span class="c1"># for *nix</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <pre><code>$ bundle install
@@ -1261,45 +1349,6 @@ footer: false
 
 <p>ついでに標準だと上にあるナビゲーションの <code>blog</code> って項目押すとトップに飛ぶようになっててなんか違うので
 <code>source/_includes/custom/navigation.html</code> を良しなに修正すればおｋ</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress でブログページではなく新しいページを作る方法]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/13/new-page/"/>
-    <updated>2012-07-13T14:27:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/13/new-page</id>
-    <content type="html"><![CDATA[<p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
-
-<pre><code> &gt; rake new_page['test']
-</code></pre>
-
-<p>で、<code>source/</code> の下に</p>
-
-<pre><code>source
-└── test
-    └─index.markdown         
-</code></pre>
-
-<p>って作成される。</p>
-
-<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
-
-<p>一応テストで作ってみた → <a href="http://yoshiori.github.io/test/">■</a></p>
-
-<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
-そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
-
-<pre><code>---
-layout: page
-title: "hoge"
-date: 2012-07-13 14:27
-comments: true
-categories: 
----
-</code></pre>
-
-<p>みたいな感じで書けば おｋ</p>
 ]]></content>
   </entry>
   

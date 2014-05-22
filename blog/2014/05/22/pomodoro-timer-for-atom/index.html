@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: octopress - yoshiori.github.io</title>
+  <title>Pomodoro Timer の Atom Package 作った！ - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Category: octopress">
+  <meta name="description" content="なんか某所で急に Pomodoro Technique の話で盛り上がりはじめて タイマー何使ってる！？ みたいな話題になってみんな思い思いお気に入りのタイマーを自慢し始めた。
+で、俺はシンプルで気に入ってた CherryTomato をオススメしてたんだけど、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.ioblog/categories/octopress/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -65,78 +66,166 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Octopress</h1>
+    
+      <h1 class="entry-title">Pomodoro Timer の Atom Package 作った！</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T18:08:00+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>なんか某所で急に Pomodoro Technique の話で盛り上がりはじめて</p>
 
-  
-  <h2>2012</h2>
+<blockquote><p>タイマー何使ってる！？</p></blockquote>
 
-<article>
-  
-<h1><a href="/blog/2012/07/13/octopress-index-dot-html/">Octopress の トップページを markdown で書く</a></h1>
-<time datetime="2012-07-13T17:35:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>13</span> <span class='year'>2012</span></time>
+<p>みたいな話題になってみんな思い思いお気に入りのタイマーを自慢し始めた。
+で、俺はシンプルで気に入ってた <a href="http://www.beatpoints.com/cherrytomato/">CherryTomato</a> をオススメしてたんだけど、
+久しぶりに見たらだいぶバージョンが変わっていたのでバージョンアップしてみた。上書きで。</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<p>そしたら動かなくなった…… orz</p>
 
-
-</article>
+<blockquote class="twitter-tweet" lang="ja"><p>pomodoro で普段使っているタイマーアプリをアップデートしたら起動しなくなってタスクが始められない悲しみに陥っている</p>&mdash; Yoshiori (@yoshiori) <a href="https://twitter.com/yoshiori/statuses/468673476300005377">2014, 5月 20</a></blockquote>
 
 
-
-<article>
-  
-<h1><a href="/blog/2012/07/13/new-page/">Octopress でブログページではなく新しいページを作る方法</a></h1>
-<time datetime="2012-07-13T14:27:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>13</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
-</article>
+<p>俺が Pomodoro Timer に求めるのは凄くシンプルで</p>
+
+<ul>
+<li>チクタク音がする。</li>
+<li>途中で Abort 出来る</li>
+</ul>
 
 
+<p>のみで、タスク内容入力できるとかは結局面倒くさくなるのでいらない。
+iPhone のタイマーでもいいかと思ったんだけど、普段は Mac にヘッドフォンつないで音楽聞いて仕事してるので Mac 上で動くタイマーが欲しかった。</p>
 
-<article>
-  
-<h1><a href="/blog/2012/07/12/coderwall-badges/">Octopress のサイドバーに Coderwall Badges を表示</a></h1>
-<time datetime="2012-07-12T16:55:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>12</span> <span class='year'>2012</span></time>
+<p>というわけでなかなか良いのが見つからないのでカッとなって Atom Package で作った。</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<p><a href="https://atom.io/packages/pomodoro">https://atom.io/packages/pomodoro</a></p>
 
+<p>すげーシンプルでコマンドは二個だけ。</p>
 
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2012/07/11/init/">Octopress 始めました</a></h1>
-<time datetime="2012-07-11T19:41:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>11</span> <span class='year'>2012</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/octopress/'>octopress</a></span>
-</footer>
+<ul>
+<li><code>pomodoro:start</code> &ndash; Start timer</li>
+<li><code>pomodoro:abort</code> &ndash; Abort timer</li>
+</ul>
 
 
-</article>
+<p>あと、折角なのでタイマーと連動してコマンド実行できるようにしておいた</p>
 
+<p><img src="https://www.evernote.com/shard/s4/sh/5bd4dd38-3eb4-41c5-a8db-a6fb97f2dbe3/d41b10d4d482748a14c40e0590f9a321/deep/0/Settings----Users-yoshiori-.atom-packages-pomodoro.png" alt="" /></p>
+
+<p>こんな感じで設定画面でそれぞれのタイミングで実行したい処理を設定できる。</p>
+
+<p>例えば……</p>
+
+<ul>
+<li>ポモドーロスタートの時にお気に入りのプレイリストを再生する AppleScript 呼び出したり</li>
+<li>ポモドーロスタート時に「今からポモドーロだから邪魔すんな」って Twitter につぶやいたり</li>
+<li>ポモドーロ終わったら休憩用の音楽かけるとか</li>
+</ul>
+
+
+<p>色々出来る。</p>
+
+<p>とりあえずポモドーロ終わったら強制的に Mac をサスペンドするには</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c">#!/bin/sh</span>
+</span><span class='line'>/System/Library/CoreServices/Menu<span class="se">\ </span>Extras/User.menu/Contents/Resources/CGSession -suspend
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな shell script 用意しておいて Permission 755 にしておいて、そのパスを <code>Path to Execute With Timer Finish</code> に書いておけば動きます。</p>
+
+<p>あと、atom package 公開するとこんな感じでお祝いされます
+<img src="https://www.evernote.com/shard/s4/sh/55fa6d81-b664-4f55-87dc-3878286e8bdc/8ef576f35040f1d002e6eecad402f0bc/deep/0/yoshiori@yoshiori-MacBookAir----.atom-packages-pomodoro---zsh.png" alt="" /></p>
+
+<p>ワイワイ</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-22T18:08:00+09:00" pubdate data-updated="true">May 22<span>nd</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/atom/'>atom</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/02/15/my-friend/" title="Previous Post: 友人の山城が死んだ">&laquo; 友人の山城が死んだ</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -251,7 +340,10 @@
       var disqus_shortname = 'yoshiorigithubblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/05/22/pomodoro-timer-for-atom/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

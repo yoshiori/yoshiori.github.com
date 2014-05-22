@@ -9,7 +9,25 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。 source/_includes/asides/coderwall.html に下記ファイルを保存 _config.yaml の 49 行目くらいの default_asides に &hellip;">
+  <meta name="description" content="Octpress のサイドバーに Coderwall の Badge を表示したいなと思ったので作ってみた。 source/_includes/asides/coderwall.html に下記を保存 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -96,10 +114,53 @@
 
 <p><code>source/_includes/asides/coderwall.html</code></p>
 
-<p>に下記ファイルを保存</p>
+<p>に下記を保存</p>
 
-<div><script src='https://gist.github.com/3096534.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>
+</span><span class='line'><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;well&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;nav&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;nav-header&quot;</span><span class="nt">&gt;</span>Coderwall Badges<span class="nt">&lt;/li&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;coderwall_badges&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coderwall.com/yoshiori&quot;</span><span class="nt">&gt;</span>@yoshiori<span class="nt">&lt;/a&gt;</span> on coderwall
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>      <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">&quot;http://coderwall.com/yoshiori.json?callback=?&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>
+</span><span class='line'>        <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">badges</span><span class="p">.</span><span class="nx">length</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">badge</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">badges</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+</span><span class='line'>          <span class="kd">var</span> <span class="nx">badge_tag</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;img /&gt;&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">badge_tag</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span><span class="nx">badge</span><span class="p">.</span><span class="nx">badge</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">badge_tag</span><span class="p">.</span><span class="nx">css</span><span class="p">(</span><span class="s2">&quot;width&quot;</span><span class="p">,</span><span class="s2">&quot;50%&quot;</span><span class="p">);</span>
+</span><span class='line'>          <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#coderwall_badges&quot;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">badge_tag</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>      <span class="p">});</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>  <span class="nt">&lt;/script&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><code>_config.yaml</code> の 49 行目くらいの <code>default_asides</code> に <code>asides/coderwall.html</code> を追加</p>
@@ -195,6 +256,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/05/22/pomodoro-timer-for-atom/">Pomodoro Timer の Atom Package 作った！</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/02/15/my-friend/">友人の山城が死んだ</a>
       </li>
     
@@ -208,10 +273,6 @@
     
       <li class="post">
         <a href="/blog/2014/01/04/hatena-id-syntax/">Jekyll/Octopress ではてな ID 記法的なの</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/04/rebuild-dot-fm/">Rebuild.fm が一つの答えかもしれない</a>
       </li>
     
   </ul>
