@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress でブログページではなく新しいページを作る方法 - yoshiori.github.io</title>
+  <title>気軽なポジティブ・フィードバック好き - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="どうやるのかなーと思って Rakefile 見てたら見つけた。 &gt; rake new_page['test'] で、source/ の下に source
-└── test └─index.markdown って作成される。 中見てみたら new_post['title'] &hellip;">
+  <meta name="description" content="なんか「はてなスター」とか Facebook の「イイネ！」とか Twitter の 「fav」とか Github の 「Star」 とかが結構好きです。 気軽なポジティブ・フォードバックって貰った側はやっぱり嬉しいし、誰も損しないしいいんじゃないかなぁと思うわけですよ。 ぶっちゃけ仕事でも、 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.io/blog/2012/07/13/new-page/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -70,7 +69,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress でブログページではなく新しいページを作る方法</h1>
+      <h1 class="entry-title">気軽なポジティブ・フィードバック好き</h1>
     
     
       <p class="meta">
@@ -86,44 +85,63 @@
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2014-07-10T22:29:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>どうやるのかなーと思って <code>Rakefile</code> 見てたら見つけた。</p>
+<div class="entry-content"><p><img src="https://www.evernote.com/shard/s4/sh/735a955e-0b8f-4b92-b5fa-fc37e0aa1d50/373f7227962198cfdbf0f2721813d3e5/deep/0/Slack.png" alt="" /></p>
 
-<pre><code> &gt; rake new_page['test']
-</code></pre>
+<p>なんか「はてなスター」とか Facebook の「イイネ！」とか Twitter の 「fav」とか Github の 「Star」 とかが結構好きです。</p>
 
-<p>で、<code>source/</code> の下に</p>
+<p>気軽なポジティブ・フォードバックって貰った側はやっぱり嬉しいし、誰も損しないしいいんじゃないかなぁと思うわけですよ。</p>
 
-<pre><code>source
-└── test
-    └─index.markdown         
-</code></pre>
+<p>ぶっちゃけ仕事でも、気軽なポジティブ・フィードバックしようってチョット心がけるだけで結構チームとかの雰囲気良くなるのでオマイラはもっとポジティブ・フィードバックすべきだ！！</p>
 
-<p>って作成される。</p>
+<p>ということでチャットで気軽にポジティブ・フィードバックできるの作ってみた。</p>
 
-<p>中見てみたら <code>new_post['title']</code> で作った奴と何も変わらなかったので好きにかけますね！！！</p>
+<p>例えば誰かが GHE のアップデートにハマって四苦八苦しながらも終わらしてくれた時とかに</p>
 
-<p>一応テストで作ってみた → <a href="/test/">■</a></p>
+<p><code>@sorah++</code></p>
 
-<p>出来たディレクトリ下(上記で言えば source/test/ )に他にページを作りたいときは
-そこに <code>****.markdown</code> ってファイルを作って、同じように</p>
+<p>とか、誰かが DynamoDB のバックアップの job 組んでくれた時に</p>
 
-<pre><code>---
-layout: page
-title: "hoge"
-date: 2012-07-13 14:27
-comments: true
-categories: 
----
-</code></pre>
+<p><code>@con_mame++</code></p>
 
-<p>みたいな感じで書けば おｋ</p>
+<p>とか、昼飯食いに行こうと思って何食いたいか悩んでる時に</p>
+
+<p><code>ラーメン++</code></p>
+
+<p>とか</p>
+
+<p>で、たまったスコアは</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@ruboty show scoreboard</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかで見れます。</p>
+
+<p>まぁ、元ネタは前職の IRC に常駐していた bot なんだけどねｗ
+簡単なので hubot と ruboty 用両方作ってみました。</p>
+
+<p>hubot 用</p>
+
+<ul>
+<li><a href="https://github.com/yoshiori/hubot-scorekeeper">https://github.com/yoshiori/hubot-scorekeeper</a></li>
+</ul>
+
+
+<p>ruboty 用</p>
+
+<ul>
+<li><a href="https://github.com/yoshiori/ruboty-scorekeeper">https://github.com/yoshiori/ruboty-scorekeeper</a></li>
+</ul>
+
+
+<p>というわけで是非使ってみてポジティブ・フィードバックまみれになってみてください。</p>
 </div>
 
 
@@ -146,14 +164,8 @@ categories:
   
 
 
-<time datetime="2012-07-13T14:27:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+<time datetime="2014-07-10T22:29:00+09:00" pubdate data-updated="true">Jul 10<span>th</span>, 2014</time>
       
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/octopress/'>octopress</a>
-  
-</span>
 
 
     </p>
@@ -161,7 +173,7 @@ categories:
       <div class="sharing">
   <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2012/07/13/new-page/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2012/07/13/new-page/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,10 +186,8 @@ categories:
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/07/12/coderwall-badges/" title="Previous Post: Octopress のサイドバーに Coderwall Badges を表示">&laquo; Octopress のサイドバーに Coderwall Badges を表示</a>
+        <a class="basic-alignment left" href="/blog/2014/05/22/pomodoro-timer-for-atom/" title="Previous Post: Pomodoro Timer の Atom Package 作った！">&laquo; Pomodoro Timer の Atom Package 作った！</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/07/13/octopress-index-dot-html/" title="Next Post: Octopress の トップページを markdown で書く">Octopress の トップページを markdown で書く &raquo;</a>
       
     </p>
   </footer>
@@ -303,8 +313,8 @@ categories:
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://yoshiori.github.io/blog/2012/07/13/new-page/';
-        var disqus_url = 'http://yoshiori.github.io/blog/2012/07/13/new-page/';
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/';
         var disqus_script = 'embed.js';
       
     (function () {

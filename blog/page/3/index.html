@@ -9,8 +9,9 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="どうやるのかなーと思って Rakefile 見てたら見つけた。 &gt; rake new_page['test'] で、source/ の下に source
-└── test └─index.markdown って作成される。 中見てみたら new_post['title'] &hellip;">
+  <meta name="description" content="なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
+検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。 ただ直すだけなら source/index.html を修正すればいいんだけど
+折角 Octopress にして &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -67,6 +68,71 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/07/13/octopress-index-dot-html/">Octopress の トップページを Markdown で書く</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-13T17:35:00+09:00" pubdate data-updated="true">Jul 13<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
+検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。</p>
+
+<p>ただ直すだけなら <code>source/index.html</code> を修正すればいいんだけど
+折角 Octopress にして markdown で書けるのに HTML 手描きとかイヤンなので markdown で書いてみた。</p>
+
+<ol>
+<li><code>source/index.html</code> をおもむろに削除</li>
+<li><code>source/index.markdown</code> を作成</li>
+</ol>
+
+
+<p>で、出来た。</p>
+
+<p><code>source/index.markdown</code> のメタ情報は</p>
+
+<pre><code>---
+layout: page
+title: 
+date: 2012-07-13 17:04
+comments: false
+sharing: true
+footer: false
+---
+</code></pre>
+
+<p>みたいな感じで <code>title</code> 要素を空にしておけばタイトルも上に出る日付も出ないので良い感じになった。</p>
+
+<p>ついでに標準だと上にあるナビゲーションの <code>blog</code> って項目押すとトップに飛ぶようになっててなんか違うので
+<code>source/_includes/custom/navigation.html</code> を良しなに修正すればおｋ</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -292,6 +358,10 @@ categories:
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/07/10/released-scorekeeper/">気軽なポジティブ・フィードバック好き</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/05/22/pomodoro-timer-for-atom/">Pomodoro Timer の Atom Package 作った！</a>
       </li>
     
@@ -305,10 +375,6 @@ categories:
     
       <li class="post">
         <a href="/blog/2014/01/14/drive-a-go-go/">アクセルを踏むためのテストとブレーキを踏むためのテスト</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/01/04/hatena-id-syntax/">Jekyll/Octopress ではてな ID 記法的なの</a>
       </li>
     
   </ul>

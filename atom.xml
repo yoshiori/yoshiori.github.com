@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-05-22T19:01:02+09:00</updated>
+  <updated>2014-07-10T23:02:49+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,64 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[気軽なポジティブ・フィードバック好き]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper/"/>
+    <updated>2014-07-10T22:29:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/07/10/released-scorekeeper</id>
+    <content type="html"><![CDATA[<p><img src="https://www.evernote.com/shard/s4/sh/735a955e-0b8f-4b92-b5fa-fc37e0aa1d50/373f7227962198cfdbf0f2721813d3e5/deep/0/Slack.png" alt="" /></p>
+
+<p>なんか「はてなスター」とか Facebook の「イイネ！」とか Twitter の 「fav」とか Github の 「Star」 とかが結構好きです。</p>
+
+<p>気軽なポジティブ・フォードバックって貰った側はやっぱり嬉しいし、誰も損しないしいいんじゃないかなぁと思うわけですよ。</p>
+
+<p>ぶっちゃけ仕事でも、気軽なポジティブ・フィードバックしようってチョット心がけるだけで結構チームとかの雰囲気良くなるのでオマイラはもっとポジティブ・フィードバックすべきだ！！</p>
+
+<p>ということでチャットで気軽にポジティブ・フィードバックできるの作ってみた。</p>
+
+<p>例えば誰かが GHE のアップデートにハマって四苦八苦しながらも終わらしてくれた時とかに</p>
+
+<p><code>@sorah++</code></p>
+
+<p>とか、誰かが DynamoDB のバックアップの job 組んでくれた時に</p>
+
+<p><code>@con_mame++</code></p>
+
+<p>とか、昼飯食いに行こうと思って何食いたいか悩んでる時に</p>
+
+<p><code>ラーメン++</code></p>
+
+<p>とか</p>
+
+<p>で、たまったスコアは</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@ruboty show scoreboard</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかで見れます。</p>
+
+<p>まぁ、元ネタは前職の IRC に常駐していた bot なんだけどねｗ
+簡単なので hubot と ruboty 用両方作ってみました。</p>
+
+<p>hubot 用</p>
+
+<ul>
+<li><a href="https://github.com/yoshiori/hubot-scorekeeper">https://github.com/yoshiori/hubot-scorekeeper</a></li>
+</ul>
+
+
+<p>ruboty 用</p>
+
+<ul>
+<li><a href="https://github.com/yoshiori/ruboty-scorekeeper">https://github.com/yoshiori/ruboty-scorekeeper</a></li>
+</ul>
+
+
+<p>というわけで是非使ってみてポジティブ・フィードバックまみれになってみてください。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pomodoro Timer の Atom Package 作った！]]></title>
@@ -1311,44 +1369,6 @@ $ git flow feature finish add_rspec_guard
 <p>でテスト書きながら始める。</p>
 
 <p>で、いいのかなぁ？……</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress の トップページを markdown で書く]]></title>
-    <link href="http://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html/"/>
-    <updated>2012-07-13T17:35:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2012/07/13/octopress-index-dot-html</id>
-    <content type="html"><![CDATA[<p>なんか Octopress の標準のトップは最新の記事をただ羅列しててあんまり美しくないし
-検索とかのインデックスに記事の内容が分散して載っちゃうしで気に喰わないので弄ってみた。</p>
-
-<p>ただ直すだけなら <code>source/index.html</code> を修正すればいいんだけど
-折角 Octopress にして markdown で書けるのに HTML 手描きとかイヤンなので markdown で書いてみた。</p>
-
-<ol>
-<li><code>source/index.html</code> をおもむろに削除</li>
-<li><code>source/index.markdown</code> を作成</li>
-</ol>
-
-
-<p>で、出来た。</p>
-
-<p><code>source/index.markdown</code> のメタ情報は</p>
-
-<pre><code>---
-layout: page
-title: 
-date: 2012-07-13 17:04
-comments: false
-sharing: true
-footer: false
----
-</code></pre>
-
-<p>みたいな感じで <code>title</code> 要素を空にしておけばタイトルも上に出る日付も出ないので良い感じになった。</p>
-
-<p>ついでに標準だと上にあるナビゲーションの <code>blog</code> って項目押すとトップに飛ぶようになっててなんか違うので
-<code>source/_includes/custom/navigation.html</code> を良しなに修正すればおｋ</p>
 ]]></content>
   </entry>
   
