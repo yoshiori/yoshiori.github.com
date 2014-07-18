@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: aws | yoshiori.github.io]]></title>
+  <link href="http://yoshiori.github.io/blog/categories/aws/atom.xml" rel="self"/>
+  <link href="http://yoshiori.github.io/"/>
+  <updated>2014-07-18T22:31:31+09:00</updated>
+  <id>http://yoshiori.github.io/</id>
+  <author>
+    <name><![CDATA[Yoshiori SHOJI]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter の Timeline を Amazon Kinesis に流すの作った]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/"/>
+    <updated>2014-07-18T22:13:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis</id>
+    <content type="html"><![CDATA[<p>Amazon Kinesis 日本にｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!
+ってことで、とりあえず Twitter の Timeline を kinesis に流すの作ってみた。</p>
+
+<p>Twitter の Stream 扱うには <a href="https://twitter.com/sora_h">@sora_h</a> 作の <a href="https://github.com/sorah/akane/">akane</a> 使うのが楽なので akane の Strage 先として作ってみた。</p>
+
+<p>なので使い方は簡単で gemfile に</p>
+
+<p><code>
+gem 'akane-kinesis'
+</code></p>
+
+<p>追加して <code>akane.yml</code> にこんな感じで書くと使えます。</p>
+
+<p>```yml
+storages:
+  &ndash; kinesis:</p>
+
+<pre><code>  aws_access_key_id: xxx
+  aws_secret_access_key: xxxx
+  region: ap-northeast-1
+  kinesis_stream_name: twitter
+</code></pre>
+
+<p>```</p>
+
+<p>とりあえず storages に stdout も指定して実行するとこんな感じのが</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/81a86dc8-997a-4955-85b5-d1b01db46e43/9d38e01bf6a89f5dde086f18964a603b/deep/0/yoshiori-shoji@p331----Dropbox-project-repos-lang-ruby-akane---zsh.png" alt="" /></p>
+
+<p>こんな感じで json 文字列で kinesis に入ります。</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/95be1910-7c68-4d3d-83f5-28d3c0d6e4bd/6a1455a10fae416c427e8f957d038f1f/deep/0/yoshiori-shoji@p331----work-aws-elastic-transcoder-test---zsh.png" alt="" /></p>
+
+<p>kinesis からの取得側は <a href="http://tech-sketch.jp/2014/04/aws-kinesis-ruby.html">ここ</a> のサンプルコードで出力してます。</p>
+
+<p>まぁ、遊びで使うにはちょっと高いんだけどね＞＜</p>
+
+<p>コードは<a href="https://github.com/yoshiori/akane-kinesis">コチラ</a></p>
+]]></content>
+  </entry>
+  
+</feed>

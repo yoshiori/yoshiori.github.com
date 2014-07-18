@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: factorygirl - yoshiori.github.io</title>
+  <title>Twitter の Timeline を Amazon Kinesis に流すの作った - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Category: factorygirl">
+  <meta name="description" content="Amazon Kinesis 日本にｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!
+ってことで、とりあえず Twitter の Timeline を kinesis に流すの作ってみた。 Twitter の Stream 扱うには @sora_h 作の akane 使うのが楽なので akane の &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.ioblog/categories/factorygirl/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -65,36 +66,136 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Factorygirl</h1>
+    
+      <h1 class="entry-title">Twitter の Timeline を Amazon Kinesis に流すの作った</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-18T22:13:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Amazon Kinesis 日本にｷﾀ━━━━(ﾟ∀ﾟ)━━━━!!
+ってことで、とりあえず Twitter の Timeline を kinesis に流すの作ってみた。</p>
 
-  
-  <h2>2013</h2>
+<p>Twitter の Stream 扱うには <a href="https://twitter.com/sora_h">@sora_h</a> 作の <a href="https://github.com/sorah/akane/">akane</a> 使うのが楽なので akane の Strage 先として作ってみた。</p>
 
-<article>
-  
-<h1><a href="/blog/2013/02/03/factory-girl-relation/">【解決済み】FactoryGirl の relation の定義の仕方がよくわからない＞＜</a></h1>
-<time datetime="2013-02-03T22:09:00+09:00" pubdate><span class='month'>Feb</span> <span class='day'>03</span> <span class='year'>2013</span></time>
+<p>なので使い方は簡単で gemfile に</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/factorygirl/'>factorygirl</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a></span>
-</footer>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'akane-kinesis'</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>追加して <code>akane.yml</code> にこんな感じで書くと使えます。</p>
 
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">storages</span><span class="p-Indicator">:</span>
+</span><span class='line'>  <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">kinesis</span><span class="p-Indicator">:</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">aws_access_key_id</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">xxx</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">aws_secret_access_key</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">xxxx</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">region</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">ap-northeast-1</span>
+</span><span class='line'>      <span class="l-Scalar-Plain">kinesis_stream_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">twitter</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とりあえず storages に stdout も指定して実行するとこんな感じのが</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/81a86dc8-997a-4955-85b5-d1b01db46e43/9d38e01bf6a89f5dde086f18964a603b/deep/0/yoshiori-shoji@p331----Dropbox-project-repos-lang-ruby-akane---zsh.png" alt="" /></p>
+
+<p>こんな感じで json 文字列で kinesis に入ります。</p>
+
+<p><img src="https://www.evernote.com/shard/s4/sh/95be1910-7c68-4d3d-83f5-28d3c0d6e4bd/6a1455a10fae416c427e8f957d038f1f/deep/0/yoshiori-shoji@p331----work-aws-elastic-transcoder-test---zsh.png" alt="" /></p>
+
+<p>kinesis からの取得側は <a href="http://tech-sketch.jp/2014/04/aws-kinesis-ruby.html">ここ</a> のサンプルコードで出力してます。</p>
+
+<p>まぁ、遊びで使うにはちょっと高いんだけどね＞＜</p>
+
+<p>コードは<a href="https://github.com/yoshiori/akane-kinesis">コチラ</a></p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-18T22:13:00+09:00" pubdate data-updated="true">Jul 18<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aws/'>aws</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/10/released-scorekeeper/" title="Previous Post: 気軽なポジティブ・フィードバック好き">&laquo; 気軽なポジティブ・フィードバック好き</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -209,7 +310,10 @@
       var disqus_shortname = 'yoshiorigithubblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/07/18/twitter-stream-to-amazon-kinesis/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
