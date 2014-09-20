@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2014-07-18T22:31:31+09:00</updated>
+  <updated>2014-09-20T14:15:32+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[21 世紀のエディタである Atom を最強にする]]></title>
+    <link href="http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/"/>
+    <updated>2014-09-20T13:45:00+09:00</updated>
+    <id>http://yoshiori.github.io/blog/2014/09/20/released-open-emacs</id>
+    <content type="html"><![CDATA[<p><a href="https://atom.io/">Atom</a> 最高ですね！！</p>
+
+<p>でも、Atom は 21 世紀のエディタです。まだ 21 世紀になって 14 年しか経っていないので、<a href="http://www.gnu.org/software/emacs/emacs.html">20 世紀最強のエディタ</a>に比べてまだまだ足りない機能があるのはしょうがないですね！！</p>
+
+<p><strong>86 年後に勝負しよう！！</strong></p>
+
+<p>って感じですね。</p>
+
+<p>みんなが拡張書けば 86 年がドンドン縮んでくると思うのですが、ぶっちゃけまだまだです。
+なので、<a href="https://atom.io/packages/open-emacs">最強にするための拡張</a>書いてみました。</p>
+
+<p><img src="https://raw.githubusercontent.com/yoshiori/open-emacs/master/open-emacs.gif" alt="" /></p>
+
+<p>Atom で今開いているファイルを Emacs で開く拡張です。</p>
+
+<p>「あー、Emacs だと xxx 出来るのに〜」</p>
+
+<p>とか脳みそがまだ 20 世紀な時とか</p>
+
+<p>「あー、このファイルデカすぎて Atom で編集すると重い……」</p>
+
+<p>みたいなかわいそうな作業している時とか（2050 年位のマシンだとさくさくだと思いますけど！！）にお使いください。</p>
+
+<h2>21 世紀に戻る</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">open-atom</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">call-process</span>
+</span><span class='line'>   <span class="s">&quot;atom&quot;</span> <span class="no">nil</span> <span class="no">t</span> <span class="no">nil</span> <span class="nv">buffer-file-name</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じのを <code>.emacs</code> に書いておけばいいんじゃないでしょうか？</p>
+
+<p><em>Back To The Future !!!</em></p>
+
+<h3>p.s.</h3>
+
+<p><code>Vim</code> の話はしていません</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter の Timeline を Amazon Kinesis に流すの作った]]></title>
@@ -1231,116 +1282,6 @@ MeCab とか使って日本語を分かち書きする処理などを渡した�
 
 <p>もちろん結果は同じだけど DB で処理できることは DB に任せたほうがいいよね。
 件数増えると結構差が出ると思う。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[.emacs を一年に一回消してる]]></title>
-    <link href="http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal/"/>
-    <updated>2013-01-30T19:10:00+09:00</updated>
-    <id>http://yoshiori.github.io/blog/2013/01/30/dot-emacs-renewal</id>
-    <content type="html"><![CDATA[<h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
-
-<p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
-やっぱり自分でもなんとかしたいなぁと思って思い切って <code>rm -rm .emacs</code> してみたら結構良かったので一年に一回くらいの頻度で消すようにしてる。</p>
-
-<p>大掃除とかじゃなく一から作りなおさないとなんか秘伝のタレ的なの残っちゃうので結構おすすめ。</p>
-
-<p>今回は emacs24 に完全移行って事て anything → helm した。
- あと、ここ数年は Mac しか使ってないので OS の判定とかもしなくした。</p>
-
-<h3>emacs24 の package-install 便利</h3>
-
-<p>なんかほぼ使いたいものはこれで入れられるし、入れると勝手に require してくれちゃうみたいで、
-メジャーモードとかはインストールしたらそのまま使えた。</p>
-
-<p>リポジトリだけ追加したので</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">package-initialize</span><span class="p">))</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>を追加した。</p>
-
-<h3>anythong(helm) 無いと生きていけない</h3>
-
-<p>脳みその容量が全然足りないので、便利そうな elisp 見つけてもショートカットとか覚えられない！！！
-って事ばかりなので anything(helm) が無いと生きていけない。</p>
-
-<p>「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
-そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
-
-<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&width=832"></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-</span>
-</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm-config</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nv">helm-mode</span> <span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-helm</span> <span class="p">()</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">helm</span> <span class="ss">:sources</span> <span class="o">&#39;</span><span class="p">(</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-buffers-list</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-recentf</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-files-in-current-dir</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-mac-spotlight</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-buffer-not-found</span><span class="p">)</span>
-</span><span class='line'>        <span class="ss">:buffer</span> <span class="s">&quot;*my helm*&quot;</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-x b&quot;</span><span class="p">)</span> <span class="ss">&#39;my-helm</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-x&quot;</span><span class="p">)</span> <span class="ss">&#39;helm-M-x</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-samewindow</span> <span class="no">nil</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;*helm-M-x*&quot;</span><span class="p">)</span> <span class="nv">popwin:special-display-config</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; emacsの終了時に、履歴を保存する</span>
-</span><span class='line'><span class="p">(</span><span class="nv">remove-hook</span> <span class="ss">&#39;kill-emacs-hook</span> <span class="ss">&#39;helm-c-adaptive-save-history</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; ディレイは0.2秒</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-input-idle-delay</span> <span class="mf">0.02</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; 候補のディレクトリが一つしかない場合に、自動的に展開しない</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-ff-auto-update-initial-value</span> <span class="no">nil</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>今のところこんな簡単な設定。</p>
-
-<p>まだどうも helm の find-file に慣れないのでどうにかしたいなぁ……</p>
 ]]></content>
   </entry>
   

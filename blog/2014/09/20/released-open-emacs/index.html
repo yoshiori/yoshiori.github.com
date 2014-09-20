@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: aws - yoshiori.github.io</title>
+  <title>21 世紀のエディタである Atom を最強にする - yoshiori.github.io</title>
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="Category: aws">
+  <meta name="description" content="Atom 最高ですね！！ でも、Atom は 21 世紀のエディタです。まだ 21 世紀になって 14 年しか経っていないので、20 世紀最強のエディタに比べてまだまだ足りない機能があるのはしょうがないですね！！ 86 年後に勝負しよう！！ って感じですね。 みんなが拡張書けば 86 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://yoshiori.github.ioblog/categories/aws/">
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
@@ -65,36 +65,132 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Aws</h1>
+    
+      <h1 class="entry-title">21 世紀のエディタである Atom を最強にする</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-20T13:45:00+09:00" pubdate data-updated="true">Sep 20<span>th</span>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p><a href="https://atom.io/">Atom</a> 最高ですね！！</p>
 
-  
-  <h2>2014</h2>
+<p>でも、Atom は 21 世紀のエディタです。まだ 21 世紀になって 14 年しか経っていないので、<a href="http://www.gnu.org/software/emacs/emacs.html">20 世紀最強のエディタ</a>に比べてまだまだ足りない機能があるのはしょうがないですね！！</p>
 
-<article>
-  
-<h1><a href="/blog/2014/07/18/twitter-stream-to-amazon-kinesis/">Twitter の Timeline を Amazon Kinesis に流すの作った</a></h1>
-<time datetime="2014-07-18T22:13:00+09:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2014</span></time>
+<p><strong>86 年後に勝負しよう！！</strong></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/aws/'>aws</a></span>
-</footer>
+<p>って感じですね。</p>
+
+<p>みんなが拡張書けば 86 年がドンドン縮んでくると思うのですが、ぶっちゃけまだまだです。
+なので、<a href="https://atom.io/packages/open-emacs">最強にするための拡張</a>書いてみました。</p>
+
+<p><img src="https://raw.githubusercontent.com/yoshiori/open-emacs/master/open-emacs.gif" alt="" /></p>
+
+<p>Atom で今開いているファイルを Emacs で開く拡張です。</p>
+
+<p>「あー、Emacs だと xxx 出来るのに〜」</p>
+
+<p>とか脳みそがまだ 20 世紀な時とか</p>
+
+<p>「あー、このファイルデカすぎて Atom で編集すると重い……」</p>
+
+<p>みたいなかわいそうな作業している時とか（2050 年位のマシンだとさくさくだと思いますけど！！）にお使いください。</p>
+
+<h2>21 世紀に戻る</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='common-lisp'><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">open-atom</span> <span class="p">()</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="nv">call-process</span>
+</span><span class='line'>   <span class="s">&quot;atom&quot;</span> <span class="no">nil</span> <span class="no">t</span> <span class="no">nil</span> <span class="nv">buffer-file-name</span><span class="p">))</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>こんな感じのを <code>.emacs</code> に書いておけばいいんじゃないでしょうか？</p>
 
+<p><em>Back To The Future !!!</em></p>
+
+<h3>p.s.</h3>
+
+<p><code>Vim</code> の話はしていません</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-20T13:45:00+09:00" pubdate data-updated="true">Sep 20<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/07/18/twitter-stream-to-amazon-kinesis/" title="Previous Post: Twitter の Timeline を Amazon Kinesis に流すの作った">&laquo; Twitter の Timeline を Amazon Kinesis に流すの作った</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
@@ -209,7 +305,10 @@
       var disqus_shortname = 'yoshiorigithubblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2014/09/20/released-open-emacs/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

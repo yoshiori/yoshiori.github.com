@@ -9,7 +9,12 @@
   <meta name="author" content="Yoshiori SHOJI">
 
   
-  <meta name="description" content="最近、学のない僕は定期的に会社で @mrkn と @conceal_rs に数学を教わっています。 今日も教わっていたんだけどそこで、小学生で習ったことくらいしか使わないで が なことを証明できちゃったことに感動した。 ということで説明 最初の第一歩で小数点の循環して続いているところだけとりだす &hellip;">
+  <meta name="description" content="「単純ベイズ分類器」を簡単に組み込める gem を作ってみました！！ BabyFace https://github.com/yoshiori/baby_face 簡単な使い方 判定したいクラスで BabyFace を include してちょっと設定書くだけです。 1
+2
+3
+4
+5
+class &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +71,229 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/12/09/babyface-gem/">BabyFace という Gem を作りました</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-12-09T00:00:00+09:00" pubdate data-updated="true">Dec 9<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>「<a href="http://ja.wikipedia.org/wiki/%E5%8D%98%E7%B4%94%E3%83%99%E3%82%A4%E3%82%BA%E5%88%86%E9%A1%9E%E5%99%A8">単純ベイズ分類器</a>」を簡単に組み込める gem を作ってみました！！</p>
+
+<h1>BabyFace</h1>
+
+<p><a href="https://github.com/yoshiori/baby_face">https://github.com/yoshiori/baby_face</a></p>
+
+<h2>簡単な使い方</h2>
+
+<p>判定したいクラスで BabyFace を include してちょっと設定書くだけです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Entry</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:ham</span><span class="p">,</span> <span class="ss">:spam</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな形で指定します</p>
+
+<ul>
+<li>features
+
+<ul>
+<li>学習対象にする値</li>
+</ul>
+</li>
+<li>categories
+
+<ul>
+<li>カテゴリ分け</li>
+</ul>
+</li>
+</ul>
+
+
+<p>が最小の設定になります。
+これだけで、<code>Entry</code> のインスタンスに <code>baby_face</code> というのが生えます。
+で、<code>categories</code> を元に学習用と判定用のメソッドが生えます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">entry1</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">train_ham</span> <span class="c1"># ham を学習</span>
+</span><span class='line'><span class="n">entry2</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">train_spam</span> <span class="c1"># spam を学習</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">entry3</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">ham?</span> <span class="c1"># ham かどうか判定</span>
+</span><span class='line'><span class="n">entry3</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">spam?</span> <span class="c1"># spam かどうか判定</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>こんな感じで特に難しいこと考えないで使えます。</p>
+
+<h2>もうちょっとカスタマイズ</h2>
+
+<h3>学習データの保存</h3>
+
+<p>学習データはそのままだとメモリ上にあり保存されないので保存できるようにしてあります。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">BabyFace</span><span class="o">.</span><span class="n">configuration</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="s2">&quot;/tmp/baby_face&quot;</span>
+</span><span class='line'><span class="n">entry</span><span class="o">.</span><span class="n">baby_face</span><span class="o">.</span><span class="n">save</span> <span class="c1"># =&gt; /tmp/baby_face/entry.babyface</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>文字列の分解方法</h3>
+
+<p>デフォルトでは <code>String#split</code> していますが、カスタマイズできます</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s2">&quot;mecab&quot;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s2">&quot;baby_face&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">wakachi</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@wakachi</span> <span class="o">||=</span> <span class="ss">MeCab</span><span class="p">:</span><span class="ss">:Tagger</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;-O wakati&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@wakachi</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">split</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Entry</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:light_side</span><span class="p">,</span> <span class="ss">:dark_side</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">tokenizer</span><span class="p">:</span> <span class="o">-&gt;</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">{</span> <span class="n">wakachi</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいな感じで渡せます。
+MeCab とか使って日本語を分かち書きする処理などを渡したり出来ます。</p>
+
+<h3>ネストしたオブジェクト</h3>
+
+<p>ActiveRecord の関連みたいなのも学習対象にすることが出来ます。
+関連先でも <code>include</code> して <code>features</code> だけ書いていたらそれも使われます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Entry</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">has_many</span> <span class="ss">:comments</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:body</span><span class="p">,</span> <span class="ss">:comments</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>                <span class="ss">categories</span><span class="p">:</span> <span class="o">[</span><span class="ss">:ham</span><span class="p">,</span> <span class="ss">:spam</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="kp">include</span> <span class="no">BabyFace</span>
+</span><span class='line'>  <span class="n">baby_face_for</span> <span class="ss">features</span><span class="p">:</span> <span class="o">[</span><span class="ss">:title</span><span class="p">,</span> <span class="ss">:message</span><span class="o">]</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>学習データ詳細</h3>
+
+<p>BabyFace はフィールドごとに単語を別扱いしています。
+なので、上記の例で言えば <code>title</code> に入っている「殺す」と <code>body</code> に入っている「殺す」は別扱いしています。</p>
+
+<h1>まとめ</h1>
+
+<p>機械学習とかその辺のことは全然分かってないのですが、覚えるためにとりあえず自分で触ってみました。
+さくっと組み込めるので投稿系のサービス作ってみるときとかに気軽に導入したり出来ると思います。
+あと、自分のブログとはてブ数とか学習させて今から投稿する記事がはてブ稼げるかどうかとか見てみるのも楽しいかも。</p>
+
+<p>まだ作ったばかりで色々足りないと思いますが、使ってみてください＞＜</p>
+
+<p><a href="https://rubygems.org/gems/baby_face">https://rubygems.org/gems/baby_face</a></p>
+
+<h1>そして名前の由来</h1>
+
+<p>突然だけどスタンド使いとプログラマは似ていると思う。
+自分から生み出したものが動作し世の中に影響を与える……
+スタンドとはプログラムのことかもしれない。
+そしてそんなプログラムを書ける人間はスタンド使いなのかもしれない。</p>
+
+<p>だからプログラマ同士は惹かれ合うのかもしれない……</p>
+
+<p>僕の大好きな第五部に「ベイビィ・フェイス」というちょっと変わったスタンドが出てきます。</p>
+
+<blockquote><p>追跡するターゲットの遺伝子情報をノートパソコン型のスタンドへ入力、それを母体となる女性に受胎させることで、遠隔パワー型のスタンドを生み出す能力。</p></blockquote>
+
+<p>という能力。</p>
+
+<p>さらに作品中ではドンドン色々なことを学習させていくという感じです。</p>
+
+<p><img src="https://github-camo.global.ssl.fastly.net/c2c5476da60f6af5321c1258c118c031c0b210a8/687474703a2f2f6661726d332e737461746963666c69636b722e636f6d2f323833352f31313137323639363539335f326539386439383164305f6f2e6a7067" alt="" /></p>
+
+<p>コレって完全に教師あり学習だなぁと思ってたので今回の gem にこの名前をつけました。</p>
+
+<p>実は人生初の ruby-gem です。</p>
+
+<p>そして調べてたら「<a href="http://dic.nicovideo.jp/a/%E3%83%87%E3%82%A3%E3%83%BB%E3%83%A2%E3%83%BC%E3%83%AB%E3%83%88">しかし、このディ・モールトの使い方はイタリア語としてはディ・モールト間違っている。</a>」とかでてきてちょっとショックでしたが僕は元気です。</p>
+
+<p>と、いうわけで実は「<a href="http://www.adventar.org/calendars/122">ジョジョの奇妙な冒険 Advent Calendar 2013</a>」の参加エントリでした。</p>
+
+<blockquote><p>やっぱりプログラマなんだからプログラムで語らないとね!!</p></blockquote>
+
+<p>と言うとかっこいいけど、実は普通に便乗して自分の gem の宣伝しただけですねｗｗ</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -892,143 +1120,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/01/30/dot-emacs-renewal/">.emacs を一年に一回消してる</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-01-30T19:10:00+09:00" pubdate data-updated="true">Jan 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>ここ何年か .emacs と .zsh は一年に一回くらいの頻度で全消ししてる。</h3>
-
-<p>なんか古い emacs の設定とか色々入ってて秘伝のタレみたいになっちゃうのが .emacs 的な印象なんだけど、
-やっぱり自分でもなんとかしたいなぁと思って思い切って <code>rm -rm .emacs</code> してみたら結構良かったので一年に一回くらいの頻度で消すようにしてる。</p>
-
-<p>大掃除とかじゃなく一から作りなおさないとなんか秘伝のタレ的なの残っちゃうので結構おすすめ。</p>
-
-<p>今回は emacs24 に完全移行って事て anything → helm した。
- あと、ここ数年は Mac しか使ってないので OS の判定とかもしなくした。</p>
-
-<h3>emacs24 の package-install 便利</h3>
-
-<p>なんかほぼ使いたいものはこれで入れられるし、入れると勝手に require してくれちゃうみたいで、
-メジャーモードとかはインストールしたらそのまま使えた。</p>
-
-<p>リポジトリだけ追加したので</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="p">(</span><span class="nb">when</span> <span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;package</span> <span class="no">nil</span> <span class="no">t</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">add-to-list</span> <span class="ss">&#39;package-archives</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;melpa&quot;</span> <span class="o">.</span> <span class="s">&quot;http://melpa.milkbox.net/packages/&quot;</span><span class="p">))</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">package-initialize</span><span class="p">))</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>を追加した。</p>
-
-<h3>anythong(helm) 無いと生きていけない</h3>
-
-<p>脳みその容量が全然足りないので、便利そうな elisp 見つけてもショートカットとか覚えられない！！！
-って事ばかりなので anything(helm) が無いと生きていけない。</p>
-
-<p>「あー kill-ring の中見たい」って思った時も <code>kill-r</code> 位まで打てばこんな画面が出て
-そのまま実行もできるし、ショートカットキーまで教えてくれる</p>
-
-<p><img src="https://www.evernote.com/shard/s4/sh/b4d64aab-ff87-4331-bb87-2004fe12046f/dcd015be6f071df8ab5987ae3f4e1b86/res/bb06b1a0-a5f9-48f2-9bd9-e094991fd278/skitch.png?resizeSmall&width=832"></p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='cl'><span class='line'><span class="c1">;; -*- Mode: Emacs-Lisp ; Coding: utf-8 -*-</span>
-</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;helm-config</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nv">helm-mode</span> <span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nb">defun</span> <span class="nv">my-helm</span> <span class="p">()</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">interactive</span><span class="p">)</span>
-</span><span class='line'>  <span class="p">(</span><span class="nv">helm</span> <span class="ss">:sources</span> <span class="o">&#39;</span><span class="p">(</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-buffers-list</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-recentf</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-files-in-current-dir</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-mac-spotlight</span>
-</span><span class='line'>                   <span class="nv">helm-c-source-buffer-not-found</span><span class="p">)</span>
-</span><span class='line'>        <span class="ss">:buffer</span> <span class="s">&quot;*my helm*&quot;</span><span class="p">))</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;C-x b&quot;</span><span class="p">)</span> <span class="ss">&#39;my-helm</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">&quot;M-x&quot;</span><span class="p">)</span> <span class="ss">&#39;helm-M-x</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-samewindow</span> <span class="no">nil</span><span class="p">)</span>
-</span><span class='line'><span class="p">(</span><span class="nb">push</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;*helm-M-x*&quot;</span><span class="p">)</span> <span class="nv">popwin:special-display-config</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; emacsの終了時に、履歴を保存する</span>
-</span><span class='line'><span class="p">(</span><span class="nv">remove-hook</span> <span class="ss">&#39;kill-emacs-hook</span> <span class="ss">&#39;helm-c-adaptive-save-history</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; ディレイは0.2秒</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-input-idle-delay</span> <span class="mf">0.02</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'><span class="c1">;; 候補のディレクトリが一つしかない場合に、自動的に展開しない</span>
-</span><span class='line'><span class="p">(</span><span class="k">setq</span> <span class="nv">helm-ff-auto-update-initial-value</span> <span class="no">nil</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>今のところこんな簡単な設定。</p>
-
-<p>まだどうも helm の find-file に慣れないのでどうにかしたいなぁ……</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1046,6 +1137,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/09/20/released-open-emacs/">21 世紀のエディタである Atom を最強にする</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/07/18/twitter-stream-to-amazon-kinesis/">Twitter の Timeline を Amazon Kinesis に流すの作った</a>
       </li>
     
@@ -1059,10 +1154,6 @@
     
       <li class="post">
         <a href="/blog/2014/02/15/my-friend/">友人の山城が死んだ</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/02/13/how-we-cook-cookpad-dot-com/">「何故クックパッドのサービス開発は日々進化しているのか」という発表をしました。</a>
       </li>
     
   </ul>
