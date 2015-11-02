@@ -4,7 +4,7 @@
   <title><![CDATA[yoshiori.github.io]]></title>
   <link href="http://yoshiori.github.io/atom.xml" rel="self"/>
   <link href="http://yoshiori.github.io/"/>
-  <updated>2015-11-03T00:40:01+09:00</updated>
+  <updated>2015-11-03T00:41:10+09:00</updated>
   <id>http://yoshiori.github.io/</id>
   <author>
     <name><![CDATA[Yoshiori SHOJI]]></name>
@@ -18,9 +18,7 @@
     <link href="http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/"/>
     <updated>2015-11-03T00:27:00+09:00</updated>
     <id>http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish</id>
-    <content type="html"><![CDATA[<h1>zsh から fish にした。</h1>
-
-<p>3ヶ月くらい前からシェルを <a href="http://fishshell.com/">fish</a> にしてみてるので、適当に設定など共有。</p>
+    <content type="html"><![CDATA[<p>3ヶ月くらい前からシェルを <a href="http://fishshell.com/">fish</a> にしてみてるので、適当に設定など共有。</p>
 
 <p>先に行っておくけど zsh より良い所とか聞かれても知らない。
 気分転換&amp;頭の体操で zsh のカスタマイズの延長くらいの気分で乗り換えた。</p>
