@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>zsh から fish にした。 - yoshiori.github.io</title>
+  <meta name="author" content="Yoshiori SHOJI">
+
+  
+  <meta name="description" content="zsh から fish にした。 3ヶ月くらい前からシェルを fish にしてみてるので、適当に設定など共有。 先に行っておくけど zsh より良い所とか聞かれても知らない。
+気分転換&amp;頭の体操で zsh のカスタマイズの延長くらいの気分で乗り換えた。 インスコ 1
+$ brew &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="yoshiori.github.io" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">yoshiori.github.io</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:yoshiori.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/resume/">Resume</a></li>
+  <li><a href="https://github.com/yoshiori">Github</a></li>
+  <li><a href="http://d.hatena.ne.jp/Yoshiori">Hatena blog</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Zsh から Fish にした。</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-03T00:27:00+09:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2015</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h1>zsh から fish にした。</h1>
+
+<p>3ヶ月くらい前からシェルを <a href="http://fishshell.com/">fish</a> にしてみてるので、適当に設定など共有。</p>
+
+<p>先に行っておくけど zsh より良い所とか聞かれても知らない。
+気分転換&amp;頭の体操で zsh のカスタマイズの延長くらいの気分で乗り換えた。</p>
+
+<h2>インスコ</h2>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>brew install fish
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上</p>
+
+<h2>oh-my-fish インスコ</h2>
+
+<blockquote><p>fish-shell の良い所は特に設定などをしなくてもユーザーフレンドリーであることです。
+zsh のように oh-my-zsh などを入れたり、過度にカスタマイズをしなくて済みます。</p></blockquote>
+
+<p>とかそういう説明がされてるのにその利点を一気にぶち壊す <a href="https://github.com/oh-my-fish/oh-my-fish">oh-my-fish</a> というのがあるので入れる</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>そうすると　<code>omf</code> コマンドが使えるようになる。
+これ、パッケージ管理的な機能が便利なので入れておくと楽。</p>
+
+<p>テーマとかプラグインとかが</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>omf install rbenv
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかで出来る。
+git リポジトリから直とかも</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>omf install https://github.com/yoshiori/fish-peco_select_zsh_history
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で出来る。
+で、Gemfile 的なのが  <code>~/.config/omf/bundle</code> に出来るのでそこに書いて <code>omf install</code> とかで一括で入れたりも出来る。</p>
+
+<p>入れたもののアップデートも <code>omf update</code> とかで一気に出来て便利〜</p>
+
+<h2>peco まわり</h2>
+
+<p>移行できた最大の理由がコレで大体最近は peco 使ってコマンド実行とリポジトリの移動をしていたのですんなり移行できた。</p>
+
+<h3>履歴の peco</h3>
+
+<p>標準の peco プラグインは入力途中の値を引き継いでくれないので<a href="https://github.com/yoshiori/pkg-peco/tree/fix_input">パッチ当ててる</a>( <a href="https://github.com/wa/pkg-peco/pull/2">PR 投げ済み</a>)</p>
+
+<h3>ghq で peco</h3>
+
+<p>ghq を peco るのは<a href="https://github.com/yoshiori/fish-peco_select_ghq_repository">作った</a>ので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>omf install https://github.com/yoshiori/fish-peco_select_ghq_repository
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>でインスコできる</p>
+
+<h3>zsh の history 資産を使いたい</h3>
+
+<p>最初、zhistory をコンバートしようとしたんだけど paths とか &amp;&amp; とか環境変数とか色々面倒くさいので、そのまま <a href="https://github.com/yoshiori/fish-peco_select_zsh_history">zhistory ファイルを peco れるようにした</a>。</p>
+
+<p>これも</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>omf install https://github.com/yoshiori/fish-peco_select_zsh_history
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>でインストールできるので後は</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">set </span>ZSH_HISTORY_FILE /home/yoshiori/.zhistory
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかでファイルの場所指定してやれば良い</p>
+
+<h2>コマンドハマりどころ</h2>
+
+<h3>&amp;&amp; で実行系</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>brew update <span class="o">&amp;&amp;</span> brew upgrade
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいなのをやりたいときは</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>brew update; and brew upgrade
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいに <code>;</code> で区切って <code>and</code> でつなげる</p>
+
+<h3>一次変数系</h3>
+
+<p>で、よくやる一時的な変数を上記みたいに</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">set</span> -lx HOGE <span class="nb">test</span>; printenv HOGE
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ってやるとはまるので注意。
+スコープが実行中のプロセスになってしまうので</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span><span class="nb">set </span>HOGE foo
+</span><span class='line'><span class="nv">$ </span>printenv HOGE
+</span><span class='line'>foo
+</span><span class='line'><span class="nv">$ </span><span class="nb">set</span> -lx HOGE bar; printenv HOGE
+</span><span class='line'>bar
+</span><span class='line'><span class="nv">$ </span>printenv HOGE
+</span><span class='line'>bar
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>みたいに上書きされちゃう。
+なので <code>begin</code> <code>end</code> で囲う</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span> <span class="nb">set </span>HOGE foo
+</span><span class='line'><span class="nv">$ </span> printenv HOGE
+</span><span class='line'>foo
+</span><span class='line'><span class="nv">$ </span> begin <span class="nb">set</span> -lx HOGE bar; printenv HOGE; end
+</span><span class='line'>bar
+</span><span class='line'><span class="nv">$ </span> printenv HOGE
+</span><span class='line'>foo
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これ、間違えると何が辛いって</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span> <span class="nb">set</span> -lx RAILS_ENV production; rails c
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>とかやった後 <code>rspec</code> とか実行しちゃうと……あとはわかるな？</p>
+
+<h2>俺の config.fish ファイル</h2>
+
+<p>そんなこんなで俺の設定ファイルです。</p>
+
+<p>二箇所説明しておくと</p>
+
+<h3>未だに cd で移動した後に ls してほしいので</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function </span><span class="nb">cd</span>
+</span><span class='line'><span class="nb">  builtin cd</span> <span class="nv">$argv</span>
+</span><span class='line'>  ls -la
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>peco の表示は bottom-up にしておくと目線の移動が少ないので</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="k">function </span>peco
+</span><span class='line'>  <span class="nb">command </span>peco --layout<span class="o">=</span>bottom-up <span class="nv">$argv</span>
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>全部</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># Path to Oh My Fish install.</span>
+</span><span class='line'><span class="nb">set</span> -gx OMF_PATH <span class="nv">$HOME</span>/.local/share/omf
+</span><span class='line'>
+</span><span class='line'><span class="c"># Customize Oh My Fish configuration path.</span>
+</span><span class='line'><span class="c">#set -gx OMF_CONFIG /Users/yoshiori-shoji/.config/omf</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># Load oh-my-fish configuration.</span>
+</span><span class='line'><span class="nb">source</span> <span class="nv">$OMF_PATH</span>/init.fish
+</span><span class='line'>
+</span><span class='line'><span class="c"># PATH</span>
+</span><span class='line'><span class="nb">set</span> -gx PATH <span class="nv">$HOME</span>/bin  /usr/local/bin /usr/local/opt/rbenv/shims <span class="nv">$PATH</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># homebrew</span>
+</span><span class='line'><span class="nb">set</span> -gx HOMEBREW_GITHUB_API_TOKEN xxxxxxxxxx
+</span><span class='line'>
+</span><span class='line'><span class="c"># ghq</span>
+</span><span class='line'><span class="nb">set</span> -gx GOPATH <span class="nv">$HOME</span>
+</span><span class='line'>
+</span><span class='line'><span class="c"># gem-src</span>
+</span><span class='line'><span class="nb">set</span> -gx GEMSRC_USE_GHQ 1
+</span><span class='line'><span class="nb">set</span> -gx GEMSRC_CLONE_ROOT <span class="nv">$HOME</span>/src
+</span><span class='line'>
+</span><span class='line'><span class="c"># rbenv</span>
+</span><span class='line'><span class="nb">set</span> -gx RBENV_ROOT /usr/local/opt/rbenv
+</span><span class='line'>
+</span><span class='line'><span class="c"># Bundler</span>
+</span><span class='line'><span class="nb">set</span> -gx BUNDLE_JOBS 7
+</span><span class='line'>
+</span><span class='line'><span class="c"># Java</span>
+</span><span class='line'><span class="nb">set</span> -gx JAVA_TOOL_OPTIONS -Dfile.encoding<span class="o">=</span>UTF-8
+</span><span class='line'>
+</span><span class='line'><span class="nb">set </span>ZSH_HISTORY_FILE <span class="nv">$HOME</span>/.zsh/log/.zhistory
+</span><span class='line'>
+</span><span class='line'><span class="k">function </span>fish_user_key_bindings
+</span><span class='line'>  <span class="nb">bind</span> <span class="se">\c</span><span class="o">]</span> peco_select_ghq_repository
+</span><span class='line'>  <span class="nb">bind</span> <span class="se">\c</span>t peco_select_zsh_history
+</span><span class='line'>  <span class="nb">bind</span> <span class="se">\c</span>r peco_select_history
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'><span class="k">function </span><span class="nb">cd</span>
+</span><span class='line'><span class="nb">  builtin cd</span> <span class="nv">$argv</span>
+</span><span class='line'>  ls -la
+</span><span class='line'>end
+</span><span class='line'>
+</span><span class='line'><span class="k">function </span>peco
+</span><span class='line'>  <span class="nb">command </span>peco --layout<span class="o">=</span>bottom-up <span class="nv">$argv</span>
+</span><span class='line'>end
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>去年エディタの乗り換えに成功したので、今年はシェルの乗り換えに挑戦してみたけど結構行けそう。
+というのも、大体の行動が peco に依存しているのでそれの移植さえ終われば使い勝手そんなに変わらない。</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Yoshiori SHOJI</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-03T00:27:00+09:00" pubdate data-updated="true">Nov 3<span>rd</span>, 2015</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="standard" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only.gif" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/" data-via="yoshiori" data-counturl="http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/09/20/released-open-emacs/" title="Previous Post: 21 世紀のエディタである Atom を最強にする">&laquo; 21 世紀のエディタである Atom を最強にする</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/11/03/from-zsh-to-fish/">Zsh から Fish にした。</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/20/released-open-emacs/">21 世紀のエディタである Atom を最強にする</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/18/twitter-stream-to-amazon-kinesis/">Twitter の Timeline を Amazon Kinesis に流すの作った</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/10/released-scorekeeper/">気軽なポジティブ・フィードバック好き</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/05/22/pomodoro-timer-for-atom/">Pomodoro Timer の Atom Package 作った！</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/yoshiori">@yoshiori</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'yoshiori',
+            count: 4,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="well">
+  <h1>Coderwall Badges</h1>
+  <div id="coderwall_badges"></div>
+  <a href="http://coderwall.com/yoshiori">@yoshiori</a> on coderwall
+  <script type="text/javascript">
+    $(function(){
+      $.ajax({
+        url: "https://coderwall.com/yoshiori.json"
+        , dataType: 'jsonp'
+        , success: function(data) {
+          for(var i = 0; i < data.data.badges.length ; i++){
+            var badge = data.data.badges[i];
+            var badge_tag = $("<img />");
+            badge_tag.attr("src",badge.badge);
+            badge_tag.css("width","33%");
+            $("#coderwall_badges").append(badge_tag);
+          }
+        }
+      });
+    });
+  </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/yoshiori" data-widget-id="365845268207386624">@yoshiori からのツイート</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Yoshiori SHOJI -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'yoshiorigithubblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/';
+        var disqus_url = 'http://yoshiori.github.io/blog/2015/11/03/from-zsh-to-fish/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
